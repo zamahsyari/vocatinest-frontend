@@ -1,0 +1,38 @@
+$dark-blue: #195b9f;
+$medium-blue: #0099e2;
+$light-blue: #67a4e5;
+.home {
+  background-image: url("../assets/background-home.jpg");
+  background-size: cover;
+  background-position-y: -80px;
+  height: 100vh;
+  .home-desc {
+    margin-top: 100px;
+    h4 {
+      color: $medium-blue;
+      font-size: 28pt;
+      margin-bottom: 0px;
+    }
+    h5 {
+      color: $dark-blue;
+      font-size: 26pt;
+    }
+    p {
+      margin-top: 28px;
+      color: $dark-blue;
+      margin-bottom: 64px;
+    }
+  }
+  .home-button {
+    background-color: $dark-blue;
+    text-transform: uppercase;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 64px;
+    padding-right: 64px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    border-radius: 16px;
+  }
+}

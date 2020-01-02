@@ -1,0 +1,28 @@
+$dark-blue: #195b9f;
+$medium-blue: #0099e2;
+$light-blue: #67a4e5;
+$lightest-blue: #bbdcff;
+.howto {
+  text-align: center;
+  padding: 32px;
+  h3 {
+    font-size: 14pt;
+    color: $dark-blue;
+    margin-bottom: 32px;
+    font-weight: 600;
+    b {
+      font-size: 14pt;
+      color: $medium-blue;
+      font-weight: 600;
+    }
+  }
+  ul {
+    li {
+      display: inline-block;
+      margin-right: 32px;
+      img {
+        height: 180px;
+      }
+    }
+  }
+}

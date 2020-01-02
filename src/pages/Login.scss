@@ -1,0 +1,63 @@
+$dark-blue: #195b9f;
+$medium-blue: #0099e2;
+$light-blue: #67a4e5;
+$lightest-blue: #e6f2fe;
+$gray: #777777;
+.login {
+  background-image: url("../assets/background.jpg");
+  background-size: cover;
+  background-position-y: -200px;
+  height: 100vh;
+  .login-form {
+    margin-top: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 460px;
+    padding: 48px;
+    background-color: $lightest-blue;
+    border-radius: 32px;
+    h3 {
+      color: $dark-blue;
+      font-weight: bold;
+      text-align: center;
+      font-size: 18pt;
+      margin-bottom: 32px;
+    }
+    label {
+      font-size: 8pt;
+      color: $gray;
+    }
+    input {
+      border-radius: 8px;
+    }
+    ul {
+      margin-top: 16px;
+      margin-bottom: 16px;
+      margin-left: -40px;
+      li {
+        list-style: none;
+        display: inline-block;
+        font-size: 10pt;
+        color: $gray;
+      }
+    }
+    button {
+      width: 100%;
+      background-color: $dark-blue;
+      padding: 12px;
+      border-radius: 16px;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 10pt;
+    }
+    .forgot {
+      text-align: center;
+      margin-top: 24px;
+      margin-bottom: 0px;
+      font-size: 10pt;
+      a {
+        color: $dark-blue;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="238px" height="273px" viewBox="0 0 238 273" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>step 4</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Home" transform="translate(-1038.000000, -1156.000000)">
+            <g id="step-4" transform="translate(1031.000000, 1156.000000)">
+                <rect id="Rectangle-Copy-12" fill="#67A4E5" x="7" y="0" width="238" height="238" rx="47"></rect>
+                <g id="Group-21" transform="translate(76.000000, 37.000000)">
+                    <rect id="Rectangle-Copy-13" fill="#FBFEFF" x="0" y="10" width="100" height="75" rx="6"></rect>
+                    <rect id="Rectangle-Copy-14" fill="#FBFEFF" x="0" y="0" width="41" height="41" rx="6"></rect>
+                    <g id="Group-20" transform="translate(27.000000, 25.000000)">
+                        <ellipse id="Oval-Copy-13" fill="#3976B9" cx="23" cy="22.5" rx="23" ry="22.5"></ellipse>
+                        <polyline id="Path-11" stroke="#FFFFFF" stroke-width="5" points="11 22.9071429 21.2984852 36 38 10"></polyline>
+                    </g>
+                </g>
+                <text id="Dapatkan-Pekerjaan-y" font-family="NunitoSans-Black, Nunito Sans" font-size="16" font-weight="700" line-spacing="19" letter-spacing="0.32" fill="#FFFFFF">
+                    <tspan x="79.204" y="158.656006">Dapatkan </tspan>
+                    <tspan x="56.844" y="177.656006">Pekerjaan yang</tspan>
+                    <tspan x="91.708" y="196.656006">Sesuai</tspan>
+                </text>
+                <g id="Group-22-Copy-3" transform="translate(96.000000, 218.000000)" fill="#195B9F">
+                    <circle id="Oval" cx="27.5" cy="27.5" r="27.5"></circle>
+                </g>
+                <polygon id="Path" fill="#FFFFFF" fill-rule="nonzero" points="133 249.182979 133 253.948936 130.016216 253.948936 130.016216 258 124.210811 258 124.210811 253.948936 115 253.948936 115 249.319149 125.248649 234 130.016216 234 130.016216 249.182979"></polygon>
+                <polygon id="Path-14" fill="#195B9F" points="125 240.811523 120.5 249 125 249"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
