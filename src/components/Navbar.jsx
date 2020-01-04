@@ -1,7 +1,6 @@
 import React from "react";
 import logo from "../assets/logo.svg";
 import { Link } from "react-router-dom";
-import "./Navbar.scss";
 import { Container, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 import styled from "styled-components";
@@ -20,6 +19,9 @@ class Navbar extends React.Component {
   }
   renderHamburger() {
     const Ul = styled.ul`
+      margin-left: -16px;
+      margin-top: 20px;
+      float: left;
       li {
         display: inline-block;
         margin-right: 16px;
@@ -101,7 +103,7 @@ class Navbar extends React.Component {
     } else {
       const Ul = styled.ul`
         float: right;
-        margin-top: 8px;
+        margin-top: 16px;
         li {
           color: ${mediumBlue};
           display: inline-block;
@@ -138,8 +140,18 @@ class Navbar extends React.Component {
   }
   render() {
     return (
-      <Container style={{ boxShadow: this.showShadowed() }} fluid={true}>
-        <div className="navbar">
+      <Container
+        style={{
+          boxShadow: this.showShadowed(),
+          marginLeft: 0,
+          width: "100%",
+          height: 60,
+          position: "relative",
+          zIndex: 20
+        }}
+        fluid={true}
+      >
+        <div>
           {this.renderHamburger()}
           {this.renderIsLogin()}
         </div>

@@ -3,7 +3,7 @@ import Template from "../components/Template";
 import { connect } from "react-redux";
 import { Container, Form, Button, Alert } from "react-bootstrap";
 import "./Login.scss";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import fetchToken from "../redux/middleware";
 
 const mapStateToProps = state => {
@@ -19,12 +19,19 @@ class Login extends React.Component {
       email: "",
       password: ""
     };
+    this.submit = this.submit.bind(this);
   }
 
   getAlert() {
     if (this.props.error !== "") {
       return <Alert variant="danger">{this.props.error}</Alert>;
     }
+  }
+
+  submit(e) {
+    e.preventDefault();
+    this.props.dispatch(fetchToken(this.state));
+    this.props.history.push("/profile");
   }
 
   render() {
@@ -57,11 +64,7 @@ class Login extends React.Component {
                   <li>Biarkan saya tetap masuk</li>
                 </ul>
               </Form.Group>
-              <Button
-                onClick={() => this.props.dispatch(fetchToken(this.state))}
-              >
-                Masuk
-              </Button>
+              <Button onClick={e => this.submit(e)}>Masuk</Button>
               <Form.Group className="forgot">
                 <Link to="/">Lupa password?</Link>
               </Form.Group>
@@ -73,4 +76,4 @@ class Login extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(Login);
+export default withRouter(connect(mapStateToProps)(Login));

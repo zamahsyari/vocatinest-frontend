@@ -1,7 +1,7 @@
 import { SAVE_TOKEN, SET_ERROR, SET_LOADING } from "./actions";
 
 const initialState = {
-  token: "",
+  token: "123456",
   error: "",
   loading: false
 };
