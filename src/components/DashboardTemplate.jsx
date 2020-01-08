@@ -6,6 +6,15 @@ import styled from "styled-components";
 
 const Div = styled.div`
   margin-left: -16px;
+  .container {
+    .row {
+      .col-md-2 {
+      }
+      .col-md-10 {
+        height: 300px;
+      }
+    }
+  }
 `;
 
 class Template extends React.Component {
@@ -26,7 +35,12 @@ class Template extends React.Component {
             <Col md={2}>
               <Sidebar />
             </Col>
-            <Col md={10} style={{margin:0, padding: 0, position: "relative"}}>{this.props.children}</Col>
+            <Col
+              md={10}
+              style={{ margin: 0, padding: 0, position: "relative" }}
+            >
+              {this.props.children}
+            </Col>
           </Row>
         </Container>
       </Div>

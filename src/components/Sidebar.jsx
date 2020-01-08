@@ -9,11 +9,11 @@ import {
   faQuestion
 } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 const lightBlue = "#67a4e5";
 const darkBlue = "#195b9f";
 const Div = styled.div`
-  margin-right: -16px; 
+  margin-right: -16px;
   position: relative;
   z-index: 20;
   box-shadow: 0px 5px 5px #777777;
@@ -41,42 +41,56 @@ const Div = styled.div`
 `;
 
 class Sidebar extends React.Component {
+  gotoLink(link) {
+    this.props.history.push(link);
+  }
   getMenu() {
     const menu = [
       {
         id: 1,
         icon: faUser,
-        title: "Profil"
+        title: "Profil",
+        link: "/profile"
       },
       {
         id: 2,
         icon: faSearch,
-        title: "Daftar Lowongan"
+        title: "Daftar Lowongan",
+        link: "/joball"
       },
       {
         id: 3,
         icon: faThumbsUp,
-        title: "Rekomendasi Pekerjaan"
+        title: "Rekomendasi Pekerjaan",
+        link: "/joball"
       },
       {
         id: 4,
         icon: faList,
-        title: "Aplikasi"
+        title: "Aplikasi",
+        link: "/joball"
       },
       {
         id: 5,
         icon: faStar,
-        title: "Favorit"
+        title: "Favorit",
+        link: "/joball"
       },
       {
         id: 6,
         icon: faQuestion,
-        title: "Bantuan"
+        title: "Bantuan",
+        link: "/help"
       }
     ];
     return menu.map(item => {
       return (
-        <li key={item.id}>
+        <li
+          key={item.id}
+          onClick={() => {
+            this.gotoLink(item.link);
+          }}
+        >
           <FontAwesomeIcon icon={item.icon} /> {item.title}
         </li>
       );
@@ -92,4 +106,4 @@ class Sidebar extends React.Component {
   }
 }
 
-export default Sidebar;
+export default withRouter(Sidebar);

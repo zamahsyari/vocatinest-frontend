@@ -19,7 +19,7 @@ class Home extends React.Component {
                 Temukan Beragam Pilihan Pekerjaan Vokasi <br />
                 Sesuai dengan Bakat dan Minatmu
               </p>
-              <Link to="/" className="home-button">
+              <Link to="/register" className="home-button">
                 Daftar Sekarang
               </Link>
             </Col>

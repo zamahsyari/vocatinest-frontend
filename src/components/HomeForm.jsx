@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import "./HomeForm.scss";
+import { Link } from "react-router-dom";
 
 class HomeForm extends Component {
   getPopular() {
@@ -35,7 +36,9 @@ class HomeForm extends Component {
                   <Form.Group>
                     <Form.Control placeholder="Lokasi" />
                   </Form.Group>
-                  <Button>Cari</Button>
+                  <Link to="/joball">
+                    <Button>Cari</Button>
+                  </Link>
                 </Form.Row>
               </Form>
               <ul>

@@ -41,7 +41,9 @@ class Navbar extends React.Component {
             />
           </li>
           <li>
-            <img src={logo} alt="logo" className="logo" />
+            <Link to="/">
+              <img src={logo} alt="logo" className="logo" />
+            </Link>
           </li>
         </Ul>
       );
@@ -49,7 +51,9 @@ class Navbar extends React.Component {
       return (
         <Ul>
           <li>
-            <img src={logo} alt="logo" className="logo" />
+            <Link to="/">
+              <img src={logo} alt="logo" className="logo" />
+            </Link>
           </li>
         </Ul>
       );
