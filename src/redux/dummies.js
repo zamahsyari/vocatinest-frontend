@@ -141,3 +141,175 @@ export const profileDummies = {
     "3rd Business Idea Competition"
   ]
 };
+
+export const jobCategoriesDummies = [
+  {
+    id: 1,
+    title: "Teknologi"
+  },
+  {
+    id: 2,
+    title: "Agrikultur"
+  },
+  {
+    id: 3,
+    title: "Perbankan"
+  },
+  {
+    id: 4,
+    title: "Pendidikan"
+  },
+  {
+    id: 5,
+    title: "Seni"
+  },
+  {
+    id: 6,
+    title: "Pariwisata"
+  },
+  {
+    id: 7,
+    title: "Manufaktur"
+  },
+  {
+    id: 8,
+    title: "Transportasi"
+  },
+  {
+    id: 9,
+    title: "Kesehatan"
+  },
+  {
+    id: 10,
+    title: "Otomotif"
+  },
+  {
+    id: 11,
+    title: "Telekomunikasi"
+  },
+  {
+    id: 12,
+    title: "Konstruksi Bangunan"
+  }
+];
+
+export const professionDummies = [
+  {
+    id: 1,
+    title: "Android Engineer"
+  },
+  {
+    id: 2,
+    title: "UI/UX"
+  },
+  {
+    id: 3,
+    title: "Frontend Engineer"
+  },
+  {
+    id: 4,
+    title: "IT Support"
+  },
+  {
+    id: 5,
+    title: "Backend Engineer"
+  },
+  {
+    id: 6,
+    title: "Site Reliability Engineer"
+  },
+  {
+    id: 7,
+    title: "Backend Engineer"
+  },
+  {
+    id: 8,
+    title: "Product Manager"
+  },
+  {
+    id: 9,
+    title: "iOS Engineer"
+  },
+  {
+    id: 10,
+    title: "Quality Assurance Engineer"
+  }
+];
+
+export const jobKindDummies = [
+  {
+    id: 1,
+    title: "Full Time"
+  },
+  {
+    id: 2,
+    title: "Part Time"
+  },
+  {
+    id: 3,
+    title: "Magang/PKL"
+  },
+  {
+    id: 4,
+    title: "Freelance"
+  }
+];
+
+export const companyKindDummies = [
+  {
+    id: 1,
+    title: "Perusahaan Tech"
+  },
+  {
+    id: 2,
+    title: "BUMN"
+  },
+  {
+    id: 3,
+    title: "Lembaga Non Profit"
+  },
+  {
+    id: 4,
+    title: "Startup"
+  }
+];
+
+export const importantDummies = [
+  {
+    id: 1,
+    title: "Kesempatan Belajar"
+  },
+  {
+    id: 2,
+    title: "Jenjang Karir yang Jelas"
+  },
+  {
+    id: 3,
+    title: "Gaji dan Fasilitas"
+  },
+  {
+    id: 4,
+    title: "Lingkungan dan rekan kerja yang memiliki pemahaman yang sama"
+  },
+  {
+    id: 5,
+    title: "Pekerjaan yang bermakna"
+  },
+  {
+    id: 6,
+    title: "Kesempatan berinteraksi dan mengembangkan relasi"
+  }
+];
+
+export const CharacterTestDummies = [
+  {
+    id: 1,
+    title:
+      "Saya dapat mengkomunikasikan apa yang saya butuhkan/perlukan, dan saya memastikan bahwa apa yang sampaikan didengar dan dipahami"
+  },
+  {
+    id: 2,
+    title:
+      "Ketika ada konflik saya merasa keterampilan komunikasi saya perlu ditingkatkan terutama dalam mencari solusi dan menyelesaikan masalah"
+  }
+];

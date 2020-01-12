@@ -82,14 +82,6 @@ class MyHistory extends React.Component {
           </ul>
           <div className="content">
             <Form.Group>
-              <Form.Label>Unggah CV</Form.Label>
-              <Form.Control type="file" />
-              <Form.Label className="secondary-label">
-                * format .doc, .pdf, .jpg, .png max 10 MB
-              </Form.Label>
-            </Form.Group>
-            <hr />
-            <Form.Group>
               <Form.Label>Unggah Foto Diri</Form.Label>
               <Form.Control type="file" />
               <Form.Label className="secondary-label">
@@ -99,6 +91,17 @@ class MyHistory extends React.Component {
           </div>
         </ContentDiv>
       );
+    };
+
+    const getGraduateYear = () => {
+      let now = new Date().getFullYear();
+      let years = [];
+      for (let i = now; i < now + 4; i++) {
+        years.push(i);
+      }
+      return years.map(item => {
+        return <option value={item}>{item}</option>;
+      });
     };
 
     const Biography = () => {
@@ -142,12 +145,7 @@ class MyHistory extends React.Component {
               <Form.Label>Tahun Lulus/Target Lulus</Form.Label>
               <Form.Control as="select">
                 <option>Pilih tahun</option>
-              </Form.Control>
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Ekstra Kurikuler</Form.Label>
-              <Form.Control as="select">
-                <option>Pilih ekstrakurikuler</option>
+                {getGraduateYear()}
               </Form.Control>
             </Form.Group>
             <Form.Group>
@@ -174,33 +172,19 @@ class MyHistory extends React.Component {
             <li>
               <div className="circle">3</div>
             </li>
-            <li>Pengalaman Kerja</li>
+            <li>Pengalaman Organisasi</li>
             <li>
               <FontAwesomeIcon icon={faChevronCircleDown} />
             </li>
           </ul>
           <div className="content">
             <Form.Group>
-              <Form.Label>Jenis Pekerjaan</Form.Label>
-              <Form.Control placeholder="Masukkan jabatan" />
-            </Form.Group>
-            <Form.Group>
               <Form.Label>Peran</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows="3"
-                placeholder="Masukkan peran"
-              />
+              <Form.Control placeholder="Masukkan peran" />
             </Form.Group>
             <Form.Group>
-              <Form.Label>Nama Perusahaan/Instansi</Form.Label>
-              <Form.Control placeholder="Masukkan nama perusahaan" />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Lokasi</Form.Label>
-              <Form.Control as="select">
-                <option>Pilih lokasi</option>
-              </Form.Control>
+              <Form.Label>Nama Organisasi</Form.Label>
+              <Form.Control placeholder="Masukkan nama organisasi" />
             </Form.Group>
             <Form.Group>
               <Form.Row>
@@ -261,20 +245,8 @@ class MyHistory extends React.Component {
           </ul>
           <div className="content">
             <Form.Group>
-              <Form.Label>Jenis Pendidikan</Form.Label>
-              <Form.Control placeholder="Masukkan jenis pendidikan" />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Tingkat Pendidikan</Form.Label>
-              <Form.Control placeholder="Masukkan tingkat pendidikan" />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Nama Sekolah</Form.Label>
+              <Form.Label>Nama SMP</Form.Label>
               <Form.Control placeholder="Masukkan nama sekolah" />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Jurusan</Form.Label>
-              <Form.Control placeholder="Masukkan jurusan" />
             </Form.Group>
             <Form.Group>
               <Form.Row>
@@ -309,7 +281,7 @@ class MyHistory extends React.Component {
               </Form.Row>
             </Form.Group>
             <Form.Group>
-              <Form.Label>Nilai Rata-rata</Form.Label>
+              <Form.Label>Nilai Rata-rata UN</Form.Label>
               <Form.Control placeholder="Masukkan Nilai" />
             </Form.Group>
           </div>

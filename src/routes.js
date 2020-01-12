@@ -8,6 +8,7 @@ import JobAll from "./pages/JobAll";
 import JobAspiration from "./pages/JobAspiration";
 import Profile from "./pages/Profile";
 import Done from "./pages/Done";
+import CharacterTest from "./pages/CharacterTest";
 
 const routes = [
   {
@@ -59,6 +60,11 @@ const routes = [
     id: 10,
     link: "/done",
     component: Done
+  },
+  {
+    id: 11,
+    link: "/character",
+    component: CharacterTest
   }
 ];
 

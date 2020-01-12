@@ -51,7 +51,7 @@ const mapStateToProps = state => {
   };
 };
 
-class JobAspiration extends React.Component {
+class CharacterTest extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchJobCategories(this.state));
     this.props.dispatch(fetchProfessions(this.state));
@@ -497,4 +497,4 @@ class JobAspiration extends React.Component {
   }
 }
 
-export default connect(mapStateToProps)(JobAspiration);
+export default connect(mapStateToProps)(CharacterTest);
