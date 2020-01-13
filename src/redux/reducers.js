@@ -13,7 +13,10 @@ import {
   ID_PROFESSION,
   ID_JOB_KIND,
   ID_COMPANY_KIND,
-  ID_IMPORTANT
+  ID_IMPORTANT,
+  SET_CHARACTER_TESTS,
+  ANSWER_CHARACTER_TEST,
+  SET_ACTIVE_CHARACTER_TEST
 } from "./actions";
 
 const initialState = {
@@ -98,6 +101,13 @@ const initialImportants = {
   error: "",
   loading: false,
   selected: []
+};
+
+const initialCharacterTests = {
+  active: 1,
+  data: [],
+  error: "",
+  loading: false
 };
 
 export const authReducer = (state = initialState, action) => {
@@ -195,7 +205,7 @@ export const jobCategoriesReducer = (state = initialJobCategories, action) => {
         loading: action.payload
       });
     case SELECT_ITEM + ID_JOB_CATEGORY:
-      if (state.selected.length < 3) {
+      if (state.selected.length < 2) {
         return {
           ...state,
           selected: state.selected.concat(action.payload)
@@ -263,7 +273,7 @@ export const jobKindReducer = (state = initialJobKinds, action) => {
         loading: action.payload
       });
     case SELECT_ITEM + ID_JOB_KIND:
-      if (state.selected.length < 3) {
+      if (state.selected.length < 1) {
         return {
           ...state,
           selected: state.selected.concat(action.payload)
@@ -297,7 +307,7 @@ export const companyKindReducer = (state = initialCompanyKinds, action) => {
         loading: action.payload
       });
     case SELECT_ITEM + ID_COMPANY_KIND:
-      if (state.selected.length < 3) {
+      if (state.selected.length < 4) {
         return {
           ...state,
           selected: state.selected.concat(action.payload)
@@ -344,6 +354,40 @@ export const importantReducer = (state = initialImportants, action) => {
         selected: state.selected.filter(item => {
           return item !== action.payload;
         })
+      });
+    default:
+      return state;
+  }
+};
+
+export const characterTestReducer = (state = initialCharacterTests, action) => {
+  switch (action.type) {
+    case SET_CHARACTER_TESTS:
+      console.log("set");
+      return Object.assign({}, state, {
+        data: action.payload
+      });
+    case SET_ERROR:
+      return Object.assign({}, state, {
+        error: action.payload
+      });
+    case SET_LOADING:
+      return Object.assign({}, state, {
+        loading: action.payload
+      });
+    case ANSWER_CHARACTER_TEST:
+      let newState = state.data.map(item => {
+        if (item.id === action.payload.id) {
+          item.answer = action.payload.answer;
+        }
+        return item;
+      });
+      return Object.assign({}, state, {
+        data: newState
+      });
+    case SET_ACTIVE_CHARACTER_TEST:
+      return Object.assign({}, state, {
+        active: action.payload
       });
     default:
       return state;

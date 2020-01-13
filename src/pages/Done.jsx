@@ -156,6 +156,9 @@ class Done extends React.Component {
                 <li class="active">
                   <FontAwesomeIcon icon={faCheckCircle} /> Aspirasi Pekerjaan
                 </li>
+                <li className="active">
+                  <FontAwesomeIcon icon={faCheckCircle} /> Tes Karakter
+                </li>
                 <li class="active">
                   <FontAwesomeIcon icon={faCheckCircle} /> Selesai
                 </li>

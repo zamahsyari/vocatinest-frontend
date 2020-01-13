@@ -1,11 +1,23 @@
 import React from "react";
 import Template from "../components/Template";
 import { connect } from "react-redux";
-import { Container, Form, Button, Col } from "react-bootstrap";
+import { Container, Form, Button, Col, Alert } from "react-bootstrap";
 import "./Login.scss";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { register } from "../redux/middleware";
 
 class Register extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+      email: "",
+      password: "",
+      repassword: "",
+      error: ""
+    };
+    this.validate = this.validate.bind(this);
+  }
   getDays() {
     let days = [];
     for (let i = 1; i <= 31; i++) {
@@ -56,22 +68,62 @@ class Register extends React.Component {
       return <option value={item}>{item}</option>;
     });
   }
+
+  async validate(e) {
+    e.preventDefault();
+    if (this.state.repassword !== this.state.password) {
+      this.setState({ error: "Password dan ulangi password harus sama" });
+      return false;
+    } else {
+      this.setState({ error: "" });
+    }
+    if (
+      this.state.name === "" ||
+      this.state.email === "" ||
+      this.state.password === ""
+    ) {
+      this.setState({ error: "Semua field wajid diisi" });
+      return false;
+    } else {
+      let resp = await register(this.state);
+      if (resp !== false) {
+        this.props.history.push("/login");
+      } else {
+        this.setState({
+          error: "Mohon maaf, terjadi kesalahan"
+        });
+      }
+    }
+  }
+
+  renderAlert() {
+    if (this.state.error !== "") {
+      return <Alert variant="danger">{this.state.error}</Alert>;
+    }
+  }
+
   render() {
     return (
       <Template>
         <Container fluid={true} className="login">
+          {this.renderAlert()}
           <div className="login-form">
             <h3>Daftar</h3>
             <Form>
               <Form.Group>
                 <Form.Label>Nama Lengkap</Form.Label>
-                <Form.Control />
+                <Form.Control
+                  onChange={e => this.setState({ name: e.target.value })}
+                />
               </Form.Group>
               <Form.Group>
                 <Form.Label>Email</Form.Label>
-                <Form.Control type="email" />
+                <Form.Control
+                  type="email"
+                  onChange={e => this.setState({ email: e.target.value })}
+                />
               </Form.Group>
-              <Form.Group>
+              {/* <Form.Group>
                 <Form.Label>Tanggal Lahir</Form.Label>
                 <Form.Row>
                   <Col>
@@ -93,14 +145,20 @@ class Register extends React.Component {
                     </Form.Control>
                   </Col>
                 </Form.Row>
-              </Form.Group>
+              </Form.Group> */}
               <Form.Group>
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" />
+                <Form.Control
+                  type="password"
+                  onChange={e => this.setState({ password: e.target.value })}
+                />
               </Form.Group>
               <Form.Group>
                 <Form.Label>Ketik Ulang Password</Form.Label>
-                <Form.Control type="password" />
+                <Form.Control
+                  type="password"
+                  onChange={e => this.setState({ repassword: e.target.value })}
+                />
               </Form.Group>
               <Form.Group>
                 <ul>
@@ -123,7 +181,7 @@ class Register extends React.Component {
                   </li>
                 </ul>
               </Form.Group>
-              <Button>Daftar</Button>
+              <Button onClick={e => this.validate(e)}>Daftar</Button>
             </Form>
           </div>
         </Container>
@@ -132,4 +190,4 @@ class Register extends React.Component {
   }
 }
 
-export default connect()(Register);
+export default withRouter(connect()(Register));

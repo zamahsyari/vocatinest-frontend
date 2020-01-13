@@ -2,7 +2,7 @@ import React from "react";
 import Template from "../components/DashboardTemplate";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import background from "../assets/background.jpg";
-import joblogo from "../assets/job_logo.png";
+import testlogo from "../assets/test_logo.png";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -17,316 +17,27 @@ import {
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import {
-  updateActiveJobAspiration,
-  fetchJobCategories,
-  setJobCategory,
-  unsetJobCategory,
-  fetchProfessions,
-  setProfession,
-  unsetProfession,
-  fetchJobKinds,
-  setJobKind,
-  unsetJobKind,
-  fetchCompanyKinds,
-  setCompanyKind,
-  unsetCompanyKind,
-  fetchImportants,
-  setImportant,
-  unsetImportant
+  fetchCharacterTests,
+  ansCharacterTest,
+  updateActiveCharacterTest
 } from "../redux/middleware";
 
 const mapStateToProps = state => {
   return {
-    active: state.jobAspiration.active,
-    jobCategories: state.jobCategories.data,
-    selectedJobCategories: state.jobCategories.selected,
-    professions: state.professions.data,
-    selectedProfessions: state.professions.selected,
-    jobKinds: state.jobKinds.data,
-    selectedJobKinds: state.jobKinds.selected,
-    companyKinds: state.companyKinds.data,
-    selectedCompanyKinds: state.companyKinds.selected,
-    importants: state.importants.data,
-    selectedImportants: state.importants.selected
+    data: state.characters.data,
+    active: state.characters.active
   };
 };
 
 class CharacterTest extends React.Component {
   componentDidMount() {
-    this.props.dispatch(fetchJobCategories(this.state));
-    this.props.dispatch(fetchProfessions(this.state));
-    this.props.dispatch(fetchJobKinds(this.state));
-    this.props.dispatch(fetchCompanyKinds(this.state));
-    this.props.dispatch(fetchImportants(this.state));
+    this.props.dispatch(fetchCharacterTests(this.state));
   }
   render() {
     const darkBlue = "#195b9f";
     const mediumBlue = "#0099e2";
     const lightBlue = "#67a4e5";
     const lightestBlue = "#bbdcff";
-    const ContentDiv = styled.div`
-      background-color: white;
-      padding: 32px;
-      border-radius: 16px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0px 0px 5px #777;
-      display: none;
-      &.active{
-        display: block;
-      }
-        ul{
-          margin-left: -40px;
-          text-align: left;
-          li{
-            list-style: none;
-            display: inline-block;
-            color: ${darkBlue};
-            font-weight: 600;
-            .circle{
-              background-color: ${darkBlue}
-              padding: 4px;
-              border-radius: 50%;
-              height: 42px;
-              width: 42px;
-              text-align:center;
-              color: white;
-              font-size: 18pt;
-            }
-            &:first-child{
-              margin-right: 32px;
-            }
-            &:last-child{
-              float:right;
-              font-size:17pt;
-              margin-top: 8px;
-            }
-          }
-        }
-        .content{
-          margin-left: 72px;
-          .form-group{
-            text-align: left;
-            .form-label{
-              color: #555;
-            }
-            .secondary-label{
-              color: ${darkBlue}
-              margin-top: 16px;
-            }
-          }
-          ul{
-            li{
-              display: inline-block;
-              margin-right: 8px;
-              margin-bottom:16px;
-              font-size: 11pt;
-              padding-top: 8px;
-              padding-bottom: 8px;
-              padding-left: 16px;
-              padding-right: 16px;
-              background-color: ${lightestBlue};
-              border-radius: 50px;
-              &:last-child{
-                margin-top:0px;
-                font-size: 11pt;
-                float:none;
-              }
-            }
-            &.selected{
-              li{
-                background-color: white;
-                border: 1px dashed ${darkBlue};
-              }
-            }
-          }
-        }
-      `;
-
-    const fetchJobCategories = data => {
-      return data.map(item => {
-        return (
-          <li
-            key={item.id}
-            style={{ cursor: "pointer" }}
-            onClick={() => this.props.dispatch(setJobCategory(item))}
-          >
-            {item.title}
-          </li>
-        );
-      });
-    };
-
-    const fetchProfessions = data => {
-      return data.map(item => {
-        return (
-          <li
-            key={item.id}
-            style={{ cursor: "pointer" }}
-            onClick={() => this.props.dispatch(setProfession(item))}
-          >
-            {item.title}
-          </li>
-        );
-      });
-    };
-
-    const fetchJobKinds = data => {
-      return data.map(item => {
-        return (
-          <li
-            key={item.id}
-            style={{ cursor: "pointer" }}
-            onClick={() => this.props.dispatch(setJobKind(item))}
-          >
-            {item.title}
-          </li>
-        );
-      });
-    };
-
-    const fetchCompanyKinds = data => {
-      return data.map(item => {
-        return (
-          <li
-            key={item.id}
-            style={{ cursor: "pointer" }}
-            onClick={() => this.props.dispatch(setCompanyKind(item))}
-          >
-            {item.title}
-          </li>
-        );
-      });
-    };
-
-    const fetchImportants = data => {
-      return data.map(item => {
-        return (
-          <li
-            key={item.id}
-            style={{ cursor: "pointer" }}
-            onClick={() => this.props.dispatch(setImportant(item))}
-          >
-            {item.title}
-          </li>
-        );
-      });
-    };
-
-    const fetchSelectedJobCategories = data => {
-      return data.map(item => {
-        return (
-          <li
-            key={item.id}
-            onClick={() => this.props.dispatch(unsetJobCategory(item))}
-          >
-            {item.title}
-            <span style={{ marginLeft: "16px" }}>
-              <FontAwesomeIcon icon={faTimes} />
-            </span>
-          </li>
-        );
-      });
-    };
-
-    const fetchSelectedProfessions = data => {
-      return data.map(item => {
-        return (
-          <li
-            key={item.id}
-            onClick={() => this.props.dispatch(unsetProfession(item))}
-          >
-            {item.title}
-            <span style={{ marginLeft: "16px" }}>
-              <FontAwesomeIcon icon={faTimes} />
-            </span>
-          </li>
-        );
-      });
-    };
-
-    const fetchSelectedJobKinds = data => {
-      return data.map(item => {
-        return (
-          <li
-            key={item.id}
-            onClick={() => this.props.dispatch(unsetJobKind(item))}
-          >
-            {item.title}
-            <span style={{ marginLeft: "16px" }}>
-              <FontAwesomeIcon icon={faTimes} />
-            </span>
-          </li>
-        );
-      });
-    };
-
-    const fetchSelectedCompanyKinds = data => {
-      return data.map(item => {
-        return (
-          <li
-            key={item.id}
-            onClick={() => this.props.dispatch(unsetCompanyKind(item))}
-          >
-            {item.title}
-            <span style={{ marginLeft: "16px" }}>
-              <FontAwesomeIcon icon={faTimes} />
-            </span>
-          </li>
-        );
-      });
-    };
-
-    const fetchSelectedImportants = data => {
-      return data.map(item => {
-        return (
-          <li
-            key={item.id}
-            onClick={() => this.props.dispatch(unsetImportant(item))}
-          >
-            {item.title}
-            <span style={{ marginLeft: "16px" }}>
-              <FontAwesomeIcon icon={faTimes} />
-            </span>
-          </li>
-        );
-      });
-    };
-
-    const MultiSelectCard = props => {
-      // let active = "not-active";
-      // if (props.current === this.props.active) {
-      //   active = "active";
-      // }
-      return (
-        <ContentDiv className="active">
-          <ul>
-            <li>
-              <div className="circle">{props.current}</div>
-            </li>
-            <li>{props.title}</li>
-            <li style={{ fontSize: 16 }}>
-              <FontAwesomeIcon icon={faChevronLeft} />
-              &nbsp;<b>{props.current}</b>&nbsp;/&nbsp;{props.total}&nbsp;
-              <FontAwesomeIcon icon={faChevronRight} />
-            </li>
-          </ul>
-          <div className="content">
-            <ul>{props.dataFetcher}</ul>
-            <ul className="selected">{props.selectedFetcher}</ul>
-          </div>
-          <br />
-          <Button
-            onClick={() => {
-              updateActiveJobAspiration(props.current + 1);
-            }}
-          >
-            Selanjutnya
-          </Button>
-        </ContentDiv>
-      );
-    };
 
     const Div = styled.div`
       text-align: center;
@@ -386,6 +97,210 @@ class CharacterTest extends React.Component {
         background-color: ${darkBlue};
       }
     `;
+
+    const renderQuestion = data => {
+      return data.map((item, i) => {
+        let total = data.length;
+        if (i < total - 1) {
+          return (
+            <li key={item.id}>
+              <QuestionCard
+                title={item.title}
+                id={item.id}
+                current={item.id}
+                total={total}
+                nextAction={updateActiveCharacterTest(item.id + 1)}
+              />
+            </li>
+          );
+        } else {
+          return (
+            <li key={item.id}>
+              <QuestionCard
+                title={item.title}
+                id={item.id}
+                current={item.id}
+                total={5}
+                is_last={true}
+              />
+            </li>
+          );
+        }
+      });
+    };
+
+    const renderAnswer = (qid, data) => {
+      return data.map(item => {
+        return (
+          <li
+            key={item.id}
+            onClick={() =>
+              this.props.dispatch(
+                ansCharacterTest({ id: qid, answer: item.id })
+              )
+            }
+          >
+            {item.title}
+          </li>
+        );
+      });
+    };
+
+    const answers = [
+      {
+        id: 1,
+        title: "Tidak Sama Sekali"
+      },
+      {
+        id: 2,
+        title: "Jarang"
+      },
+      {
+        id: 3,
+        title: "Kadang-Kadang"
+      },
+      {
+        id: 4,
+        title: "Sering"
+      },
+      {
+        id: 5,
+        title: "Sangat Sering"
+      }
+    ];
+
+    const renderNext = (is_last, action) => {
+      if (is_last === true) {
+        return (
+          <Button onClick={() => this.props.history.push("/done")}>
+            Selanjutnya
+          </Button>
+        );
+      } else {
+        return (
+          <Button onClick={() => this.props.dispatch(action)}>
+            Selanjutnya
+          </Button>
+        );
+      }
+    };
+
+    const QuestionCard = props => {
+      const QuestionDiv = styled.div`
+        margin-top: 64px;
+        margin-bottom: 64px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 800px;
+        background-color: white;
+        font-size: 11pt;
+        text-align: left;
+        box-shadow: 0px 0px 5px #777;
+        border-radius: 8px;
+        padding: 32px;
+        display: none;
+        &.active {
+          display: block;
+        }
+        .header {
+          margin-left: -40px;
+          li {
+            display: inline-block;
+            h3 {
+              font-size: 18pt;
+              font-weight: bold;
+              margin-bottom: 0px;
+              color: ${darkBlue};
+            }
+            &:last-child {
+              float: right;
+            }
+          }
+        }
+        p {
+          font-size: 12pt;
+          margin-bottom: 32px;
+        }
+        .answer {
+          margin-left: -40px;
+          margin-bottom: 48px;
+          li {
+            background-color: ${lightestBlue};
+            padding: 16px;
+            color: ${darkBlue};
+            font-weight: bold;
+            margin-bottom: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            &.active {
+              background-color: ${darkBlue};
+              color: ${lightestBlue};
+            }
+          }
+        }
+        button {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+      `;
+      let active = "not-active";
+      if (props.current === this.props.active) {
+        active = "active";
+      }
+      return (
+        <QuestionDiv className={active}>
+          <ul className="header">
+            <li>
+              <h3>Pertanyaan</h3>
+            </li>
+            <li>
+              <FontAwesomeIcon
+                icon={faChevronLeft}
+                onClick={() =>
+                  this.props.dispatch(
+                    updateActiveCharacterTest(props.current - 1)
+                  )
+                }
+              />
+              &nbsp;<b>{props.current}</b>/{props.total}&nbsp;
+              <FontAwesomeIcon
+                icon={faChevronRight}
+                onClick={() =>
+                  this.props.dispatch(
+                    updateActiveCharacterTest(props.current + 1)
+                  )
+                }
+              />
+            </li>
+          </ul>
+          <p>{props.title}</p>
+          <ul className="answer">{renderAnswer(props.id, answers)}</ul>
+          {renderNext(props.is_last, props.nextAction)}
+        </QuestionDiv>
+      );
+    };
+
+    const shuffle = array => {
+      var currentIndex = array.length,
+        temporaryValue,
+        randomIndex;
+
+      // While there remain elements to shuffle...
+      while (0 !== currentIndex) {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+
+      return array;
+    };
+
     return (
       <Template>
         <div
@@ -405,6 +320,9 @@ class CharacterTest extends React.Component {
                 <li className="active">
                   <FontAwesomeIcon icon={faCheckCircle} /> Aspirasi Pekerjaan
                 </li>
+                <li className="active">
+                  <FontAwesomeIcon icon={faCheckCircle} /> Tes Karakter
+                </li>
                 <li>
                   <FontAwesomeIcon icon={faCheckCircle} /> Selesai
                 </li>
@@ -412,83 +330,14 @@ class CharacterTest extends React.Component {
             </div>
             <ul className="title">
               <li>
-                <img src={joblogo} alt="job_logo" />
+                <img src={testlogo} alt="job_logo" />
               </li>
               <li>
-                <h3>Aspirasi Pekerjaan</h3>
+                <h3>Tes Karakter</h3>
               </li>
             </ul>
             <ul className="content">
-              <li>
-                <MultiSelectCard
-                  title={"Bidang Pekerjaan yang Diinginkan"}
-                  current={1}
-                  total={5}
-                  data={this.props.jobCategories}
-                  selected={this.props.selectedJobCategories}
-                  link={""}
-                  dataFetcher={fetchJobCategories(this.props.jobCategories)}
-                  selectedFetcher={fetchSelectedJobCategories(
-                    this.props.selectedJobCategories
-                  )}
-                />
-              </li>
-              <li>
-                <MultiSelectCard
-                  title={"Profesi yang Diinginkan"}
-                  current={2}
-                  total={5}
-                  data={this.props.professions}
-                  selected={this.props.selectedProfessions}
-                  link={""}
-                  dataFetcher={fetchProfessions(this.props.professions)}
-                  selectedFetcher={fetchSelectedProfessions(
-                    this.props.selectedProfessions
-                  )}
-                />
-              </li>
-              <li>
-                <MultiSelectCard
-                  title={"Jenis Pekerjaan yang Dicari"}
-                  current={3}
-                  total={5}
-                  data={this.props.jobKinds}
-                  selected={this.props.selectedJobKinds}
-                  link={""}
-                  dataFetcher={fetchJobKinds(this.props.jobKinds)}
-                  selectedFetcher={fetchSelectedJobKinds(
-                    this.props.selectedJobKinds
-                  )}
-                />
-              </li>
-              <li>
-                <MultiSelectCard
-                  title={"Jenis Perusahaan yang Diinginkan"}
-                  current={4}
-                  total={5}
-                  data={this.props.companyKinds}
-                  selected={this.props.selectedCompanyKinds}
-                  link={""}
-                  dataFetcher={fetchCompanyKinds(this.props.companyKinds)}
-                  selectedFetcher={fetchSelectedCompanyKinds(
-                    this.props.selectedCompanyKinds
-                  )}
-                />
-              </li>
-              <li>
-                <MultiSelectCard
-                  title={"Hal yang Penting dalam Berkarir"}
-                  current={5}
-                  total={5}
-                  data={this.props.importants}
-                  selected={this.props.selectedImportants}
-                  link={""}
-                  dataFetcher={fetchImportants(this.props.importants)}
-                  selectedFetcher={fetchSelectedImportants(
-                    this.props.selectedImportants
-                  )}
-                />
-              </li>
+              {renderQuestion(shuffle(this.props.data))}
             </ul>
           </Div>
         </div>

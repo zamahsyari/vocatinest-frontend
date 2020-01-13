@@ -20,7 +20,10 @@ import {
   deselectCompanyKind,
   setImportants,
   selectImportant,
-  deselectImportant
+  deselectImportant,
+  setCharacterTests,
+  answerCharacterTest,
+  setActiveCharacterTest
 } from "./actions";
 import {
   searchResultDummies,
@@ -29,8 +32,10 @@ import {
   professionDummies,
   jobKindDummies,
   companyKindDummies,
-  importantDummies
+  importantDummies,
+  characterTestDummies
 } from "./dummies";
+import axios from "axios";
 
 export const fetchToken = data => {
   return dispatch => {
@@ -73,11 +78,23 @@ export const updateActiveJobAspiration = data => {
 };
 
 export const fetchJobCategories = data => {
-  const dummy = jobCategoriesDummies;
   return dispatch => {
-    dispatch(setLoading(true));
-    dispatch(setJobCategories(dummy));
-    dispatch(setLoading(false));
+    axios
+      .get(
+        `${process.env.REACT_APP_CORS}/${process.env.REACT_APP_BASE_URL}/job_categories`
+      )
+      .then(data => {
+        dispatch(
+          setJobCategories(
+            data.data.data.map(item => {
+              return {
+                id: item.id,
+                title: item.category
+              };
+            })
+          )
+        );
+      });
   };
 };
 
@@ -93,12 +110,34 @@ export const unsetJobCategory = data => {
   };
 };
 
+const fetchJobByCategoryId = async id => {
+  let resp = await axios.get(
+    `${process.env.REACT_APP_CORS}/${process.env.REACT_APP_BASE_URL}/jobs/category/${id}`
+  );
+  return resp.data.data;
+};
+
 export const fetchProfessions = data => {
-  const dummy = professionDummies;
+  return async dispatch => {
+    let combined = [];
+    for (let i = 0; i < data.length; i++) {
+      let resp = await fetchJobByCategoryId(data[i].id);
+      for (let j = 0; j < resp.length; j++) {
+        let item = {
+          id: resp[j].id,
+          title: resp[j].name
+        };
+        combined.push(item);
+      }
+    }
+    dispatch(setProfesions(combined));
+  };
+};
+
+export const nextAndGetProfession = (data, target) => {
   return dispatch => {
-    dispatch(setLoading(true));
-    dispatch(setProfesions(dummy));
-    dispatch(setLoading(false));
+    dispatch(fetchProfessions(data));
+    dispatch(updateActiveJobAspiration(target));
   };
 };
 
@@ -115,10 +154,21 @@ export const unsetProfession = data => {
 };
 
 export const fetchJobKinds = data => {
-  const dummy = jobKindDummies;
-  return dispatch => {
+  return async dispatch => {
+    let resp = await axios.get(
+      `${process.env.REACT_APP_CORS}/${process.env.REACT_APP_BASE_URL}/job_kinds`
+    );
     dispatch(setLoading(true));
-    dispatch(setJobKinds(dummy));
+    dispatch(
+      setJobKinds(
+        resp.data.data.map(item => {
+          return {
+            id: item.id,
+            title: item.kind
+          };
+        })
+      )
+    );
     dispatch(setLoading(false));
   };
 };
@@ -136,10 +186,21 @@ export const unsetJobKind = data => {
 };
 
 export const fetchCompanyKinds = data => {
-  const dummy = companyKindDummies;
-  return dispatch => {
+  return async dispatch => {
+    let resp = await axios.get(
+      `${process.env.REACT_APP_CORS}/${process.env.REACT_APP_BASE_URL}/company_categories`
+    );
     dispatch(setLoading(true));
-    dispatch(setCompanyKinds(dummy));
+    dispatch(
+      setCompanyKinds(
+        resp.data.data.map(item => {
+          return {
+            id: item.id,
+            title: item.category
+          };
+        })
+      )
+    );
     dispatch(setLoading(false));
   };
 };
@@ -174,5 +235,90 @@ export const setImportant = data => {
 export const unsetImportant = data => {
   return dispatch => {
     dispatch(deselectImportant(data));
+  };
+};
+
+export const fetchCharacterTests = data => {
+  return async dispatch => {
+    let resp = await axios.get(
+      `${process.env.REACT_APP_CORS}/${process.env.REACT_APP_BASE_URL}/character_tests`
+    );
+    dispatch(setLoading(true));
+    dispatch(
+      setCharacterTests(
+        resp.data.data.map(item => {
+          return {
+            id: item.id,
+            title: item.question
+          };
+        })
+      )
+    );
+    dispatch(setLoading(false));
+  };
+};
+
+export const ansCharacterTest = data => {
+  return dispatch => {
+    dispatch(answerCharacterTest(data));
+  };
+};
+
+export const updateActiveCharacterTest = data => {
+  return dispatch => {
+    dispatch(setLoading(true));
+    dispatch(setActiveCharacterTest(data));
+    dispatch(setLoading(false));
+  };
+};
+
+export const register = data => {
+  return axios
+    .post(
+      `${process.env.REACT_APP_CORS}/${process.env.REACT_APP_BASE_URL}/register`,
+      {
+        email: data.email,
+        name: data.name,
+        password: data.password,
+        role_id: 1
+      },
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
+    .then(data => {
+      return data;
+    })
+    .catch(error => {
+      console.log(error);
+      return false;
+    });
+};
+
+export const login = data => {
+  return dispatch => {
+    return axios
+      .post(
+        `${process.env.REACT_APP_CORS}/${process.env.REACT_APP_BASE_URL}/login`,
+        {
+          email: data.email,
+          password: data.password
+        },
+        {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      )
+      .then(data => {
+        dispatch(saveToken(data.data.data.token));
+        return true;
+      })
+      .catch(error => {
+        dispatch(setError(error.response.data.message));
+        return false;
+      });
   };
 };

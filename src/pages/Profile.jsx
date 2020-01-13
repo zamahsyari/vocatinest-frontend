@@ -237,13 +237,13 @@ class Profile extends React.Component {
               <ul>
                 <RenderList data={this.props.profile.organizations} />
               </ul>
-              <h4>Penghargaan dan Pencapaian</h4>
+              {/* <h4>Penghargaan dan Pencapaian</h4>
               <ul>
                 <RenderList data={this.props.profile.achievements} />
-              </ul>
+              </ul> */}
             </Col>
             <Col md={7}>
-              <h2>{this.props.profile.name}</h2>
+              <h2>Profil Saya</h2>
               <p>{this.props.profile.description}</p>
               <br />
               <h4>Pekerjaan Terkait</h4>

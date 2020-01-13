@@ -32,7 +32,8 @@ import {
   unsetCompanyKind,
   fetchImportants,
   setImportant,
-  unsetImportant
+  unsetImportant,
+  nextAndGetProfession
 } from "../redux/middleware";
 
 const mapStateToProps = state => {
@@ -54,7 +55,6 @@ const mapStateToProps = state => {
 class JobAspiration extends React.Component {
   componentDidMount() {
     this.props.dispatch(fetchJobCategories(this.state));
-    this.props.dispatch(fetchProfessions(this.state));
     this.props.dispatch(fetchJobKinds(this.state));
     this.props.dispatch(fetchCompanyKinds(this.state));
     this.props.dispatch(fetchImportants(this.state));
@@ -294,13 +294,29 @@ class JobAspiration extends React.Component {
       });
     };
 
+    const renderButton = (is_last, action) => {
+      if (is_last === true) {
+        return (
+          <Button onClick={() => this.props.history.push("/character")}>
+            Selanjutnya
+          </Button>
+        );
+      } else {
+        return (
+          <Button onClick={() => this.props.dispatch(action)}>
+            Selanjutnya
+          </Button>
+        );
+      }
+    };
+
     const MultiSelectCard = props => {
-      // let active = "not-active";
-      // if (props.current === this.props.active) {
-      //   active = "active";
-      // }
+      let active = "not-active";
+      if (props.current === this.props.active) {
+        active = "active";
+      }
       return (
-        <ContentDiv className="active">
+        <ContentDiv className={active}>
           <ul>
             <li>
               <div className="circle">{props.current}</div>
@@ -308,7 +324,7 @@ class JobAspiration extends React.Component {
             <li>{props.title}</li>
             <li style={{ fontSize: 16 }}>
               <FontAwesomeIcon icon={faChevronLeft} />
-              &nbsp;<b>{props.current}</b>&nbsp;/&nbsp;{props.total}&nbsp;
+              &nbsp;<b>{props.current}</b>/{props.total}&nbsp;
               <FontAwesomeIcon icon={faChevronRight} />
             </li>
           </ul>
@@ -317,13 +333,7 @@ class JobAspiration extends React.Component {
             <ul className="selected">{props.selectedFetcher}</ul>
           </div>
           <br />
-          <Button
-            onClick={() => {
-              updateActiveJobAspiration(props.current + 1);
-            }}
-          >
-            Selanjutnya
-          </Button>
+          {renderButton(props.is_last, props.nextAction)}
         </ContentDiv>
       );
     };
@@ -406,6 +416,9 @@ class JobAspiration extends React.Component {
                   <FontAwesomeIcon icon={faCheckCircle} /> Aspirasi Pekerjaan
                 </li>
                 <li>
+                  <FontAwesomeIcon icon={faCheckCircle} /> Tes Karakter
+                </li>
+                <li>
                   <FontAwesomeIcon icon={faCheckCircle} /> Selesai
                 </li>
               </ul>
@@ -431,6 +444,10 @@ class JobAspiration extends React.Component {
                   selectedFetcher={fetchSelectedJobCategories(
                     this.props.selectedJobCategories
                   )}
+                  nextAction={nextAndGetProfession(
+                    this.props.selectedJobCategories,
+                    2
+                  )}
                 />
               </li>
               <li>
@@ -445,6 +462,7 @@ class JobAspiration extends React.Component {
                   selectedFetcher={fetchSelectedProfessions(
                     this.props.selectedProfessions
                   )}
+                  nextAction={updateActiveJobAspiration(3)}
                 />
               </li>
               <li>
@@ -459,6 +477,7 @@ class JobAspiration extends React.Component {
                   selectedFetcher={fetchSelectedJobKinds(
                     this.props.selectedJobKinds
                   )}
+                  nextAction={updateActiveJobAspiration(4)}
                 />
               </li>
               <li>
@@ -473,9 +492,11 @@ class JobAspiration extends React.Component {
                   selectedFetcher={fetchSelectedCompanyKinds(
                     this.props.selectedCompanyKinds
                   )}
+                  nextAction={updateActiveJobAspiration(5)}
+                  is_last={true}
                 />
               </li>
-              <li>
+              {/* <li>
                 <MultiSelectCard
                   title={"Hal yang Penting dalam Berkarir"}
                   current={5}
@@ -488,7 +509,7 @@ class JobAspiration extends React.Component {
                     this.props.selectedImportants
                   )}
                 />
-              </li>
+              </li> */}
             </ul>
           </Div>
         </div>

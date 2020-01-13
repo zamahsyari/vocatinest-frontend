@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { Container, Form, Button, Alert } from "react-bootstrap";
 import "./Login.scss";
 import { Link, withRouter } from "react-router-dom";
-import { fetchToken } from "../redux/middleware";
+import { fetchToken, login } from "../redux/middleware";
 
 const mapStateToProps = state => {
   return {
@@ -30,8 +30,8 @@ class Login extends React.Component {
 
   async submit(e) {
     e.preventDefault();
-    await this.props.dispatch(fetchToken(this.state));
-    if (this.props.error === "") {
+    let resp = await this.props.dispatch(login(this.state));
+    if (resp !== false) {
       this.props.history.push("/myhistory");
     }
   }

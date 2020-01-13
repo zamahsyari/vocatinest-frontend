@@ -5,6 +5,9 @@ export const UPDATE_SEARCH_RESULTS = "UPDATE_SEARCH_RESULTS";
 export const SET_ACTIVE = "SET_ACTIVE";
 export const SET_PROFILE = "SET_PROFILE";
 export const SET_ACTIVE_JOB_ASPIRATION = "SET_ACTIVE_JOB_ASPIRATION";
+export const SET_CHARACTER_TESTS = "SET_CHARACTER_TESTS";
+export const ANSWER_CHARACTER_TEST = "ANSWER_CHARACTER_TEST";
+export const SET_ACTIVE_CHARACTER_TEST = "SET_ACTIVE_CHARACTER_TEST";
 // multiple options
 export const SET_DATA = "SET_DATA";
 export const SELECT_ITEM = "SELECT_ITEM";
@@ -103,4 +106,16 @@ export const selectImportant = data => {
 
 export const deselectImportant = data => {
   return { type: DESELECT_ITEM + ID_IMPORTANT, payload: data };
+};
+
+export const setCharacterTests = data => {
+  return { type: SET_CHARACTER_TESTS, payload: data };
+};
+
+export const answerCharacterTest = data => {
+  return { type: ANSWER_CHARACTER_TEST, payload: data };
+};
+
+export const setActiveCharacterTest = data => {
+  return { type: SET_ACTIVE_CHARACTER_TEST, payload: data };
 };

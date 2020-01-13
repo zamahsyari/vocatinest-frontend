@@ -75,7 +75,7 @@ class MyHistory extends React.Component {
             <li>
               <div className="circle">1</div>
             </li>
-            <li>Unduh Foto & CV</li>
+            <li>Unggah Foto</li>
             <li>
               <FontAwesomeIcon icon={faChevronCircleDown} />
             </li>
@@ -122,9 +122,9 @@ class MyHistory extends React.Component {
               <Form.Check inline type="radio" label="Perempuan" />
             </Form.Group>
             <Form.Group>
-              <Form.Label>Pilih Nama Sekolah</Form.Label>
+              <Form.Label>Pilih Nama SMK</Form.Label>
               <Form.Control as="select">
-                <option>Pilih nama sekolah</option>
+                <option>Pilih nama SMK</option>
               </Form.Control>
             </Form.Group>
             <Form.Group>
@@ -148,18 +148,6 @@ class MyHistory extends React.Component {
                 {getGraduateYear()}
               </Form.Control>
             </Form.Group>
-            <Form.Group>
-              <Form.Label>Alamat Tempat Tinggal</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows="3"
-                placeholder="Masukkan alamat"
-              />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Nomor Telepon</Form.Label>
-              <Form.Control placeholder="Masukkan no telp" />
-            </Form.Group>
           </div>
         </ContentDiv>
       );
@@ -179,7 +167,7 @@ class MyHistory extends React.Component {
           </ul>
           <div className="content">
             <Form.Group>
-              <Form.Label>Peran</Form.Label>
+              <Form.Label>Peran di organisasi</Form.Label>
               <Form.Control placeholder="Masukkan peran" />
             </Form.Group>
             <Form.Group>
@@ -218,14 +206,6 @@ class MyHistory extends React.Component {
                 </Col>
               </Form.Row>
             </Form.Group>
-            <Form.Group>
-              <Form.Label>Deskripsi Pekerjaan</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows="3"
-                placeholder="Tulis deskripsi"
-              />
-            </Form.Group>
           </div>
         </ContentDiv>
       );
@@ -238,7 +218,7 @@ class MyHistory extends React.Component {
             <li>
               <div className="circle">4</div>
             </li>
-            <li>Riwayat Pendidikan</li>
+            <li>Riwayat Pendidikan SMP</li>
             <li>
               <FontAwesomeIcon icon={faChevronCircleDown} />
             </li>
@@ -365,6 +345,9 @@ class MyHistory extends React.Component {
                 </li>
                 <li>
                   <FontAwesomeIcon icon={faCheckCircle} /> Aspirasi Pekerjaan
+                </li>
+                <li>
+                  <FontAwesomeIcon icon={faCheckCircle} /> Tes Karakter
                 </li>
                 <li>
                   <FontAwesomeIcon icon={faCheckCircle} /> Selesai

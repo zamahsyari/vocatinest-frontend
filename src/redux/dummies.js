@@ -301,15 +301,17 @@ export const importantDummies = [
   }
 ];
 
-export const CharacterTestDummies = [
+export const characterTestDummies = [
   {
     id: 1,
     title:
-      "Saya dapat mengkomunikasikan apa yang saya butuhkan/perlukan, dan saya memastikan bahwa apa yang sampaikan didengar dan dipahami"
+      "Saya dapat mengkomunikasikan apa yang saya butuhkan/perlukan, dan saya memastikan bahwa apa yang sampaikan didengar dan dipahami",
+    answer: 0
   },
   {
     id: 2,
     title:
-      "Ketika ada konflik saya merasa keterampilan komunikasi saya perlu ditingkatkan terutama dalam mencari solusi dan menyelesaikan masalah"
+      "Ketika ada konflik saya merasa keterampilan komunikasi saya perlu ditingkatkan terutama dalam mencari solusi dan menyelesaikan masalah",
+    answer: 0
   }
 ];
