@@ -31,6 +31,43 @@ class MyHistory extends React.Component {
   async selectSchool(e) {
     return false;
   }
+  getMonths() {
+    let months = [
+      "Januari",
+      "Februari",
+      "Maret",
+      "April",
+      "Mei",
+      "Juni",
+      "Juli",
+      "Agustus",
+      "September",
+      "Oktober",
+      "November",
+      "Desember"
+    ];
+    let monthIndexes = [];
+    for (let i = 1; i <= 12; i++) {
+      monthIndexes.push(i);
+    }
+    return months.map((item, i) => {
+      if (i < 10) {
+        return <option value={"0" + (i + 1)}>{item}</option>;
+      } else {
+        return <option value={i + 1}>{item}</option>;
+      }
+    });
+  }
+  getYears() {
+    let years = [];
+    let now = new Date();
+    for (let i = 1900; i <= now.getFullYear(); i++) {
+      years.push(i);
+    }
+    return years.map(item => {
+      return <option value={item}>{item}</option>;
+    });
+  }
   componentDidMount() {
     this.props.dispatch(fetchSchools(this.state));
   }
@@ -223,21 +260,25 @@ class MyHistory extends React.Component {
                 <Col>
                   <Form.Control as="select" inline>
                     <option>Bulan</option>
+                    {this.getMonths()}
                   </Form.Control>
                 </Col>
                 <Col>
                   <Form.Control as="select" inline>
                     <option>Tahun</option>
+                    {this.getYears()}
                   </Form.Control>
                 </Col>
                 <Col>
                   <Form.Control as="select" inline>
                     <option>Bulan</option>
+                    {this.getMonths()}
                   </Form.Control>
                 </Col>
                 <Col>
                   <Form.Control as="select" inline>
                     <option>Tahun</option>
+                    {this.getYears()}
                   </Form.Control>
                 </Col>
               </Form.Row>
@@ -277,21 +318,25 @@ class MyHistory extends React.Component {
                 <Col>
                   <Form.Control as="select" inline>
                     <option>Bulan</option>
+                    {this.getMonths()}
                   </Form.Control>
                 </Col>
                 <Col>
                   <Form.Control as="select" inline>
                     <option>Tahun</option>
+                    {this.getYears()}
                   </Form.Control>
                 </Col>
                 <Col>
                   <Form.Control as="select" inline>
                     <option>Bulan</option>
+                    {this.getMonths()}
                   </Form.Control>
                 </Col>
                 <Col>
                   <Form.Control as="select" inline>
                     <option>Tahun</option>
+                    {this.getYears()}
                   </Form.Control>
                 </Col>
               </Form.Row>
