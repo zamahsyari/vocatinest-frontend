@@ -9,6 +9,7 @@ export const SET_CHARACTER_TESTS = "SET_CHARACTER_TESTS";
 export const ANSWER_CHARACTER_TEST = "ANSWER_CHARACTER_TEST";
 export const SET_ACTIVE_CHARACTER_TEST = "SET_ACTIVE_CHARACTER_TEST";
 export const SET_SCHOOLS = "SET_SCHOOLS";
+export const SET_SCHOOL_SPECIALIZATION = "SET_SCHOOL_SPECIALIZATION";
 // multiple options
 export const SET_DATA = "SET_DATA";
 export const SELECT_ITEM = "SELECT_ITEM";
@@ -123,4 +124,8 @@ export const setActiveCharacterTest = data => {
 
 export const setSchools = data => {
   return { type: SET_SCHOOLS, payload: data };
+};
+
+export const setSchoolSpecialization = data => {
+  return { type: SET_SCHOOL_SPECIALIZATION, payload: data };
 };

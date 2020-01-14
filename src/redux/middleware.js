@@ -24,7 +24,8 @@ import {
   setCharacterTests,
   answerCharacterTest,
   setActiveCharacterTest,
-  setSchools
+  setSchools,
+  setSchoolSpecialization
 } from "./actions";
 import {
   searchResultDummies,
@@ -335,7 +336,8 @@ export const fetchSchools = data => {
         resp.data.data.map(item => {
           return {
             id: item.id,
-            title: `${item.name} ${item.city}`
+            title: `${item.name} ${item.city}`,
+            specializations: item.specialization
           };
         })
       )
@@ -344,7 +346,16 @@ export const fetchSchools = data => {
   };
 };
 
-export const fetchSpecialization = data => {
-  let specializations = data.split(",");
-  return specializations;
+export const fetchSpecialization = (id, data) => {
+  let specializations = [];
+  for (let i = 0; i < data.length; i++) {
+    if (data[i].id === parseInt(id)) {
+      let str = data[i].specializations;
+      specializations = str.split(",");
+      break;
+    }
+  }
+  return dispatch => {
+    dispatch(setSchoolSpecialization(specializations));
+  };
 };

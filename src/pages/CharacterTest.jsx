@@ -30,6 +30,12 @@ const mapStateToProps = state => {
 };
 
 class CharacterTest extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      active: -1
+    };
+  }
   componentDidMount() {
     this.props.dispatch(fetchCharacterTests(this.state));
   }
@@ -129,16 +135,28 @@ class CharacterTest extends React.Component {
       });
     };
 
+    const renderActiveClass = current => {
+      if (this.state.active === current) {
+        return "active";
+      } else {
+        return "not-active";
+      }
+    };
+
     const renderAnswer = (qid, data) => {
-      return data.map(item => {
+      return data.map((item, index) => {
         return (
           <li
+            className={renderActiveClass(index)}
             key={item.id}
-            onClick={() =>
+            onClick={() => {
               this.props.dispatch(
                 ansCharacterTest({ id: qid, answer: item.id })
-              )
-            }
+              );
+              this.setState({
+                active: index
+              });
+            }}
           >
             {item.title}
           </li>
@@ -178,7 +196,12 @@ class CharacterTest extends React.Component {
         );
       } else {
         return (
-          <Button onClick={() => this.props.dispatch(action)}>
+          <Button
+            onClick={() => {
+              this.props.dispatch(action);
+              this.setState({ active: -1 });
+            }}
+          >
             Selanjutnya
           </Button>
         );

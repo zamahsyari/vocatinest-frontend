@@ -15,22 +15,12 @@ import { fetchSchools, fetchSpecialization } from "../redux/middleware";
 
 const mapStateToProps = state => {
   return {
-    schools: state.schools.data
+    schools: state.schools.data,
+    specializations: state.schools.specializations
   };
 };
 
 class MyHistory extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selected_school: null,
-      specializations: []
-    };
-    this.selectSchool = this.selectSchool.bind(this);
-  }
-  async selectSchool(e) {
-    return false;
-  }
   getMonths() {
     let months = [
       "Januari",
@@ -52,9 +42,17 @@ class MyHistory extends React.Component {
     }
     return months.map((item, i) => {
       if (i < 10) {
-        return <option value={"0" + (i + 1)}>{item}</option>;
+        return (
+          <option key={i} value={"0" + (i + 1)}>
+            {item}
+          </option>
+        );
       } else {
-        return <option value={i + 1}>{item}</option>;
+        return (
+          <option key={i} value={i + 1}>
+            {item}
+          </option>
+        );
       }
     });
   }
@@ -65,7 +63,11 @@ class MyHistory extends React.Component {
       years.push(i);
     }
     return years.map(item => {
-      return <option value={item}>{item}</option>;
+      return (
+        <option key={item} value={item}>
+          {item}
+        </option>
+      );
     });
   }
   componentDidMount() {
@@ -159,19 +161,31 @@ class MyHistory extends React.Component {
         years.push(i);
       }
       return years.map(item => {
-        return <option value={item}>{item}</option>;
+        return (
+          <option key={item} value={item}>
+            {item}
+          </option>
+        );
       });
     };
 
     const renderSchools = data => {
       return data.map(item => {
-        return <option value={item.id}>{item.title}</option>;
+        return (
+          <option key={item.id} value={item.id}>
+            {item.title}
+          </option>
+        );
       });
     };
 
     const renderSpecialization = data => {
       return data.map(item => {
-        return <option value={item}>{item}</option>;
+        return (
+          <option key={item} value={item}>
+            {item}
+          </option>
+        );
       });
     };
 
@@ -189,34 +203,89 @@ class MyHistory extends React.Component {
           </ul>
           <div className="content">
             <Form.Group>
-              <Form.Check inline type="radio" label="Laki-Laki" />
-              <Form.Check inline type="radio" label="Perempuan" />
+              <Form.Check
+                name="sex"
+                inline
+                type="radio"
+                value="M"
+                label="Laki-Laki"
+                onChange={e => localStorage.setItem("sex", e.target.value)}
+              />
+              <Form.Check
+                name="sex"
+                inline
+                type="radio"
+                value="F"
+                label="Perempuan"
+                onChange={e => localStorage.setItem("sex", e.target.value)}
+              />
             </Form.Group>
             <Form.Group>
               <Form.Label>Pilih Nama SMK</Form.Label>
-              <Form.Control as="select" onChange={this.selectSchool}>
+              <Form.Control
+                as="select"
+                onChange={e => {
+                  localStorage.setItem("school_id", e.target.value);
+                  this.props.dispatch(
+                    fetchSpecialization(e.target.value, this.props.schools)
+                  );
+                }}
+              >
                 <option>Pilih nama SMK</option>
                 {renderSchools(this.props.schools)}
               </Form.Control>
             </Form.Group>
             <Form.Group>
               <Form.Label>Kejuruan</Form.Label>
-              {/* <Form.Control as="select">
+              <Form.Control as="select">
                 <option>Pilih kejuruan</option>
-              </Form.Control> */}
-              <Form.Control></Form.Control>
+                {renderSpecialization(this.props.specializations)}
+              </Form.Control>
             </Form.Group>
             <Form.Group>
               <Form.Label>Kelas</Form.Label>
               <br />
-              <Form.Check inline type="radio" label="10" />
-              <Form.Check inline type="radio" label="11" />
-              <Form.Check inline type="radio" label="12" />
-              <Form.Check inline type="radio" label="Sudah lulus" />
+              <Form.Check
+                inline
+                name="grade"
+                type="radio"
+                value="10"
+                label="10"
+                onChange={e => localStorage.setItem("grade", e.target.value)}
+              />
+              <Form.Check
+                inline
+                name="grade"
+                type="radio"
+                value="11"
+                label="11"
+                onChange={e => localStorage.setItem("grade", e.target.value)}
+              />
+              <Form.Check
+                inline
+                name="grade"
+                type="radio"
+                value="12"
+                label="12"
+                onChange={e => localStorage.setItem("grade", e.target.value)}
+              />
+              <Form.Check
+                inline
+                name="grade"
+                type="radio"
+                value="graduated"
+                label="Sudah lulus"
+                onChange={e => localStorage.setItem("grade", e.target.value)}
+              />
             </Form.Group>
             <Form.Group>
               <Form.Label>Tahun Lulus/Target Lulus</Form.Label>
-              <Form.Control as="select">
+              <Form.Control
+                as="select"
+                onChange={e =>
+                  localStorage.setItem("graduate_year", e.target.value)
+                }
+              >
                 <option>Pilih tahun</option>
                 {getGraduateYear()}
               </Form.Control>
@@ -241,11 +310,21 @@ class MyHistory extends React.Component {
           <div className="content">
             <Form.Group>
               <Form.Label>Peran di organisasi</Form.Label>
-              <Form.Control placeholder="Masukkan peran" />
+              <Form.Control
+                placeholder="Masukkan peran"
+                onChange={e =>
+                  localStorage.setItem("organization_role", e.target.value)
+                }
+              />
             </Form.Group>
             <Form.Group>
               <Form.Label>Nama Organisasi</Form.Label>
-              <Form.Control placeholder="Masukkan nama organisasi" />
+              <Form.Control
+                placeholder="Masukkan nama organisasi"
+                onChange={e =>
+                  localStorage.setItem("organization_name", e.target.value)
+                }
+              />
             </Form.Group>
             <Form.Group>
               <Form.Row>
@@ -258,25 +337,61 @@ class MyHistory extends React.Component {
               </Form.Row>
               <Form.Row>
                 <Col>
-                  <Form.Control as="select" inline>
+                  <Form.Control
+                    inline="true"
+                    as="select"
+                    onChange={e =>
+                      localStorage.setItem(
+                        "organization_month_start",
+                        e.target.value
+                      )
+                    }
+                  >
                     <option>Bulan</option>
                     {this.getMonths()}
                   </Form.Control>
                 </Col>
                 <Col>
-                  <Form.Control as="select" inline>
+                  <Form.Control
+                    as="select"
+                    inline="true"
+                    onChange={e =>
+                      localStorage.setItem(
+                        "organization_year_start",
+                        e.target.value
+                      )
+                    }
+                  >
                     <option>Tahun</option>
                     {this.getYears()}
                   </Form.Control>
                 </Col>
                 <Col>
-                  <Form.Control as="select" inline>
+                  <Form.Control
+                    as="select"
+                    inline="true"
+                    onChange={e =>
+                      localStorage.setItem(
+                        "organization_month_end",
+                        e.target.value
+                      )
+                    }
+                  >
                     <option>Bulan</option>
                     {this.getMonths()}
                   </Form.Control>
                 </Col>
                 <Col>
-                  <Form.Control as="select" inline>
+                  <Form.Control
+                    as="select"
+                    inline="true"
+                    onChange={e =>
+                      localStorage.setItem(
+                        "organization_year_end",
+                        e.target.value
+                      )
+                    }
+                  >
                     <option>Tahun</option>
                     {this.getYears()}
                   </Form.Control>
@@ -303,7 +418,10 @@ class MyHistory extends React.Component {
           <div className="content">
             <Form.Group>
               <Form.Label>Nama SMP</Form.Label>
-              <Form.Control placeholder="Masukkan nama sekolah" />
+              <Form.Control
+                placeholder="Masukkan nama sekolah"
+                onChange={e => localStorage.setItem("smp_name", e.target.value)}
+              />
             </Form.Group>
             <Form.Group>
               <Form.Row>
@@ -316,25 +434,49 @@ class MyHistory extends React.Component {
               </Form.Row>
               <Form.Row>
                 <Col>
-                  <Form.Control as="select" inline>
+                  <Form.Control
+                    as="select"
+                    inline="true"
+                    onChange={e =>
+                      localStorage.setItem("smp_month_start", e.target.value)
+                    }
+                  >
                     <option>Bulan</option>
                     {this.getMonths()}
                   </Form.Control>
                 </Col>
                 <Col>
-                  <Form.Control as="select" inline>
+                  <Form.Control
+                    as="select"
+                    inline="true"
+                    onChange={e =>
+                      localStorage.setItem("smp_year_start", e.target.value)
+                    }
+                  >
                     <option>Tahun</option>
                     {this.getYears()}
                   </Form.Control>
                 </Col>
                 <Col>
-                  <Form.Control as="select" inline>
+                  <Form.Control
+                    as="select"
+                    inline="true"
+                    onChange={e =>
+                      localStorage.setItem("smp_month_end", e.target.value)
+                    }
+                  >
                     <option>Bulan</option>
                     {this.getMonths()}
                   </Form.Control>
                 </Col>
                 <Col>
-                  <Form.Control as="select" inline>
+                  <Form.Control
+                    as="select"
+                    inline="true"
+                    onChange={e =>
+                      localStorage.setItem("smp_year_end", e.target.value)
+                    }
+                  >
                     <option>Tahun</option>
                     {this.getYears()}
                   </Form.Control>
@@ -343,7 +485,12 @@ class MyHistory extends React.Component {
             </Form.Group>
             <Form.Group>
               <Form.Label>Nilai Rata-rata UN</Form.Label>
-              <Form.Control placeholder="Masukkan Nilai" />
+              <Form.Control
+                placeholder="Masukkan Nilai"
+                onChange={e =>
+                  localStorage.setItem("smp_score", e.target.value)
+                }
+              />
             </Form.Group>
           </div>
         </ContentDiv>
@@ -421,7 +568,7 @@ class MyHistory extends React.Component {
           <Div>
             <div className="progress">
               <ul>
-                <li class="active">
+                <li className="active">
                   <FontAwesomeIcon icon={faCheckCircle} /> Riwayat Diri
                 </li>
                 <li>

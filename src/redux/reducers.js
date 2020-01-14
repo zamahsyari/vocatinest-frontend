@@ -17,7 +17,8 @@ import {
   SET_CHARACTER_TESTS,
   ANSWER_CHARACTER_TEST,
   SET_ACTIVE_CHARACTER_TEST,
-  SET_SCHOOLS
+  SET_SCHOOLS,
+  SET_SCHOOL_SPECIALIZATION
 } from "./actions";
 
 const initialState = {
@@ -113,6 +114,7 @@ const initialCharacterTests = {
 
 const initialSchools = {
   data: [],
+  specializations: [],
   error: "",
   loading: false
 };
@@ -405,6 +407,10 @@ export const schoolReducer = (state = initialSchools, action) => {
     case SET_SCHOOLS:
       return Object.assign({}, state, {
         data: action.payload
+      });
+    case SET_SCHOOL_SPECIALIZATION:
+      return Object.assign({}, state, {
+        specializations: action.payload
       });
     case SET_ERROR:
       return Object.assign({}, state, {
