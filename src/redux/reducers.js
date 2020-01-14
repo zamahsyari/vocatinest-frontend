@@ -16,7 +16,8 @@ import {
   ID_IMPORTANT,
   SET_CHARACTER_TESTS,
   ANSWER_CHARACTER_TEST,
-  SET_ACTIVE_CHARACTER_TEST
+  SET_ACTIVE_CHARACTER_TEST,
+  SET_SCHOOLS
 } from "./actions";
 
 const initialState = {
@@ -105,6 +106,12 @@ const initialImportants = {
 
 const initialCharacterTests = {
   active: 1,
+  data: [],
+  error: "",
+  loading: false
+};
+
+const initialSchools = {
   data: [],
   error: "",
   loading: false
@@ -363,7 +370,6 @@ export const importantReducer = (state = initialImportants, action) => {
 export const characterTestReducer = (state = initialCharacterTests, action) => {
   switch (action.type) {
     case SET_CHARACTER_TESTS:
-      console.log("set");
       return Object.assign({}, state, {
         data: action.payload
       });
@@ -388,6 +394,25 @@ export const characterTestReducer = (state = initialCharacterTests, action) => {
     case SET_ACTIVE_CHARACTER_TEST:
       return Object.assign({}, state, {
         active: action.payload
+      });
+    default:
+      return state;
+  }
+};
+
+export const schoolReducer = (state = initialSchools, action) => {
+  switch (action.type) {
+    case SET_SCHOOLS:
+      return Object.assign({}, state, {
+        data: action.payload
+      });
+    case SET_ERROR:
+      return Object.assign({}, state, {
+        error: action.payload
+      });
+    case SET_LOADING:
+      return Object.assign({}, state, {
+        loading: action.payload
       });
     default:
       return state;

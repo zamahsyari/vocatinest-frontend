@@ -23,7 +23,8 @@ import {
   deselectImportant,
   setCharacterTests,
   answerCharacterTest,
-  setActiveCharacterTest
+  setActiveCharacterTest,
+  setSchools
 } from "./actions";
 import {
   searchResultDummies,
@@ -321,4 +322,29 @@ export const login = data => {
         return false;
       });
   };
+};
+
+export const fetchSchools = data => {
+  return async dispatch => {
+    let resp = await axios.get(
+      `${process.env.REACT_APP_CORS}/${process.env.REACT_APP_BASE_URL}/schools`
+    );
+    dispatch(setLoading(true));
+    dispatch(
+      setSchools(
+        resp.data.data.map(item => {
+          return {
+            id: item.id,
+            title: `${item.name} ${item.city}`
+          };
+        })
+      )
+    );
+    dispatch(setLoading(false));
+  };
+};
+
+export const fetchSpecialization = data => {
+  let specializations = data.split(",");
+  return specializations;
 };

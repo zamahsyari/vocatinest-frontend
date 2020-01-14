@@ -9,7 +9,8 @@ import {
   companyKindReducer,
   importantReducer,
   jobAspirationReducer,
-  characterTestReducer
+  characterTestReducer,
+  schoolReducer
 } from "./reducers";
 import thunk from "redux-thunk";
 import { applyMiddleware } from "redux";
@@ -27,7 +28,8 @@ const store = createStore(
     jobKinds: jobKindReducer,
     companyKinds: companyKindReducer,
     importants: importantReducer,
-    characters: characterTestReducer
+    characters: characterTestReducer,
+    schools: schoolReducer
   }),
   // compose(
   //   applyMiddleware(thunk),

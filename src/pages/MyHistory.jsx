@@ -10,8 +10,30 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { fetchSchools, fetchSpecialization } from "../redux/middleware";
+
+const mapStateToProps = state => {
+  return {
+    schools: state.schools.data
+  };
+};
 
 class MyHistory extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected_school: null,
+      specializations: []
+    };
+    this.selectSchool = this.selectSchool.bind(this);
+  }
+  async selectSchool(e) {
+    return false;
+  }
+  componentDidMount() {
+    this.props.dispatch(fetchSchools(this.state));
+  }
   render() {
     const darkBlue = "#195b9f";
     const mediumBlue = "#0099e2";
@@ -104,6 +126,18 @@ class MyHistory extends React.Component {
       });
     };
 
+    const renderSchools = data => {
+      return data.map(item => {
+        return <option value={item.id}>{item.title}</option>;
+      });
+    };
+
+    const renderSpecialization = data => {
+      return data.map(item => {
+        return <option value={item}>{item}</option>;
+      });
+    };
+
     const Biography = () => {
       return (
         <ContentDiv>
@@ -123,15 +157,17 @@ class MyHistory extends React.Component {
             </Form.Group>
             <Form.Group>
               <Form.Label>Pilih Nama SMK</Form.Label>
-              <Form.Control as="select">
+              <Form.Control as="select" onChange={this.selectSchool}>
                 <option>Pilih nama SMK</option>
+                {renderSchools(this.props.schools)}
               </Form.Control>
             </Form.Group>
             <Form.Group>
               <Form.Label>Kejuruan</Form.Label>
-              <Form.Control as="select">
+              {/* <Form.Control as="select">
                 <option>Pilih kejuruan</option>
-              </Form.Control>
+              </Form.Control> */}
+              <Form.Control></Form.Control>
             </Form.Group>
             <Form.Group>
               <Form.Label>Kelas</Form.Label>
@@ -386,4 +422,4 @@ class MyHistory extends React.Component {
   }
 }
 
-export default MyHistory;
+export default connect(mapStateToProps)(MyHistory);

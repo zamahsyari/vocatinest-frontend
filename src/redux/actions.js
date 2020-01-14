@@ -8,6 +8,7 @@ export const SET_ACTIVE_JOB_ASPIRATION = "SET_ACTIVE_JOB_ASPIRATION";
 export const SET_CHARACTER_TESTS = "SET_CHARACTER_TESTS";
 export const ANSWER_CHARACTER_TEST = "ANSWER_CHARACTER_TEST";
 export const SET_ACTIVE_CHARACTER_TEST = "SET_ACTIVE_CHARACTER_TEST";
+export const SET_SCHOOLS = "SET_SCHOOLS";
 // multiple options
 export const SET_DATA = "SET_DATA";
 export const SELECT_ITEM = "SELECT_ITEM";
@@ -118,4 +119,8 @@ export const answerCharacterTest = data => {
 
 export const setActiveCharacterTest = data => {
   return { type: SET_ACTIVE_CHARACTER_TEST, payload: data };
+};
+
+export const setSchools = data => {
+  return { type: SET_SCHOOLS, payload: data };
 };
