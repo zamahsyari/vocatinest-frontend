@@ -48,44 +48,39 @@ class CharacterTest extends React.Component {
     this.props.dispatch(fetchCharacterTests(this.state));
   }
   async submit() {
-    await axios.post(
-      `${process.env.REACT_APP_CORS}/${process.env.REACT_APP_BASE_URL}/profiles`,
-      {
-        selected_company_categories: this.props.selected_company_categories,
-        selected_job_categories: this.props.selected_job_categories,
-        selected_job_kinds: this.props.selected_job_kinds,
-        selected_jobs: this.props.selected_jobs,
-        character_test_answers: this.props.character_test_answers,
-        user_id: parseInt(localStorage.getItem("user_id")),
-        sex: localStorage.getItem("sex"),
-        school_id: parseInt(localStorage.getItem("school_id")),
-        grade: parseInt(localStorage.getItem("grade")),
-        graduate_year: parseInt(localStorage.getItem("graduate_year")),
-        organization_role: localStorage.getItem("organization_role"),
-        organization_name: localStorage.getItem("organization_name"),
-        organization_month_start: localStorage.getItem(
-          "organization_month_start"
-        ),
-        organization_year_start: localStorage.getItem(
-          "organization_year_start"
-        ),
-        organization_month_end: localStorage.getItem("organization_month_end"),
-        organization_year_end: localStorage.getItem("organization_year_end"),
-        smp_name: localStorage.getItem("smp_name"),
-        smp_month_start: localStorage.getItem("smp_month_start"),
-        smp_year_start: localStorage.getItem("smp_year_start"),
-        smp_month_end: localStorage.getItem("smp_month_end"),
-        smp_year_end: localStorage.getItem("smp_year_end"),
-        smp_score: parseFloat(localStorage.getItem("smp_score")),
-        image: localStorage.getItem("image")
-      },
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }
-    );
-    this.props.history.push("/done");
+    let data = {
+      selected_company_categories: this.props.selected_company_categories,
+      selected_job_categories: this.props.selected_job_categories,
+      selected_job_kinds: this.props.selected_job_kinds,
+      selected_jobs: this.props.selected_jobs,
+      character_test_answers: this.props.character_test_answers,
+      user_id: parseInt(localStorage.getItem("user_id")),
+      sex: localStorage.getItem("sex"),
+      school_id: parseInt(localStorage.getItem("school_id")),
+      grade: parseInt(localStorage.getItem("grade")),
+      graduate_year: parseInt(localStorage.getItem("graduate_year")),
+      organization_role: localStorage.getItem("organization_role"),
+      organization_name: localStorage.getItem("organization_name"),
+      organization_month_start: localStorage.getItem(
+        "organization_month_start"
+      ),
+      organization_year_start: localStorage.getItem("organization_year_start"),
+      organization_month_end: localStorage.getItem("organization_month_end"),
+      organization_year_end: localStorage.getItem("organization_year_end"),
+      smp_name: localStorage.getItem("smp_name"),
+      smp_month_start: localStorage.getItem("smp_month_start"),
+      smp_year_start: localStorage.getItem("smp_year_start"),
+      smp_month_end: localStorage.getItem("smp_month_end"),
+      smp_year_end: localStorage.getItem("smp_year_end"),
+      smp_score: parseFloat(localStorage.getItem("smp_score")),
+      image: localStorage.getItem("image")
+    };
+    let resp = await this.props.dispatch(submitProfile(data));
+    if (resp === true) {
+      this.props.history.push("/done");
+    } else {
+      console.log("error");
+    }
   }
   render() {
     const darkBlue = "#195b9f";

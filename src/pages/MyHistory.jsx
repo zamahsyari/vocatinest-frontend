@@ -204,6 +204,20 @@ class MyHistory extends React.Component {
       });
     };
 
+    const renderSex = val => {
+      if (localStorage.getItem("sex") !== val) {
+        return false;
+      }
+      return true;
+    };
+
+    const renderGrade = val => {
+      if (parseInt(localStorage.getItem("grade")) !== val) {
+        return false;
+      }
+      return true;
+    };
+
     const Biography = () => {
       return (
         <ContentDiv>
@@ -224,6 +238,7 @@ class MyHistory extends React.Component {
                 type="radio"
                 value="M"
                 label="Laki-Laki"
+                checked={renderSex("M")}
                 onChange={e => localStorage.setItem("sex", e.target.value)}
               />
               <Form.Check
@@ -232,6 +247,7 @@ class MyHistory extends React.Component {
                 type="radio"
                 value="F"
                 label="Perempuan"
+                checked={renderSex("F")}
                 onChange={e => localStorage.setItem("sex", e.target.value)}
               />
             </Form.Group>
@@ -253,6 +269,7 @@ class MyHistory extends React.Component {
                 {renderSchools(this.props.schools)}
               </Form.Control> */}
               <Form.Control
+                value={localStorage.getItem("school")}
                 onChange={e => localStorage.setItem("school", e.target.value)}
               />
             </Form.Group>
@@ -268,6 +285,7 @@ class MyHistory extends React.Component {
                 {renderSpecialization(this.props.specializations)}
               </Form.Control> */}
               <Form.Control
+                value={localStorage.getItem("school_specialization")}
                 onChange={e =>
                   localStorage.setItem("school_specialization", e.target.value)
                 }
@@ -278,34 +296,38 @@ class MyHistory extends React.Component {
               <br />
               <Form.Check
                 inline
-                name="grade"
+                name="gradeCheck"
                 type="radio"
                 value="10"
                 label="10"
+                checked={renderGrade(10)}
                 onChange={e => localStorage.setItem("grade", e.target.value)}
               />
               <Form.Check
                 inline
-                name="grade"
+                name="gradeCheck"
                 type="radio"
                 value="11"
                 label="11"
+                checked={renderGrade(11)}
                 onChange={e => localStorage.setItem("grade", e.target.value)}
               />
               <Form.Check
                 inline
-                name="grade"
+                name="gradeCheck"
                 type="radio"
                 value="12"
                 label="12"
+                checked={renderGrade(12)}
                 onChange={e => localStorage.setItem("grade", e.target.value)}
               />
               <Form.Check
                 inline
-                name="grade"
+                name="gradeCheck"
                 type="radio"
-                value="graduated"
+                value="99"
                 label="Sudah lulus"
+                checked={renderGrade(99)}
                 onChange={e => localStorage.setItem("grade", e.target.value)}
               />
             </Form.Group>
@@ -313,6 +335,7 @@ class MyHistory extends React.Component {
               <Form.Label>Tahun Lulus/Target Lulus</Form.Label>
               <Form.Control
                 as="select"
+                value={localStorage.getItem("graduate_year")}
                 onChange={e =>
                   localStorage.setItem("graduate_year", e.target.value)
                 }
@@ -343,6 +366,7 @@ class MyHistory extends React.Component {
               <Form.Label>Peran di organisasi</Form.Label>
               <Form.Control
                 placeholder="Masukkan peran"
+                value={localStorage.getItem("organization_role")}
                 onChange={e =>
                   localStorage.setItem("organization_role", e.target.value)
                 }
@@ -352,6 +376,7 @@ class MyHistory extends React.Component {
               <Form.Label>Nama Organisasi</Form.Label>
               <Form.Control
                 placeholder="Masukkan nama organisasi"
+                value={localStorage.getItem("organization_name")}
                 onChange={e =>
                   localStorage.setItem("organization_name", e.target.value)
                 }
@@ -371,6 +396,7 @@ class MyHistory extends React.Component {
                   <Form.Control
                     inline="true"
                     as="select"
+                    value={localStorage.getItem("organization_month_start")}
                     onChange={e =>
                       localStorage.setItem(
                         "organization_month_start",
@@ -385,6 +411,7 @@ class MyHistory extends React.Component {
                 <Col>
                   <Form.Control
                     as="select"
+                    value={localStorage.getItem("organization_year_start")}
                     inline="true"
                     onChange={e =>
                       localStorage.setItem(
@@ -400,6 +427,7 @@ class MyHistory extends React.Component {
                 <Col>
                   <Form.Control
                     as="select"
+                    value={localStorage.getItem("organization_month_end")}
                     inline="true"
                     onChange={e =>
                       localStorage.setItem(
@@ -416,6 +444,7 @@ class MyHistory extends React.Component {
                   <Form.Control
                     as="select"
                     inline="true"
+                    value={localStorage.getItem("organization_year_end")}
                     onChange={e =>
                       localStorage.setItem(
                         "organization_year_end",
@@ -451,6 +480,7 @@ class MyHistory extends React.Component {
               <Form.Label>Nama SMP</Form.Label>
               <Form.Control
                 placeholder="Masukkan nama sekolah"
+                value={localStorage.getItem("smp_name")}
                 onChange={e => localStorage.setItem("smp_name", e.target.value)}
               />
             </Form.Group>
@@ -468,6 +498,7 @@ class MyHistory extends React.Component {
                   <Form.Control
                     as="select"
                     inline="true"
+                    value={localStorage.getItem("smp_month_start")}
                     onChange={e =>
                       localStorage.setItem("smp_month_start", e.target.value)
                     }
@@ -480,6 +511,7 @@ class MyHistory extends React.Component {
                   <Form.Control
                     as="select"
                     inline="true"
+                    value={localStorage.getItem("smp_year_start")}
                     onChange={e =>
                       localStorage.setItem("smp_year_start", e.target.value)
                     }
@@ -492,6 +524,7 @@ class MyHistory extends React.Component {
                   <Form.Control
                     as="select"
                     inline="true"
+                    value={localStorage.getItem("smp_month_end")}
                     onChange={e =>
                       localStorage.setItem("smp_month_end", e.target.value)
                     }
@@ -504,6 +537,7 @@ class MyHistory extends React.Component {
                   <Form.Control
                     as="select"
                     inline="true"
+                    value={localStorage.getItem("smp_year_end")}
                     onChange={e =>
                       localStorage.setItem("smp_year_end", e.target.value)
                     }
@@ -518,6 +552,7 @@ class MyHistory extends React.Component {
               <Form.Label>Nilai Rata-rata UN</Form.Label>
               <Form.Control
                 placeholder="Masukkan Nilai"
+                value={localStorage.getItem("smp_score")}
                 onChange={e =>
                   localStorage.setItem("smp_score", e.target.value)
                 }

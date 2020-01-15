@@ -251,7 +251,8 @@ export const fetchCharacterTests = data => {
         resp.data.data.map(item => {
           return {
             id: item.id,
-            title: item.question
+            title: item.question,
+            answer: 0
           };
         })
       )
@@ -358,5 +359,27 @@ export const fetchSpecialization = (id, data) => {
   }
   return dispatch => {
     dispatch(setSchoolSpecialization(specializations));
+  };
+};
+
+export const submitProfile = data => {
+  return async dispatch => {
+    axios
+      .post(
+        `${process.env.REACT_APP_CORS}/${process.env.REACT_APP_BASE_URL}/profiles`,
+        data,
+        {
+          headers: {
+            "Content-Type": "application/json"
+          }
+        }
+      )
+      .then(data => {
+        return true;
+      })
+      .catch(error => {
+        dispatch(setError(error.response.data));
+        return false;
+      });
   };
 };
