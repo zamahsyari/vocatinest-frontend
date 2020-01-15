@@ -268,8 +268,9 @@ class Profile extends React.Component {
             <Col md={7}>
               <h2>Profil Saya</h2>
               <p>
-                Saya adalah seorang siswa di SMK (Nama SMK) jurusan (jurusan).
-                Saya akan menyelesaikan pendidikan kejuruan pada tahun{" "}
+                Saya adalah seorang siswa di {localStorage.getItem("school")}{" "}
+                jurusan {localStorage.getItem("school_specialization")}. Saya
+                akan menyelesaikan pendidikan kejuruan pada tahun{" "}
                 {localStorage.getItem("graduate_year")}. Saya adalah seorang
                 yang (persona A) dan (persona B). Minat yang saya miliki adalah
                 pada bidang {JobCatString()}. Saya juga aktif berorganisasi,
