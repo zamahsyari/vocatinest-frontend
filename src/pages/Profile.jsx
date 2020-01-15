@@ -15,7 +15,8 @@ import { fetchProfile } from "../redux/middleware";
 const mapStateToProps = state => {
   return {
     profile: state.profile.data,
-    jobs: state.professions.selected
+    jobs: state.professions.selected,
+    jobcats: state.jobCategories.selected
   };
 };
 
@@ -223,6 +224,13 @@ class Profile extends React.Component {
       });
     };
 
+    const JobCatString = () => {
+      let jobcats = this.props.jobcats.map(item => {
+        return item.title;
+      });
+      return jobcats.join(" dan ");
+    };
+
     return (
       <Template>
         <Div>
@@ -264,8 +272,8 @@ class Profile extends React.Component {
                 Saya akan menyelesaikan pendidikan kejuruan pada tahun{" "}
                 {localStorage.getItem("graduate_year")}. Saya adalah seorang
                 yang (persona A) dan (persona B). Minat yang saya miliki adalah
-                pada bidang (bidang A) dan (bidang B). Saya juga aktif
-                berorganisasi, saya tergabung dalam organisasi{" "}
+                pada bidang {JobCatString()}. Saya juga aktif berorganisasi,
+                saya tergabung dalam organisasi{" "}
                 {localStorage.getItem("organization_name")}.
               </p>
               <br />
