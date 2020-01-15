@@ -231,6 +231,39 @@ class Profile extends React.Component {
       return jobcats.join(" dan ");
     };
 
+    const shuffle = array => {
+      let currentIndex = array.length,
+        temporaryValue,
+        randomIndex;
+
+      // While there remain elements to shuffle...
+      while (0 !== currentIndex) {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+      }
+
+      return array;
+    };
+
+    const renderPersona = () => {
+      let chars = [
+        "Komunikatif",
+        "Percaya Diri",
+        "Kreatif",
+        "Konsisten",
+        "Tepat Waktu"
+      ];
+      let shuffled = shuffle(chars);
+      let result = [shuffled[0], shuffled[1]];
+      return result.join(" dan ");
+    };
+
     return (
       <Template>
         <Div>
@@ -272,9 +305,9 @@ class Profile extends React.Component {
                 jurusan {localStorage.getItem("school_specialization")}. Saya
                 akan menyelesaikan pendidikan kejuruan pada tahun{" "}
                 {localStorage.getItem("graduate_year")}. Saya adalah seorang
-                yang (persona A) dan (persona B). Minat yang saya miliki adalah
-                pada bidang {JobCatString()}. Saya juga aktif berorganisasi,
-                saya tergabung dalam organisasi{" "}
+                yang {renderPersona()}. Minat yang saya miliki adalah pada
+                bidang {JobCatString()}. Saya juga aktif berorganisasi, saya
+                tergabung dalam organisasi{" "}
                 {localStorage.getItem("organization_name")}.
               </p>
               <br />
