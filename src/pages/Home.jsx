@@ -12,7 +12,7 @@ class Home extends React.Component {
       <Template>
         <Container className="home">
           <Row>
-            <Col className="home-desc">
+            <Col className="home-desc" md={6}>
               <h4>Pekerjaan Vokasi</h4>
               <h5>Dalam Satu Portal</h5>
               <p>
@@ -23,7 +23,7 @@ class Home extends React.Component {
                 Daftar Sekarang
               </Link>
             </Col>
-            <Col></Col>
+            <Col md={6}></Col>
           </Row>
           <Row>
             <Col>
