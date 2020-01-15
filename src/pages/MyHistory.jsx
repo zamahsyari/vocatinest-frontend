@@ -237,7 +237,7 @@ class MyHistory extends React.Component {
             </Form.Group>
             <Form.Group>
               <Form.Label>Pilih Nama SMK</Form.Label>
-              <Form.Control
+              {/* <Form.Control
                 as="select"
                 onChange={e => {
                   let content = e.target.options[e.target.selectedIndex].text;
@@ -251,11 +251,14 @@ class MyHistory extends React.Component {
               >
                 <option>Pilih nama SMK</option>
                 {renderSchools(this.props.schools)}
-              </Form.Control>
+              </Form.Control> */}
+              <Form.Control
+                onChange={e => localStorage.setItem("school", e.target.value)}
+              />
             </Form.Group>
             <Form.Group>
               <Form.Label>Kejuruan</Form.Label>
-              <Form.Control
+              {/* <Form.Control
                 as="select"
                 onChange={e =>
                   localStorage.setItem("school_specialization", e.target.value)
@@ -263,7 +266,12 @@ class MyHistory extends React.Component {
               >
                 <option>Pilih kejuruan</option>
                 {renderSpecialization(this.props.specializations)}
-              </Form.Control>
+              </Form.Control> */}
+              <Form.Control
+                onChange={e =>
+                  localStorage.setItem("school_specialization", e.target.value)
+                }
+              />
             </Form.Group>
             <Form.Group>
               <Form.Label>Kelas</Form.Label>
