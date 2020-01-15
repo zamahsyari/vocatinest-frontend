@@ -316,6 +316,7 @@ export const login = data => {
       )
       .then(data => {
         dispatch(saveToken(data.data.data.token));
+        localStorage.setItem("user_id", data.data.data.user_id);
         return true;
       })
       .catch(error => {
@@ -351,6 +352,7 @@ export const fetchSpecialization = (id, data) => {
   for (let i = 0; i < data.length; i++) {
     if (data[i].id === parseInt(id)) {
       let str = data[i].specializations;
+      localStorage.setItem("school_name", `${data[i].name} ${data[i].city}`);
       specializations = str.split(",");
       break;
     }

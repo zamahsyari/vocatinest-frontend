@@ -5,6 +5,7 @@ import background from "../assets/background.jpg";
 import testlogo from "../assets/test_logo.png";
 import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import axios from "axios";
 import {
   faChevronCircleUp,
   faChevronCircleDown,
@@ -19,13 +20,19 @@ import { Link } from "react-router-dom";
 import {
   fetchCharacterTests,
   ansCharacterTest,
-  updateActiveCharacterTest
+  updateActiveCharacterTest,
+  submitProfile
 } from "../redux/middleware";
 
 const mapStateToProps = state => {
   return {
     data: state.characters.data,
-    active: state.characters.active
+    active: state.characters.active,
+    selected_company_categories: state.companyKinds.selected,
+    selected_job_categories: state.jobCategories.selected,
+    selected_job_kinds: state.jobKinds.selected,
+    selected_jobs: state.professions.selected,
+    character_test_answers: state.characters.data
   };
 };
 
@@ -35,9 +42,50 @@ class CharacterTest extends React.Component {
     this.state = {
       active: -1
     };
+    this.submit = this.submit.bind(this);
   }
   componentDidMount() {
     this.props.dispatch(fetchCharacterTests(this.state));
+  }
+  async submit() {
+    await axios.post(
+      `${process.env.REACT_APP_CORS}/${process.env.REACT_APP_BASE_URL}/profiles`,
+      {
+        selected_company_categories: this.props.selected_company_categories,
+        selected_job_categories: this.props.selected_job_categories,
+        selected_job_kinds: this.props.selected_job_kinds,
+        selected_jobs: this.props.selected_jobs,
+        character_test_answers: this.props.character_test_answers,
+        user_id: parseInt(localStorage.getItem("user_id")),
+        sex: localStorage.getItem("sex"),
+        school_id: parseInt(localStorage.getItem("school_id")),
+        grade: parseInt(localStorage.getItem("grade")),
+        graduate_year: parseInt(localStorage.getItem("graduate_year")),
+        organization_role: localStorage.getItem("organization_role"),
+        organization_name: localStorage.getItem("organization_name"),
+        organization_month_start: localStorage.getItem(
+          "organization_month_start"
+        ),
+        organization_year_start: localStorage.getItem(
+          "organization_year_start"
+        ),
+        organization_month_end: localStorage.getItem("organization_month_end"),
+        organization_year_end: localStorage.getItem("organization_year_end"),
+        smp_name: localStorage.getItem("smp_name"),
+        smp_month_start: localStorage.getItem("smp_month_start"),
+        smp_year_start: localStorage.getItem("smp_year_start"),
+        smp_month_end: localStorage.getItem("smp_month_end"),
+        smp_year_end: localStorage.getItem("smp_year_end"),
+        smp_score: parseFloat(localStorage.getItem("smp_score")),
+        image: localStorage.getItem("image")
+      },
+      {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    );
+    this.props.history.push("/done");
   }
   render() {
     const darkBlue = "#195b9f";
@@ -189,11 +237,7 @@ class CharacterTest extends React.Component {
 
     const renderNext = (is_last, action) => {
       if (is_last === true) {
-        return (
-          <Button onClick={() => this.props.history.push("/done")}>
-            Selanjutnya
-          </Button>
-        );
+        return <Button onClick={() => this.submit()}>Selanjutnya</Button>;
       } else {
         return (
           <Button

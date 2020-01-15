@@ -129,6 +129,14 @@ class MyHistory extends React.Component {
         }
       `;
 
+    const toBase64 = file =>
+      new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+      });
+
     const Uploads = () => {
       return (
         <ContentDiv>
@@ -144,7 +152,14 @@ class MyHistory extends React.Component {
           <div className="content">
             <Form.Group>
               <Form.Label>Unggah Foto Diri</Form.Label>
-              <Form.Control type="file" />
+              <Form.Control
+                type="file"
+                onChange={async e => {
+                  const file = e.target.files[0];
+                  const encoded = await toBase64(file);
+                  localStorage.setItem("image", encoded);
+                }}
+              />
               <Form.Label className="secondary-label">
                 * format .jpg, .png max 10 MB
               </Form.Label>

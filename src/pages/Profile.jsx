@@ -14,7 +14,8 @@ import { fetchProfile } from "../redux/middleware";
 
 const mapStateToProps = state => {
   return {
-    profile: state.profile.data
+    profile: state.profile.data,
+    jobs: state.professions.selected
   };
 };
 
@@ -204,7 +205,7 @@ class Profile extends React.Component {
                   <img src={item.image} alt="company" />
                 </Col>
                 <Col md={10}>
-                  <i>{item.website}</i>
+                  {/* <i>{item.website}</i> */}
                   <h4>{item.title}</h4>
                   <b>{item.company}</b>
                   <p>{item.excerpt}</p>
@@ -216,26 +217,40 @@ class Profile extends React.Component {
       });
     };
 
+    const getJobString = () => {
+      return this.props.jobs.map(item => {
+        return item.title;
+      });
+    };
+
     return (
       <Template>
         <Div>
           <Row>
             <Col md={3} className="bluish">
               <div className="img-frame">
-                <img
-                  src="https://pixabay.com/get/53e9d6404f5ab10ff3d89938b977692b083edbe25b54714f742b7a/entrepreneur-593358_640.jpg"
-                  alt="profile_pic"
-                />
+                <img src={localStorage.getItem("image")} alt="profile_pic" />
               </div>
               <h4>Riwayat Pendidikan</h4>
               <ul>
-                <RenderList data={this.props.profile.educations} />
+                <RenderList
+                  data={[
+                    localStorage.getItem("school_name"),
+                    localStorage.getItem("smp_name")
+                  ]}
+                />
               </ul>
               <h4>Lokasi</h4>
               <p>{this.props.profile.location}</p>
               <h4>Pengalaman Organisasi</h4>
               <ul>
-                <RenderList data={this.props.profile.organizations} />
+                <RenderList
+                  data={[
+                    localStorage.getItem("organization_role") +
+                      " " +
+                      localStorage.getItem("organization_name")
+                  ]}
+                />
               </ul>
               {/* <h4>Penghargaan dan Pencapaian</h4>
               <ul>
@@ -244,11 +259,19 @@ class Profile extends React.Component {
             </Col>
             <Col md={7}>
               <h2>Profil Saya</h2>
-              <p>{this.props.profile.description}</p>
+              <p>
+                Saya adalah seorang siswa di SMK (Nama SMK) jurusan (jurusan).
+                Saya akan menyelesaikan pendidikan kejuruan pada tahun{" "}
+                {localStorage.getItem("graduate_year")}. Saya adalah seorang
+                yang (persona A) dan (persona B). Minat yang saya miliki adalah
+                pada bidang (bidang A) dan (bidang B). Saya juga aktif
+                berorganisasi, saya tergabung dalam organisasi{" "}
+                {localStorage.getItem("organization_name")}.
+              </p>
               <br />
               <h4>Pekerjaan Terkait</h4>
               <ul className="job-tags">
-                <RenderList data={this.props.profile.job_tags} />
+                <RenderList data={getJobString()} />
               </ul>
               <br />
               <h4>Lowongan Pekerjaan</h4>
