@@ -5,7 +5,7 @@ export const searchResultDummies = [
     company: "PT Solusi Komputindo",
     location: "DKI JAKARTA",
     image:
-      "https://pixabay.com/get/51e7d6414b57b10ff3d89938b977692b083edbe25b54714e732c79/browser-773215_640.png",
+      "https://pixabay.com/get/52e0d04a494faa0df7c5c10398766263143ad9ec5354764d732a/warning-40593_640.png",
     posted_at: "1 minggu lalu",
     excerpt:
       "An award winning digital agency & consultancy is currently looking for senior iOS developer",
@@ -67,7 +67,7 @@ export const searchResultDummies = [
     company: "PT Kawan Sejahtera Indonesia",
     location: "DKI JAKARTA",
     image:
-      "https://pixabay.com/get/51e7d6414b57b10ff3d89938b977692b083edbe25b54714e732c79/browser-773215_640.png"
+      "https://pixabay.com/get/52e0d04a494faa0df7c5c10398766263143ad9ec5354764d732a/warning-40593_640.png"
   },
   {
     id: 3,
@@ -75,7 +75,7 @@ export const searchResultDummies = [
     company: "PT Jaya Laksana Abadi",
     location: "DKI JAKARTA",
     image:
-      "https://pixabay.com/get/51e7d6414b57b10ff3d89938b977692b083edbe25b54714e732c79/browser-773215_640.png"
+      "https://pixabay.com/get/52e0d04a494faa0df7c5c10398766263143ad9ec5354764d732a/warning-40593_640.png"
   }
 ];
 
@@ -90,28 +90,28 @@ export const profileDummies = {
       title: "Web Programmer",
       company: "Axiata Digital",
       image:
-        "https://pixabay.com/get/51e7d6414b57b10ff3d89938b977692b083edbe25b54714e732c79/browser-773215_640.png"
+        "https://pixabay.com/get/52e0d04a494faa0df7c5c10398766263143ad9ec5354764d732a/warning-40593_640.png"
     },
     {
       id: 2,
       title: "Web Programmer",
       company: "PT Sinar Sentosa Abadi",
       image:
-        "https://pixabay.com/get/51e7d6414b57b10ff3d89938b977692b083edbe25b54714e732c79/browser-773215_640.png"
+        "https://pixabay.com/get/52e0d04a494faa0df7c5c10398766263143ad9ec5354764d732a/warning-40593_640.png"
     },
     {
       id: 3,
       title: "Web Programmer",
       company: "PT Solusi Teknologi Indonesia",
       image:
-        "https://pixabay.com/get/51e7d6414b57b10ff3d89938b977692b083edbe25b54714e732c79/browser-773215_640.png"
+        "https://pixabay.com/get/52e0d04a494faa0df7c5c10398766263143ad9ec5354764d732a/warning-40593_640.png"
     },
     {
       id: 4,
       title: "Web Programmer",
       company: "PT Digital Transformasi Indonesia",
       image:
-        "https://pixabay.com/get/51e7d6414b57b10ff3d89938b977692b083edbe25b54714e732c79/browser-773215_640.png"
+        "https://pixabay.com/get/52e0d04a494faa0df7c5c10398766263143ad9ec5354764d732a/warning-40593_640.png"
     }
   ],
   job_trends: [
@@ -120,7 +120,7 @@ export const profileDummies = {
       website: "it.news.id",
       title: "Programmer Dibutuhkan Tahun Depan",
       image:
-        "https://pixabay.com/get/51e7d6414b57b10ff3d89938b977692b083edbe25b54714e732c79/browser-773215_640.png",
+        "https://pixabay.com/get/52e0d04a494faa0df7c5c10398766263143ad9ec5354764d732a/warning-40593_640.png",
       excerpt:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pellentesque dui tortor, id consectetur neque commodo venenatis. Suspendisse rutrum metus et pellentesque ultricies. Aliquam gravida magna eget ornare porta. Morbi imperdiet, est id rutrum rutrum, leo enim vulputate arcu, a pretium erat sem ac eros. Sed dapibus posuere urna in dignissim. Suspendisse nec faucibus nunc, a interdum urna. Ut id eros dignissim, vestibulum risus in, finibus ex."
     }
