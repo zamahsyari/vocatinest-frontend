@@ -13,6 +13,9 @@ import { Link, withRouter } from "react-router-dom";
 const lightBlue = "#67a4e5";
 const darkBlue = "#195b9f";
 const Div = styled.div`
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
   margin-right: -16px;
   position: relative;
   z-index: 20;

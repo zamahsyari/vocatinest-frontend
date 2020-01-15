@@ -282,14 +282,14 @@ class Profile extends React.Component {
                 <RenderList data={getJobString()} />
               </ul>
               <br />
-              <h4>Lowongan Pekerjaan</h4>
+              {/* <h4>Lowongan Pekerjaan</h4>
               <ul className="job-vacancies">
                 <RenderDivList data={this.props.profile.job_vacancies} />
               </ul>
               <h4>Trend Pekerjaan</h4>
               <ul className="job-trends">
                 <RenderTrendList data={this.props.profile.job_trends} />
-              </ul>
+              </ul> */}
             </Col>
           </Row>
         </Div>

@@ -137,7 +137,7 @@ class Navbar extends React.Component {
           <li>
             <FontAwesomeIcon icon={faUser} />
           </li>
-          <li>Hi, Kevin Wijaya</li>
+          <li>Hi</li>
         </Ul>
       );
     }
