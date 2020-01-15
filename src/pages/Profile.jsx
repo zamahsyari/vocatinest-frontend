@@ -276,7 +276,7 @@ class Profile extends React.Component {
               <ul>
                 <RenderList
                   data={[
-                    localStorage.getItem("school_name"),
+                    localStorage.getItem("school"),
                     localStorage.getItem("smp_name")
                   ]}
                 />
