@@ -144,35 +144,39 @@ class CharacterTest extends React.Component {
       }
     `;
 
-    const renderQuestion = data => {
-      return data.map((item, index) => {
-        let total = data.length;
-        if (index < total - 1) {
-          return (
-            <li key={item.id}>
-              <QuestionCard
-                title={item.title}
-                id={item.id}
-                current={item.id}
-                total={total}
-                nextAction={updateActiveCharacterTest(item.id + 1)}
-              />
-            </li>
-          );
-        } else {
-          return (
-            <li key={item.id}>
-              <QuestionCard
-                title={item.title}
-                id={item.id}
-                current={item.id}
-                total={5}
-                is_last={true}
-              />
-            </li>
-          );
-        }
-      });
+    const renderQuestion = () => {
+      let questions = shuffle(this.props.data);
+      while (this.props.data.length === 15) {
+        return questions.map((item, index) => {
+          let total = questions.length;
+          if (index < total - 1) {
+            return (
+              <li key={item.id}>
+                <QuestionCard
+                  title={item.title}
+                  id={item.id}
+                  current={item.id}
+                  total={total}
+                  nextAction={updateActiveCharacterTest(item.id + 1)}
+                  is_last={false}
+                />
+              </li>
+            );
+          } else {
+            return (
+              <li key={item.id}>
+                <QuestionCard
+                  title={item.title}
+                  id={item.id}
+                  current={item.id}
+                  total={5}
+                  is_last={true}
+                />
+              </li>
+            );
+          }
+        });
+      }
     };
 
     const renderActiveClass = current => {
@@ -395,9 +399,7 @@ class CharacterTest extends React.Component {
                 <h3>Tes Karakter</h3>
               </li>
             </ul>
-            <ul className="content">
-              {renderQuestion(shuffle(this.props.data))}
-            </ul>
+            <ul className="content">{renderQuestion()}</ul>
           </Div>
         </div>
       </Template>
