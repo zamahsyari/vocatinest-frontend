@@ -364,6 +364,7 @@ export const fetchSpecialization = (id, data) => {
 
 export const submitProfile = data => {
   return async dispatch => {
+    console.log("dispatching");
     axios
       .post(
         `${process.env.REACT_APP_CORS}/${process.env.REACT_APP_BASE_URL}/profiles`,

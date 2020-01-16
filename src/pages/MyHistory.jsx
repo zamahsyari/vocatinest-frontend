@@ -238,7 +238,7 @@ class MyHistory extends React.Component {
                 type="radio"
                 value="M"
                 label="Laki-Laki"
-                checked={renderSex("M")}
+                defaultChecked={renderSex("M")}
                 onChange={e => localStorage.setItem("sex", e.target.value)}
               />
               <Form.Check
@@ -247,7 +247,7 @@ class MyHistory extends React.Component {
                 type="radio"
                 value="F"
                 label="Perempuan"
-                checked={renderSex("F")}
+                defaultChecked={renderSex("F")}
                 onChange={e => localStorage.setItem("sex", e.target.value)}
               />
             </Form.Group>
@@ -300,7 +300,7 @@ class MyHistory extends React.Component {
                 type="radio"
                 value="10"
                 label="10"
-                checked={renderGrade(10)}
+                defaultChecked={renderGrade(10)}
                 onChange={e => localStorage.setItem("grade", e.target.value)}
               />
               <Form.Check
@@ -309,7 +309,7 @@ class MyHistory extends React.Component {
                 type="radio"
                 value="11"
                 label="11"
-                checked={renderGrade(11)}
+                defaultChecked={renderGrade(11)}
                 onChange={e => localStorage.setItem("grade", e.target.value)}
               />
               <Form.Check
@@ -318,7 +318,7 @@ class MyHistory extends React.Component {
                 type="radio"
                 value="12"
                 label="12"
-                checked={renderGrade(12)}
+                defaultChecked={renderGrade(12)}
                 onChange={e => localStorage.setItem("grade", e.target.value)}
               />
               <Form.Check
@@ -327,7 +327,7 @@ class MyHistory extends React.Component {
                 type="radio"
                 value="99"
                 label="Sudah lulus"
-                checked={renderGrade(99)}
+                defaultChecked={renderGrade(99)}
                 onChange={e => localStorage.setItem("grade", e.target.value)}
               />
             </Form.Group>

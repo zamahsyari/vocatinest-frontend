@@ -48,6 +48,7 @@ class CharacterTest extends React.Component {
     this.props.dispatch(fetchCharacterTests(this.state));
   }
   async submit() {
+    console.log("submitting");
     let data = {
       selected_company_categories: this.props.selected_company_categories,
       selected_job_categories: this.props.selected_job_categories,
@@ -75,12 +76,8 @@ class CharacterTest extends React.Component {
       smp_score: parseFloat(localStorage.getItem("smp_score")),
       image: localStorage.getItem("image")
     };
-    let resp = await this.props.dispatch(submitProfile(data));
-    if (resp === true) {
-      this.props.history.push("/done");
-    } else {
-      console.log("error");
-    }
+    this.props.dispatch(submitProfile(data));
+    this.props.history.push("/done");
   }
   render() {
     const darkBlue = "#195b9f";
@@ -148,9 +145,9 @@ class CharacterTest extends React.Component {
     `;
 
     const renderQuestion = data => {
-      return data.map((item, i) => {
+      return data.map((item, index) => {
         let total = data.length;
-        if (i < total - 1) {
+        if (index < total - 1) {
           return (
             <li key={item.id}>
               <QuestionCard
