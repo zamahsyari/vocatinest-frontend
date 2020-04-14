@@ -1,0 +1,114 @@
+nav {
+    padding-bottom: 0!important;
+    background-color: white !important;
+}
+
+nav img {
+    width: 80%;
+}
+
+nav li {
+    font-size: 1vw !important;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    margin-right: 3vw;
+    transition: 1s;
+}
+
+nav a{
+    color: #292B2C!important;
+}
+
+nav .active {
+    -moz-box-shadow: inset 0 -4px 0 #043D69;
+    -webkit-box-shadow: inset 0 -4px 0 #043D69;
+    box-shadow: inset 0 -4px 0 #043D69;
+}
+
+nav li:hover {
+    -moz-box-shadow: inset 0 -4px 0 #043D69;
+    -webkit-box-shadow: inset 0 -4px 0 #043D69;
+    box-shadow: inset 0 -4px 0 #043D69;
+}
+
+nav .active a,nav li:hover a {
+    color: #043D69 !important;
+}
+
+.btndefault {
+    background-color: #043D69 !important;
+    color: white !important;
+}
+
+.btnghost {
+    border: 1px solid #043D69 !important;
+    color: #043D69;
+}
+
+.btndefault:hover {
+    background-color: #09375b !important;
+}
+
+.btnghost:hover {
+    background-color: #043D69 !important;
+    color: white !important;
+}
+
+nav .btndefault,nav .btnghost {
+    font-size: 1vw;
+    padding-left: 2vw;
+    padding-right: 2vw;
+}
+
+.row-abu{
+    background: #F2F2F2;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+}
+
+.row-abu .besar,.row-putih .besar{
+    margin-top: 3vw;
+    font-size: 4vw;
+}
+
+.row-putih{
+    background: white;
+    padding-top: 5vw;
+    padding-bottom: 5vw;
+}
+
+.kata{
+    padding: 5vw 10vw!important;
+}
+
+.kata .besar{
+    font-size: 3vw;
+    margin-bottom: 4.5vw;
+}
+
+.kata .kecil{
+    font-size: 1vw;
+}
+
+.mulai p{
+    font-size: 2vw;
+}
+
+.mulai .besar{
+    font-size: 3vw;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+footer p{
+    font-size: 0.68vw;
+    margin-bottom: 0;
+}
+
+footer a{
+    color: black;
+}
+
+footera:hover{
+    color: #043D69;
+}
