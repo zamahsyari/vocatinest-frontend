@@ -110,6 +110,7 @@ footer p{
 }
 
 footer a{
+    font-size: 1vw;
     color: black;
 }
 
@@ -118,8 +119,8 @@ footer a:hover{
 }
 
 .cari{
-    padding-left: 12vw!important;
-    padding-right: 12vw!important;
+    padding-left: 8vw!important;
+    padding-right: 8vw!important;
 }
 .cari .besar{
     font-size: 3vw;
@@ -134,11 +135,11 @@ footer a:hover{
     color: black;
 }
 
-.rekomen-kerja p{
+.rekomen p{
     margin-bottom: 0;
 }
 
-.rekomen-kerja .besar{
+.rekomen .besar{
     font-size: 2vw;
     margin-top: 0;
 }
@@ -148,4 +149,116 @@ footer a:hover{
 }
 .card p{
     margin: 0;
+}
+
+.latihan li{
+    margin: 0.5vw 1vw 0.5vw 0;
+    border: 1px solid #043D69 !important;
+    color: #043D69;
+    border-radius: 2vw;
+    padding: 0;
+    height: 50%;
+}
+
+.latihan li a{
+    padding: 0.2vw 1vw;
+}
+
+.pelatihan .kategori{
+    display: inline;
+    font-size: 0.7vw;
+    margin-right: 0.5vw;
+    color: black;
+}
+
+.pelatihan .harga1{
+    font-size: 1vw;
+    text-decoration: line-through;
+}
+
+.pelatihan .harga2{
+    font-size: 1.2vw;
+}
+
+.pelatihan .card-footer{
+    background: white;
+}
+
+.pelatihan .card-footer img{
+    margin-right: 0.5vw;
+    margin-bottom: 0.2vw;
+}
+
+.kotak-sign{
+    width: 40%!important;
+    border: 1px solid #DDD;
+    border-radius: 0.5vw;
+}
+
+.kotak-sign .judul{
+    font-size: 3vw;
+}
+
+.kotak-sign .lupa-pass{
+    color: #043D69;
+}
+
+.kotak-sign .form-check-label{
+    font-size: 1vw;
+}
+
+.kotak-sign .btn{
+    padding-left: 4vw !important;
+    padding-right: 4vw !important;
+}
+
+.kotak-sign .kecil{
+    font-size: 1vw;
+    display: inline;
+}
+
+.kotak-sign .normal{
+    display: inline;
+    color: #043D69;
+}
+
+.row-abu2{
+    background: #F9F9F9;
+}
+
+.row-abu2 p{
+    margin-bottom: 0;
+    font-size: 1vw;
+}
+
+.row-abu2 img{
+    padding-bottom: 0.2vw;
+}
+
+.detailkerja-title .besar{
+    font-size: 2vw;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.detailkerja-title .abu{
+    color: #666666;
+}
+
+.detailkerja-title .btn{
+    padding-left: 2.5vw !important;
+    padding-right: 2.5vw !important;
+}
+
+.detailkerja-isi{
+    border: 1px solid #DDD;
+    border-radius: 0.5vw;
+    width: 70%!important;
+    margin-right: 100%!important;
+}
+
+.detailkerja-isi .besar{
+    margin-top: 0;
+    margin-bottom: 1vw!important;
+    font-size: 1.5vw;
 }
