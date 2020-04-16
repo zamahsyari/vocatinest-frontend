@@ -245,6 +245,16 @@ footer a:hover{
     color: #666666;
 }
 
+.detailkerja-title .harga-besar{
+    font-size: 3vw;
+    margin-bottom: 0;
+}
+
+.detailkerja-title .harga-coret{
+    text-decoration: line-through;
+    color: #666666;
+}
+
 .detailkerja-title .btn{
     padding-left: 2.5vw !important;
     padding-right: 2.5vw !important;
