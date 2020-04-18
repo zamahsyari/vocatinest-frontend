@@ -895,17 +895,30 @@
     .kotak-sign p {
         font-size: 1.5vw;
     }
+    
+    .kotak-sign .mb-5{
+        margin-bottom: 3vw!important;
+    }
+    
+    .kotak-sign label{
+        font-size: 1.5vw;
+    }
+    
+    .kotak-sign input{
+        font-size: 1.5vw;
+    }
 
     .kotak-sign .judul {
         font-size: 3vw;
     }
 
     .kotak-sign .lupa-pass {
+        font-size: 1.5vw;
         color: #043D69;
     }
 
     .kotak-sign .form-check-label {
-        font-size: 1.3vw;
+        font-size: 1.5vw;
     }
 
     .kotak-sign .btn {
@@ -1437,38 +1450,52 @@
     }
 
     .kotak-sign {
-        width: 60% !important;
+        width: 70% !important;
         border: 1px solid #DDD;
         border-radius: 0.5vw;
     }
 
     .kotak-sign p {
-        font-size: 1.5vw;
+        font-size: 2vw;
+    }
+    
+    .kotak-sign .mb-5{
+        margin-bottom: 3vw!important;
+    }
+    
+    .kotak-sign label{
+        font-size: 2vw;
+    }
+    
+    .kotak-sign input{
+        font-size: 2vw;
     }
 
     .kotak-sign .judul {
-        font-size: 3vw;
+        font-size: 4vw;
     }
 
     .kotak-sign .lupa-pass {
+        font-size: 2vw;
         color: #043D69;
     }
 
     .kotak-sign .form-check-label {
-        font-size: 1.3vw;
+        font-size: 1.8vw;
     }
 
     .kotak-sign .btn {
+        font-size: 2vw!important;
         padding-left: 4vw !important;
         padding-right: 4vw !important;
     }
 
     .kotak-sign .kecil {
-        font-size: 1.5vw;
+        font-size: 2vw;
     }
 
     .kotak-sign .normal {
-        font-size: 1.5vw;
+        font-size: 2vw;
     }
 
     .dashboard p {
