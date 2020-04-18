@@ -221,6 +221,14 @@ footer a:hover {
     font-size: 1vw;
 }
 
+.rekomen .card a{
+    color: black!important;
+}
+
+.rekomen .card a:hover{
+    color: #043D69!important;
+}
+
 .latihan li,
 .detailpelatihan-isi li {
     margin: 0.5vw 1vw 0.5vw 0;
