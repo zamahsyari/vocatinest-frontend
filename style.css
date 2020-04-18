@@ -155,6 +155,7 @@ nav .btnghost {
     font-weight: 500;
     margin-bottom: 4.5vw;
 }
+
 .kata .kecil {
     font-size: 1vw;
 }
@@ -211,6 +212,7 @@ footer a:hover {
 }
 
 .rekomen .card {
+    height: 95% !important;
     margin-bottom: 2vw;
 }
 
@@ -323,6 +325,10 @@ footer a:hover {
 
 .row-abu2 img {
     padding-bottom: 0.2vw;
+}
+
+.detailkerja-title img {
+    max-width: 100%;
 }
 
 .detailkerja-title .besar {
@@ -544,21 +550,21 @@ footer a:hover {
     color: transparent;
 }
 
-.form-profile .label-info{
+.form-profile .label-info {
     font-size: 0.8vw;
 }
 
-.form-profile small{
+.form-profile small {
     color: #818A91;
 }
 
-.form-profile .btnupload{
+.form-profile .btnupload {
     border: 1px solid #CCCCCC;
     color: #999;
     transition: 1s;
 }
 
-.form-profile .btnupload:hover{
+.form-profile .btnupload:hover {
     background: #CCC;
     color: white;
 }

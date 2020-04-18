@@ -1,0 +1,1677 @@
+@media (max-width: 991.98px) {
+    nav {
+        padding-bottom: 1vw !important;
+    }
+
+    nav li {
+        padding-top: 1vw;
+        padding-bottom: 1vw;
+        font-size: 1.5vw !important;
+        margin-right: 0vw;
+    }
+
+    nav li.cart {
+        text-align: left!important;
+        font-size: 1vw !important;
+        padding-top: 1vw;
+        padding-bottom: 1vw;
+        transition: 1s;
+    }
+    
+    nav li.cart img {
+        max-height: 2vw;!important;
+    }
+
+    nav .profile {
+        max-width: 4vw;
+    }
+
+    .dropdown-menu {
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+        margin: 0 !important;
+        font-size: 0.94vw !important;
+    }
+
+    .dropdown-item:hover {
+        background-color: white !important;
+        color: #043D69 !important;
+    }
+
+    .btndefault,
+    .btnghost {
+        font-size: 1.5vw !important;
+    }
+
+    nav .btndefault,
+    nav .btnghost {
+        font-size: 1.5vw !important;
+    }
+
+    .row-abu {
+        padding-top: 2vw;
+        padding-bottom: 2vw;
+    }
+
+    .home1 {
+        background: #F7F7F7 url("img/bg-home1.svg")no-repeat !important;
+        background-size: 100%;
+    }
+
+    .row-abu .besar,
+    .row-putih .besar {
+        margin-bottom: 0;
+        margin-top: 2vw;
+        font-size: 3vw;
+    }
+
+    .row-abu .kecil,
+    .row-putih .kecil {
+        margin-top: 1vw;
+        font-size: 1.5vw;
+    }
+
+    .home1 .btn,
+    .home2 .btn,
+    .home3 .btn,
+    .mulai .btn {
+        font-size: 1.45vw !important;
+        padding: 0.6vw 1vw;
+    }
+
+    .home1 img,
+    .home2 img,
+    .home3 img {
+        max-width: 90%;
+    }
+
+    .row-putih {
+        background: white;
+        padding-top: 5vw;
+        padding-bottom: 5vw;
+    }
+
+    .kata {
+        padding: 5vw 0vw !important;
+    }
+
+    .kata p {
+        font-size: 1.5vw;
+    }
+
+    .kata .besar {
+        font-size: 3vw;
+        margin-bottom: 3vw;
+    }
+
+    .kata .kecil {
+        font-size: 1.5vw;
+    }
+
+    .mulai p {
+        font-size: 1.5vw;
+    }
+
+    .mulai .besar {
+        font-size: 2.99vw;
+        margin-top: 0;
+    }
+
+    footer p {
+        font-size: 0.68vw;
+        margin-bottom: 0;
+    }
+
+    footer a {
+        padding-left: 0.5vw !important;
+        padding-right: 0.5vw !important;
+        font-size: 0.95vw;
+        color: #666666;
+    }
+
+    footer a:hover {
+        color: #043D69;
+    }
+
+    .cari {
+        padding-left: 3vw !important;
+        padding-right: 3vw !important;
+    }
+
+    .cari .besar {
+        font-size: 3vw;
+        margin-top: 0;
+        margin-bottom: 2vw;
+    }
+
+    .cari li {
+        margin-right: 0vw;
+    }
+
+    .cari li a {
+        font-size: 1.5vw;
+        color: black;
+    }
+
+    .rekomen p {
+        font-size: 1.1vw;
+        margin-bottom: 0;
+    }
+
+    .rekomen .besar {
+        font-size: 2vw;
+        margin-top: 0;
+    }
+
+    .rekomen .card {
+        margin-bottom: 0vw;
+    }
+
+    .rekomen .card p {
+        margin: 0;
+        font-size: 1vw;
+    }
+
+    .latihan li,
+    .detailpelatihan-isi li {
+        margin: 0.5vw 1vw 0.5vw 0;
+        border: 1px solid #043D69 !important;
+        border-radius: 2vw;
+        padding: 0;
+        height: 50%;
+        transition: 1s;
+    }
+
+    .latihan li:hover,
+    .detailpelatihan-isi li:hover {
+        background: #043D69;
+    }
+
+    .latihan li a,
+    .detailpelatihan-isi li a {
+        padding: 0.2vw 1vw;
+        color: #043D69;
+    }
+
+    .latihan li a:hover,
+    .detailpelatihan-isi li a:hover {
+        color: white;
+    }
+
+    .pelatihan .kategori {
+        display: inline;
+        font-size: 0.7vw;
+        margin-right: 0.5vw;
+        color: #666;
+    }
+
+    .pelatihan .abu {
+        color: #666;
+        font-weight: 200;
+    }
+
+    .pelatihan .harga1 {
+        text-decoration: line-through;
+    }
+
+    .pelatihan .harga2 {
+        font-weight: 600;
+        font-size: 2vw;
+    }
+
+    .pelatihan .card-footer {
+        background: white;
+    }
+
+    .pelatihan .cardf-1 img {
+        margin-right: 0.5vw;
+        margin-bottom: 0.2vw;
+    }
+
+    .pelatihan .cardf-2 img {
+        width: 40%;
+    }
+
+    .row-abu2 {
+        background: #F9F9F9;
+    }
+
+    .row-abu2 p {
+        margin-bottom: 0;
+        font-size: 1vw;
+    }
+
+    .row-abu2 img {
+        padding-bottom: 0.2vw;
+    }
+
+    .detailkerja-title img {
+        max-width: 100%;
+    }
+
+    .detailkerja-title p {
+        font-size: 1.4vw;
+        margin-bottom: 0;
+    }
+
+    .detailkerja-title .besar {
+        font-size: 2vw;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .detailkerja-title .abu {
+        font-size: 1.1vw;
+        margin-bottom: 1vw;
+        color: #666666;
+    }
+
+    .detailkerja-title .harga-besar {
+        font-size: 2vw;
+        margin-bottom: 0;
+    }
+
+    .detailkerja-title .harga-coret {
+        text-decoration: line-through;
+        color: #666666;
+    }
+
+    .detailkerja-title .btnghost:hover {
+        background-color: transparent !important;
+    }
+
+    .detailkerja-title .btnghost img {
+        width: 70%;
+    }
+
+    .detailkerja-title .btnghost {
+        padding: 0.2vw 0.5vw;
+        background-color: transparent !important;
+    }
+
+    .detailkerja-title .btndefault {
+        padding-left: 1vw !important;
+        padding-right: 1vw !important;
+        font-size: 1vw !important;
+    }
+
+    .detailkerja-isi {
+        border: 1px solid #DDD;
+        border-radius: 0.5vw;
+        width: 100% !important;
+        margin-right: 100% !important;
+    }
+
+    .detailpelatihan-isi p {
+        max-width: 100%;
+    }
+
+    .detailkerja-isi .besar,
+    .detailpelatihan-isi .besar {
+        margin-top: 0;
+        margin-bottom: 1vw !important;
+        font-size: 1.5vw;
+    }
+
+    .detailpelatihan-isi img {
+        max-width: 100%;
+    }
+
+    .detailpelatihan-isi .kecil {
+        margin-top: 0;
+        margin-bottom: 1vw !important;
+        font-size: 1vw;
+    }
+
+    .detailpelatihan-isi .coret {
+        font-size: 1.3vw;
+        text-decoration: line-through;
+    }
+
+    .sub-modul p {
+        font-size: 1.3vw;
+    }
+
+    .kotak-sign {
+        width: 60% !important;
+        border: 1px solid #DDD;
+        border-radius: 0.5vw;
+    }
+
+    .kotak-sign p {
+        font-size: 1.5vw;
+    }
+
+    .kotak-sign .judul {
+        font-size: 3vw;
+    }
+
+    .kotak-sign .lupa-pass {
+        color: #043D69;
+    }
+
+    .kotak-sign .form-check-label {
+        font-size: 1.3vw;
+    }
+
+    .kotak-sign .btn {
+        padding-left: 4vw !important;
+        padding-right: 4vw !important;
+    }
+
+    .kotak-sign .kecil {
+        font-size: 1.5vw;
+    }
+
+    .kotak-sign .normal {
+        font-size: 1.5vw;
+    }
+
+    .dashboard p {
+        font-size: 1.5vw;
+    }
+
+    .dashboard .besar {
+        font-size: 2vw;
+    }
+
+    .dashboard .abu {
+        color: #666666;
+    }
+
+    .dashboard .top .btn {
+        padding: 1vw !important;
+        background: #F7F7F7;
+        border-radius: 1vw;
+    }
+    
+    .dashboard .top img {
+        max-width: 100%;
+    }
+    
+    .dashboard .top .col-md-8{
+        padding-left: 0;
+    }
+
+    .dashboard .top .besar {
+        color: #043D69;
+        margin-top: 0;
+        font-size: 1.1vw;
+    }
+
+    .dashboard .top .kecil {
+        color: #043D69;
+        font-size: 0.9vw;
+        margin: 0;
+    }
+
+    .dashboard .top .active {
+        background: #043D69;
+        border-radius: 1vw;
+    }
+
+    .dashboard .top .active p {
+        color: white;
+    }
+
+    .dashboard .isi {
+        border-radius: 1vw;
+        border: 1px solid #DDDDDD;
+    }
+
+    .dashboard .isi .kiri {
+        background: #043D69;
+        padding: 2vw;
+        border-radius: 1vw;
+        color: white;
+    }
+    
+    .dashboard .isi .kiri img{
+        max-width: 100%;
+    }
+
+    .dashboard .isi .kiri p {
+        font-size: 1.3vw;
+        margin-bottom: 0;
+    }
+
+    .dashboard .isi .kiri .besar {
+        font-size: 1.5vw;
+        margin-top: 0;
+        margin-bottom: 0.5vw;
+    }
+
+    .dashboard .isi .kanan {
+        padding: 2vw 3vw;
+    }
+
+    .dashboard .isi .kanan .nama {
+        font-size: 3vw;
+        margin-top: 0;
+    }
+
+    .dashboard .isi .kanan .besar {
+        font-size: 1.5vw;
+        margin-top: 0;
+        margin-bottom: 0.5vw;
+    }
+
+    .dashboard .isi .kanan .card {
+        height: 100%;
+    }
+    
+    .dashboard .isi .kanan .card p {
+        font-size: 1vw;
+        margin-top: 0;
+    }
+
+    .dashboard .isi .kanan .card .besar {
+        font-size: 1.2vw;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .dashboard .isi .kanan .card .btn {
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 1vw;
+        background: #043D69;
+        color: white;
+    }
+
+    .disabled {
+        pointer-events: none;
+        background: #C4C4C4 !important;
+    }
+
+    .dashboard .isi .kanan .last p {
+        margin-bottom: 0;
+    }
+
+    .edit-atas {
+        width: 40% !important;
+    }
+
+    .edit-atas .angka .btn {
+        margin-right: 1vw;
+        width: 3vw !important;
+        padding: 0vw !important;
+        border-radius: 1.5vw;
+        background: #DDDDDD;
+        color: white;
+        font-size: 1.8vw;
+    }
+
+    .edit-atas .angka .active {
+        background: #043D69;
+    }
+
+    .form-profile {
+        width: 40% !important;
+        border: 1px solid #DDD;
+        border-radius: 0.5vw;
+    }
+
+    .form-profile .judul {
+        font-size: 3vw;
+    }
+
+    .form-profile .lupa-pass {
+        color: #043D69;
+    }
+
+    .form-profile .form-check-label {
+        font-size: 1vw;
+    }
+
+    .form-profile .btn {
+        padding-left: 4vw !important;
+        padding-right: 4vw !important;
+    }
+
+    .form-profile .kecil {
+        font-size: 1vw;
+        display: inline;
+    }
+
+    .form-profile .normal {
+        display: inline;
+        color: #043D69;
+    }
+
+    .form-profile .upload {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        filter: alpha(opacity=0);
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        opacity: 0;
+        background-color: transparent;
+        color: transparent;
+    }
+
+    .form-profile .label-info {
+        font-size: 0.8vw;
+    }
+
+    .form-profile small {
+        color: #818A91;
+    }
+
+    .form-profile .btnupload {
+        border: 1px solid #CCCCCC;
+        color: #999;
+        transition: 1s;
+    }
+
+    .form-profile .btnupload:hover {
+        background: #CCC;
+        color: white;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    nav li.cart {
+        text-align: left!important;
+        font-size: 1vw !important;
+        padding-top: 1vw;
+        padding-bottom: 1vw;
+        transition: 1s;
+    }
+    
+    nav li.cart img {
+        max-height: 2vw;!important;
+    }
+
+    nav .profile {
+        max-width: 4vw;
+    }
+    
+    .btndefault,
+    .btnghost {
+        font-size: 1.5vw !important;
+    }
+
+    .row-abu .besar,
+    .row-putih .besar {
+        margin-bottom: 0;
+        margin-top: 2vw;
+        font-size: 3vw;
+    }
+
+    .row-abu .kecil,
+    .row-putih .kecil {
+        margin-top: 1vw;
+        font-size: 1.5vw;
+    }
+
+    .home1 .btn,
+    .home2 .btn,
+    .home3 .btn,
+    .mulai .btn {
+        font-size: 1.2vw !important;
+        padding: 0.6vw 1vw;
+    }
+
+    .home1 img,
+    .home2 img,
+    .home3 img {
+        max-width: 90%;
+    }
+
+    .row-putih {
+        background: white;
+        padding-top: 5vw;
+        padding-bottom: 5vw;
+    }
+
+    .kata {
+        padding: 5vw 0vw !important;
+    }
+
+    .kata p {
+        font-size: 1.5vw;
+    }
+
+    .kata .besar {
+        font-size: 3vw;
+        margin-bottom: 3vw;
+    }
+
+    .kata .kecil {
+        font-size: 1.5vw;
+    }
+    
+    .kata img{
+        width: 15%!important;
+    }
+
+    .mulai p {
+        font-size: 1.5vw;
+    }
+
+    .mulai .besar {
+        font-size: 2.99vw;
+        margin-top: 0;
+    }
+    
+    footer .justify-content-end{
+        justify-content:flex-start!important;
+    }
+
+    footer p {
+        font-size: 0.93vw;
+        margin-bottom: 0;
+    }
+
+    footer a {
+        padding-left: 0.5vw !important;
+        padding-right: 0.5vw !important;
+        font-size: 1.28vw;
+        color: #666666;
+    }
+
+    footer a:hover {
+        color: #043D69;
+    }
+
+    .cari {
+        padding-left: 0vw !important;
+        padding-right: 0vw !important;
+    }
+    
+    .cari input{
+        height: 100%;
+    }
+
+    .cari .besar {
+        font-size: 3vw;
+        margin-top: 0;
+        margin-bottom: 2vw;
+    }
+
+    .cari li {
+        margin-right: 0vw;
+    }
+
+    .cari li a {
+        font-size: 1.5vw;
+        color: black;
+    }
+
+    .rekomen p {
+        font-size: 1.4vw;
+        margin-bottom: 0;
+    }
+
+    .rekomen .besar {
+        font-size: 2vw;
+        margin-top: 0;
+    }
+
+    .rekomen .card {
+        margin-bottom: 0vw;
+    }
+
+    .rekomen .card p {
+        margin: 0;
+        font-size: 1.5vw;
+    }
+
+    .latihan li,
+    .detailpelatihan-isi li {
+        font-size: 1.5vw;
+    }
+
+    .pelatihan .kategori {
+        display: inline;
+        font-size: 1.2vw;
+        margin-right: 0.5vw;
+        color: #666;
+    }
+
+    .pelatihan .abu {
+        color: #666;
+        font-weight: 200;
+    }
+
+    .pelatihan .harga1 {
+        text-decoration: line-through;
+    }
+
+    .pelatihan .harga2 {
+        font-weight: 600;
+        font-size: 2vw;
+    }
+
+    .pelatihan .card-footer {
+        background: white;
+    }
+
+    .pelatihan .cardf-1 img {
+        margin-right: 0.5vw;
+        margin-bottom: 0.2vw;
+    }
+
+    .pelatihan .cardf-2 img {
+        width: 40%;
+    }
+
+    .row-abu2 {
+        padding-top: 0.5rem !important;
+        padding-bottom: 0.5rem !important;
+    }
+
+    .row-abu2 p {
+        margin-bottom: 0;
+        font-size: 1.2vw;
+    }
+
+    .row-abu2 img {
+        padding-bottom: 0.2vw;
+    }
+
+    .detailkerja-title img {
+        max-width: 100%;
+    }
+    
+    .detailkerja-title .round-speaker img {
+        width: 25%;
+    }
+
+    .detailkerja-title p {
+        font-size: 1.1vw;
+        margin-bottom: 0;
+    }
+
+    .detailkerja-title .besar {
+        font-size: 2vw;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .detailkerja-title .abu {
+        font-size: 1.2vw;
+        margin-bottom: 1vw;
+        color: #666666;
+    }
+
+    .detailkerja-title .harga-besar {
+        font-size: 2vw;
+        margin-bottom: 0;
+    }
+
+    .detailkerja-title .harga-coret {
+        text-decoration: line-through;
+        color: #666666;
+    }
+
+    .detailkerja-title .btnghost:hover {
+        background-color: transparent !important;
+    }
+
+    .detailkerja-title .btnghost img {
+        width: 100%;
+    }
+
+    .detailkerja-title .btnghost {
+        padding: 0.2vw 0.3vw;
+        background-color: transparent !important;
+    }
+
+    .detailkerja-title .btndefault {
+        padding-left: 1vw !important;
+        padding-right: 1vw !important;
+        font-size: 1vw !important;
+    }
+
+    .detailkerja-isi {
+        border: 1px solid #DDD;
+        border-radius: 0.5vw;
+        width: 100% !important;
+        margin-right: 100% !important;
+    }
+
+    .detailpelatihan-isi p {
+        max-width: 100%;
+        font-size: 1.2vw;
+    }
+
+    .detailkerja-isi .besar,
+    .detailpelatihan-isi .besar {
+        margin-top: 0;
+        margin-bottom: 1vw !important;
+        font-size: 1.5vw;
+    }
+
+    .detailpelatihan-isi img {
+        max-width: 100%;
+    }
+
+    .detailpelatihan-isi .kecil {
+        margin-top: 0;
+        margin-bottom: 1vw !important;
+        font-size: 1vw;
+    }
+
+    .detailpelatihan-isi .coret {
+        font-size: 1.3vw;
+        text-decoration: line-through;
+    }
+
+    .sub-modul p {
+        font-size: 1.3vw;
+    }
+
+    .sub-modul .col-lg-3 img {
+        width: 16%;
+    }
+    
+    .sub-modul .text-right{
+        padding-top: 2vw;
+        text-align: left!important;
+    }
+    
+    .sub-modul .harga{
+        text-align: left;
+        margin-top: 1vw;
+        font-size: 2vw;
+        display: inline;
+    }
+    
+    .sub-modul .btn{
+        margin-top: 0!important;
+        font-size: 1.2vw!important;
+        float: right;
+    }
+
+    .kotak-sign {
+        width: 60% !important;
+        border: 1px solid #DDD;
+        border-radius: 0.5vw;
+    }
+
+    .kotak-sign p {
+        font-size: 1.5vw;
+    }
+
+    .kotak-sign .judul {
+        font-size: 3vw;
+    }
+
+    .kotak-sign .lupa-pass {
+        color: #043D69;
+    }
+
+    .kotak-sign .form-check-label {
+        font-size: 1.3vw;
+    }
+
+    .kotak-sign .btn {
+        padding-left: 4vw !important;
+        padding-right: 4vw !important;
+    }
+
+    .kotak-sign .kecil {
+        font-size: 1.5vw;
+    }
+
+    .kotak-sign .normal {
+        font-size: 1.5vw;
+    }
+
+    .dashboard p {
+        font-size: 1.5vw;
+    }
+
+    .dashboard .besar {
+        font-size: 2vw;
+    }
+
+    .dashboard .abu {
+        color: #666666;
+    }
+
+    .dashboard .top .btn {
+        padding: 1vw !important;
+        background: #F7F7F7;
+        border-radius: 1vw;
+    }
+    
+    .dashboard .top img {
+        max-width: 100%;
+    }
+    
+    .dashboard .top .col-md-8{
+        padding-left: 0;
+    }
+
+    .dashboard .top .besar {
+        color: #043D69;
+        margin-top: 0;
+        font-size: 1.1vw;
+    }
+
+    .dashboard .top .kecil {
+        color: #043D69;
+        font-size: 0.9vw;
+        margin: 0;
+    }
+
+    .dashboard .top .active {
+        background: #043D69;
+        border-radius: 1vw;
+    }
+
+    .dashboard .top .active p {
+        color: white;
+    }
+
+    .dashboard .isi {
+        border-radius: 1vw;
+        border: 1px solid #DDDDDD;
+    }
+
+    .dashboard .isi .kiri {
+        background: #043D69;
+        padding: 2vw;
+        border-radius: 1vw;
+        color: white;
+    }
+    
+    .dashboard .isi .kiri img{
+        max-width: 100%;
+    }
+
+    .dashboard .isi .kiri p {
+        font-size: 1.3vw;
+        margin-bottom: 0;
+    }
+
+    .dashboard .isi .kiri .besar {
+        font-size: 1.5vw;
+        margin-top: 0;
+        margin-bottom: 0.5vw;
+    }
+
+    .dashboard .isi .kanan {
+        padding: 2vw 3vw;
+    }
+
+    .dashboard .isi .kanan .nama {
+        font-size: 3vw;
+        margin-top: 0;
+    }
+
+    .dashboard .isi .kanan .besar {
+        font-size: 1.5vw;
+        margin-top: 0;
+        margin-bottom: 0.5vw;
+    }
+
+    .dashboard .isi .kanan .card {
+        height: 100%;
+    }
+    
+    .dashboard .isi .kanan .card p {
+        font-size: 1vw;
+        margin-top: 0;
+    }
+
+    .dashboard .isi .kanan .card .besar {
+        font-size: 1.2vw;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .dashboard .isi .kanan .card .btn {
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 1vw;
+        background: #043D69;
+        color: white;
+    }
+
+    .disabled {
+        pointer-events: none;
+        background: #C4C4C4 !important;
+    }
+
+    .dashboard .isi .kanan .last p {
+        margin-bottom: 0;
+    }
+
+    .edit-atas {
+        width: 40% !important;
+    }
+
+    .edit-atas .angka .btn {
+        margin-right: 1vw;
+        width: 3vw !important;
+        padding: 0vw !important;
+        border-radius: 1.5vw;
+        background: #DDDDDD;
+        color: white;
+        font-size: 1.8vw;
+    }
+
+    .edit-atas .angka .active {
+        background: #043D69;
+    }
+
+    .form-profile {
+        width: 40% !important;
+        border: 1px solid #DDD;
+        border-radius: 0.5vw;
+    }
+
+    .form-profile .judul {
+        font-size: 3vw;
+    }
+
+    .form-profile .lupa-pass {
+        color: #043D69;
+    }
+
+    .form-profile .form-check-label {
+        font-size: 1vw;
+    }
+
+    .form-profile .btn {
+        padding-left: 4vw !important;
+        padding-right: 4vw !important;
+    }
+
+    .form-profile .kecil {
+        font-size: 1vw;
+        display: inline;
+    }
+
+    .form-profile .normal {
+        display: inline;
+        color: #043D69;
+    }
+
+    .form-profile .upload {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        filter: alpha(opacity=0);
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        opacity: 0;
+        background-color: transparent;
+        color: transparent;
+    }
+
+    .form-profile .label-info {
+        font-size: 0.8vw;
+    }
+
+    .form-profile small {
+        color: #818A91;
+    }
+
+    .form-profile .btnupload {
+        border: 1px solid #CCCCCC;
+        color: #999;
+        transition: 1s;
+    }
+
+    .form-profile .btnupload:hover {
+        background: #CCC;
+        color: white;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 576px) {
+    nav li.cart {
+        text-align: left!important;
+        font-size: 1vw !important;
+        padding-top: 1vw;
+        padding-bottom: 1vw;
+        transition: 1s;
+    }
+    
+    nav li.cart img {
+        max-height: 2vw;!important;
+    }
+
+    nav .profile {
+        max-width: 4vw;
+    }
+    
+    .btndefault,
+    .btnghost {
+        font-size: 1.5vw !important;
+    }
+
+    .row-abu .besar,
+    .row-putih .besar {
+        margin-bottom: 0;
+        margin-top: 2vw;
+        font-size: 4vw;
+    }
+
+    .row-abu .kecil,
+    .row-putih .kecil {
+        margin-top: 1vw;
+        font-size: 2vw;
+    }
+
+    .home1 .btn,
+    .home2 .btn,
+    .home3 .btn,
+    .mulai .btn {
+        font-size: 1.73vw !important;
+        padding: 0.6vw 1vw;
+    }
+
+    .home1 img,
+    .home2 img,
+    .home3 img {
+        max-width: 100%;
+    }
+
+    .row-putih {
+        background: white;
+        padding-top: 5vw;
+        padding-bottom: 5vw;
+    }
+
+    .kata {
+        padding: 5vw 0vw !important;
+    }
+
+    .kata p {
+        font-size: 2vw;
+    }
+
+    .kata .besar {
+        font-size: 4vw;
+        margin-bottom: 3vw;
+    }
+
+    .kata .kecil {
+        font-size: 1.7vw;
+    }
+    
+    .kata img{
+        width: 15%!important;
+    }
+    
+    .mulai{
+        padding-top: 4vw;
+        padding-bottom: 4vw;
+    }
+
+    .mulai p {
+        font-size: 1.8vw;
+    }
+
+    .mulai .besar {
+        font-size: 2.99vw;
+        margin-top: 0;
+    }
+    
+    footer .justify-content-end{
+        justify-content:flex-start!important;
+    }
+
+    footer p {
+        font-size: 0.93vw;
+        margin-bottom: 0;
+    }
+
+    footer a {
+        padding-left: 0.5vw !important;
+        padding-right: 0.5vw !important;
+        font-size: 1.8vw;
+        color: #666666;
+    }
+
+    footer a:hover {
+        color: #043D69;
+    }
+
+    .cari {
+        padding-left: 0vw !important;
+        padding-right: 0vw !important;
+    }
+    
+    .cari p,.cari a{
+        font-size: 2vw;
+    }
+    
+    .cari input{
+        height: 90%;
+    }
+
+    .cari .besar {
+        font-size: 3vw;
+        margin-top: 0;
+        margin-bottom: 2vw;
+    }
+
+    .cari li {
+        margin-right: 1vw;
+    }
+
+    .rekomen p {
+        font-size: 1.6vw;
+        margin-bottom: 0;
+    }
+
+    .rekomen .besar {
+        font-size: 2vw;
+        margin-top: 0;
+    }
+
+    .rekomen .card {
+        margin-bottom: 0vw;
+    }
+
+    .rekomen .card p {
+        margin: 0;
+        font-size: 2vw;
+    }
+
+    .latihan li,
+    .detailpelatihan-isi li {
+        font-size: 2vw;
+    }
+
+    .pelatihan .kategori {
+        font-size: 1.5vw;
+    }
+
+    .pelatihan .harga1 {
+        font-size: 2vw!important;
+        text-decoration: line-through;
+    }
+
+    .pelatihan .harga2 {
+        font-weight: 600;
+        font-size: 2.4vw!important;
+    }
+
+    .pelatihan .card-footer {
+        background: white;
+    }
+
+    .pelatihan .cardf-1 img {
+        margin-right: 1vw;
+        margin-bottom: 0.2vw;
+    }
+
+    .pelatihan .cardf-2 img {
+        width: 40%;
+    }
+
+    .row-abu2 {
+        padding: 2vw!important;
+    }
+
+    .row-abu2 p {
+        margin-bottom: 0;
+        font-size: 1.5vw;
+    }
+
+    .row-abu2 img {
+        padding-bottom: 0.2vw;
+    }
+
+    .detailkerja-title img {
+        max-width: 100%;
+    }
+    
+    .detailkerja-title .round-speaker img {
+        width: 15%;
+    }
+
+    .detailkerja-title p {
+        font-size: 2vw;
+        margin-bottom: 0;
+    }
+
+    .detailkerja-title .besar {
+        font-size: 2.8vw;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .detailkerja-title .abu {
+        font-size: 1.8vw;
+        margin-bottom: 1vw;
+        color: #666666;
+    }
+
+    .detailkerja-title .harga-besar {
+        font-size: 2.3vw;
+        margin-bottom: 0;
+    }
+
+    .detailkerja-title .d-inline {
+        font-size: 1.43vw!important;
+    }
+
+    .detailkerja-title .btnghost img {
+        width: 100%;
+    }
+
+    .detailkerja-title .btnghost {
+        padding: 0.2vw 0.3vw;
+        background-color: transparent !important;
+    }
+
+    .detailkerja-title .btndefault {
+        padding-left: 0.8vw !important;
+        padding-right: 0.8vw !important;
+        font-size: 1.5vw !important;
+    }
+
+    .detailkerja-isi {
+        border: 1px solid #DDD;
+        border-radius: 0.5vw;
+        width: 100% !important;
+        margin-right: 100% !important;
+    }
+    
+    .detailkerja-isi p{
+        font-size: 2vw;
+    }
+
+    .detailpelatihan-isi p {
+        max-width: 100%;
+        font-size: 2vw;
+    }
+
+    .detailkerja-isi .besar,
+    .detailpelatihan-isi .besar {
+        margin-top: 0;
+        margin-bottom: 1vw !important;
+        font-size: 2.5vw;
+    }
+
+    .detailpelatihan-isi img {
+        max-width: 100%;
+    }
+
+    .detailpelatihan-isi .kecil {
+        margin-top: 0;
+        margin-bottom: 1vw !important;
+        font-size: 1.5vw;
+    }
+
+    .detailpelatihan-isi .coret {
+        font-size: 1.5vw;
+        text-decoration: line-through;
+    }
+
+    .sub-modul p {
+        font-size: 1.5vw;
+    }
+
+    .sub-modul .col-lg-3 img {
+        width: 16%;
+    }
+    
+    .sub-modul .text-right{
+        padding-top: 2vw;
+        text-align: left!important;
+    }
+    
+    .sub-modul .harga{
+        text-align: left;
+        margin-top: 1vw;
+        font-size: 3vw;
+        display: inline;
+        margin-right: 2vw!important;
+    }
+    
+    .sub-modul .btn{
+        margin-top: 0!important;
+        font-size: 1.5vw!important;
+        float: right;
+    }
+
+    .kotak-sign {
+        width: 60% !important;
+        border: 1px solid #DDD;
+        border-radius: 0.5vw;
+    }
+
+    .kotak-sign p {
+        font-size: 1.5vw;
+    }
+
+    .kotak-sign .judul {
+        font-size: 3vw;
+    }
+
+    .kotak-sign .lupa-pass {
+        color: #043D69;
+    }
+
+    .kotak-sign .form-check-label {
+        font-size: 1.3vw;
+    }
+
+    .kotak-sign .btn {
+        padding-left: 4vw !important;
+        padding-right: 4vw !important;
+    }
+
+    .kotak-sign .kecil {
+        font-size: 1.5vw;
+    }
+
+    .kotak-sign .normal {
+        font-size: 1.5vw;
+    }
+
+    .dashboard p {
+        font-size: 1.5vw;
+    }
+
+    .dashboard .besar {
+        font-size: 2vw;
+    }
+
+    .dashboard .abu {
+        color: #666666;
+    }
+
+    .dashboard .top .btn {
+        padding: 1vw !important;
+        background: #F7F7F7;
+        border-radius: 1vw;
+    }
+    
+    .dashboard .top img {
+        max-width: 100%;
+    }
+    
+    .dashboard .top .col-md-8{
+        padding-left: 0;
+    }
+
+    .dashboard .top .besar {
+        color: #043D69;
+        margin-top: 0;
+        font-size: 1.1vw;
+    }
+
+    .dashboard .top .kecil {
+        color: #043D69;
+        font-size: 0.9vw;
+        margin: 0;
+    }
+
+    .dashboard .top .active {
+        background: #043D69;
+        border-radius: 1vw;
+    }
+
+    .dashboard .top .active p {
+        color: white;
+    }
+
+    .dashboard .isi {
+        border-radius: 1vw;
+        border: 1px solid #DDDDDD;
+    }
+
+    .dashboard .isi .kiri {
+        background: #043D69;
+        padding: 2vw;
+        border-radius: 1vw;
+        color: white;
+    }
+    
+    .dashboard .isi .kiri img{
+        max-width: 100%;
+    }
+
+    .dashboard .isi .kiri p {
+        font-size: 1.3vw;
+        margin-bottom: 0;
+    }
+
+    .dashboard .isi .kiri .besar {
+        font-size: 1.5vw;
+        margin-top: 0;
+        margin-bottom: 0.5vw;
+    }
+
+    .dashboard .isi .kanan {
+        padding: 2vw 3vw;
+    }
+
+    .dashboard .isi .kanan .nama {
+        font-size: 3vw;
+        margin-top: 0;
+    }
+
+    .dashboard .isi .kanan .besar {
+        font-size: 1.5vw;
+        margin-top: 0;
+        margin-bottom: 0.5vw;
+    }
+
+    .dashboard .isi .kanan .card {
+        height: 100%;
+    }
+    
+    .dashboard .isi .kanan .card p {
+        font-size: 1vw;
+        margin-top: 0;
+    }
+
+    .dashboard .isi .kanan .card .besar {
+        font-size: 1.2vw;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+
+    .dashboard .isi .kanan .card .btn {
+        padding-left: 0;
+        padding-right: 0;
+        font-size: 1vw;
+        background: #043D69;
+        color: white;
+    }
+
+    .disabled {
+        pointer-events: none;
+        background: #C4C4C4 !important;
+    }
+
+    .dashboard .isi .kanan .last p {
+        margin-bottom: 0;
+    }
+
+    .edit-atas {
+        width: 40% !important;
+    }
+
+    .edit-atas .angka .btn {
+        margin-right: 1vw;
+        width: 3vw !important;
+        padding: 0vw !important;
+        border-radius: 1.5vw;
+        background: #DDDDDD;
+        color: white;
+        font-size: 1.8vw;
+    }
+
+    .edit-atas .angka .active {
+        background: #043D69;
+    }
+
+    .form-profile {
+        width: 40% !important;
+        border: 1px solid #DDD;
+        border-radius: 0.5vw;
+    }
+
+    .form-profile .judul {
+        font-size: 3vw;
+    }
+
+    .form-profile .lupa-pass {
+        color: #043D69;
+    }
+
+    .form-profile .form-check-label {
+        font-size: 1vw;
+    }
+
+    .form-profile .btn {
+        padding-left: 4vw !important;
+        padding-right: 4vw !important;
+    }
+
+    .form-profile .kecil {
+        font-size: 1vw;
+        display: inline;
+    }
+
+    .form-profile .normal {
+        display: inline;
+        color: #043D69;
+    }
+
+    .form-profile .upload {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        left: 0;
+        filter: alpha(opacity=0);
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+        opacity: 0;
+        background-color: transparent;
+        color: transparent;
+    }
+
+    .form-profile .label-info {
+        font-size: 0.8vw;
+    }
+
+    .form-profile small {
+        color: #818A91;
+    }
+
+    .form-profile .btnupload {
+        border: 1px solid #CCCCCC;
+        color: #999;
+        transition: 1s;
+    }
+
+    .form-profile .btnupload:hover {
+        background: #CCC;
+        color: white;
+    }
+    
+}

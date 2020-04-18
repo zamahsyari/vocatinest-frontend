@@ -8,6 +8,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="img/logo-icon.svg">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="style-responsive.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 </head>
@@ -24,8 +25,8 @@
 
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Beranda<span class="sr-only">(current)</span></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Beranda</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Kenali Dirimu</a>
@@ -33,7 +34,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#">Cari Pekerjaan</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a class="nav-link" href="#">Cari Pelatihan</a>
                     </li>
                 </ul>
@@ -50,15 +51,15 @@
     <div class="container-fluid detailkerja-title row-abu py-4">
         <div class="container">
             <div class="row">
-                <div class="col-3">
+                <div class="col-3 my-auto">
                     <img src="img/detailpelatihan-img.svg" alt="">
                 </div>
-                <div class="col-5 my-auto">
-                    <p class="besar">Nama Pelatihan</p>
+                <div class="col-6 my-auto">
+                    <p class="besar">Menjadi pribadi unggul dalam interview kerja</p>
                     <p class="abu">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, soluta aliquid animi corporis nostrum asperiores.</p>
                     <div class="row">
                         <div class="col-6">
-                            <p class="my-auto"><img src="img/kata-img1.svg" class="mr-2" alt="">Nama Speaker</p>
+                            <p class="my-auto round-speaker"><img src="img/detailpelatihan-speaker-round-img.svg" class="mr-2" alt="">Nama Speaker</p>
                         </div>
                         <div class="col-5 my-auto">
                             <p class="my-auto"><img src="img/star.svg" class="mb-1 mr-2" alt="">4.8 (100k)</p>
@@ -93,50 +94,38 @@
                 <p class="besar">Kategori Pelatihan</p>
                 <ul class="nav my-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Kategori</a>
+                        <a class="nav-link" href="#">Pengembangan Diri</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Kategori</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Kategori</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Kategori</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Kategori</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Kategori</a>
+                        <a class="nav-link" href="#">Optimisme</a>
                     </li>
                 </ul>
             </div>
 
-            <div class="col-12">
+            <div class="col-12 sub-modul">
                 <p class="besar my-3">Sub Modul</p>
 
                 <div class="row mb-4">
-                    <div class="col-3">
+                    <div class="col-4 col-md-3">
                         <img src="img/detailpelatihan-vid.svg" alt="">
                     </div>
-                    <div class="col-6">
+                    <div class="col-8 col-md-6">
                         <p class="besar">1. Nama Sub Modul Pelatihan</p>
                         <p class="kecil">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus fugiat, corporis pariatur cumque repudiandae, consequuntur ab maiores. Suscipit error veritatis nobis? Possimus rerum eius odio ipsum dolore. Ipsum, cupiditate, laboriosam.</p>
                         <div class="row">
-                            <div class="col-3">
+                            <div class="col-4 col-lg-3">
                                 <p class="my-auto"><img src="img/time.svg" class="mb-1 mr-2" alt="">20:04</p>
                             </div>
-                            <div class="col-3">
+                            <div class="col-4 col-lg-3">
                                 <p class="my-auto"><img src="img/star.svg" class="mb-1 mr-2" alt="">4.8 (3.381)</p>
                             </div>
-                            <div class="col-3">
+                            <div class="col-4 col-lg-3">
                                 <p class="my-auto"><img src="img/account.svg" class="mb-1 mr-2" alt="">1973</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-3 text-right">
-                        <p class="besar"><b>Rp 200.000</b></p>
+                    <div class="col-sm-12 col-md-3 text-right">
+                        <p class="besar harga"><b>Rp 200.000</b></p>
                         <p class="coret d-inline mr-3">Rp 700.000</p>
                         <p class="d-inline">20% OFF</p>
                         <button class="btn btnghost mt-3">Beli per Modul</button>
@@ -144,26 +133,26 @@
                 </div>
 
                 <div class="row mb-4">
-                    <div class="col-3">
+                    <div class="col-4 col-md-3">
                         <img src="img/detailpelatihan-vid.svg" alt="">
                     </div>
-                    <div class="col-6">
+                    <div class="col-8 col-md-6">
                         <p class="besar">2. Nama Sub Modul Pelatihan</p>
                         <p class="kecil">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus fugiat, corporis pariatur cumque repudiandae, consequuntur ab maiores. Suscipit error veritatis nobis? Possimus rerum eius odio ipsum dolore. Ipsum, cupiditate, laboriosam.</p>
                         <div class="row">
-                            <div class="col-3">
+                            <div class="col-4 col-lg-3">
                                 <p class="my-auto"><img src="img/time.svg" class="mb-1 mr-2" alt="">20:04</p>
                             </div>
-                            <div class="col-3">
+                            <div class="col-4 col-lg-3">
                                 <p class="my-auto"><img src="img/star.svg" class="mb-1 mr-2" alt="">4.8 (3.381)</p>
                             </div>
-                            <div class="col-3">
+                            <div class="col-4 col-lg-3">
                                 <p class="my-auto"><img src="img/account.svg" class="mb-1 mr-2" alt="">1973</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-3 text-right">
-                        <p class="besar"><b>Rp 200.000</b></p>
+                    <div class="col-sm-12 col-md-3 text-right">
+                        <p class="besar harga"><b>Rp 200.000</b></p>
                         <p class="coret d-inline mr-3">Rp 700.000</p>
                         <p class="d-inline">20% OFF</p>
                         <button class="btn btnghost mt-3">Beli per Modul</button>
@@ -180,12 +169,13 @@
     <div class="container-fluid row-abu mulai">
         <div class="container">
             <div class="row">
-                <div class="col-lg-7">
+                <div class="col-7 my-auto">
                     <p class="besar"><b>Siap temukan pekerjaanmu?</b></p>
-                    <p>Mulai sekarang dan temukan bakat dan minatmu</p>
+                    <p class="mb-0">Mulai sekarang dan temukan bakat dan minatmu</p>
                 </div>
-                <div class="col-lg-5 my-auto text-right">
-                    <button class="btn btndefault mr-4">Mulai Sekarang</button><button class="btn btnghost">Kontak Kami</button>
+                <div class="col-5 my-auto text-right">
+                    <button class="btn btndefault mr-1">MULAI SEKARANG</button>
+                    <button class="btn btnghost">KONTAK KAMI</button>
                 </div>
             </div>
         </div>
@@ -196,11 +186,11 @@
     <footer class="py-3">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-md-3">
                     <img src="img/logo-footer.svg" alt="">
                     <p>Copyrights © Vocatinest Team 2020</p>
                 </div>
-                <div class="col-lg-9">
+                <div class="col-md-9">
                     <ul class="nav justify-content-end">
                         <li class="nav-item">
                             <a class="nav-link" href="#">Tentang Kami</a>
@@ -229,8 +219,6 @@
         </div>
     </footer>
     <!-- Footer -->
-
-
 
 </body>
 
