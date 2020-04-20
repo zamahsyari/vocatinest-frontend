@@ -280,6 +280,11 @@ footer a:hover {
     background: white;
 }
 
+.pelatihan .cardf-0 {
+    border: 0;
+    padding-top: 0;
+}
+
 .pelatihan .cardf-1 img {
     margin-right: 0.5vw;
     margin-bottom: 0.2vw;
@@ -467,6 +472,10 @@ footer a:hover {
     margin-bottom: 0.5vw;
 }
 
+.dashboard .isi .kanan .card {
+    height: 100%;
+}
+
 .dashboard .isi .kanan .card p {
     font-size: 1vw;
     margin-top: 0;
@@ -476,6 +485,11 @@ footer a:hover {
     font-size: 1.2vw;
     margin-top: 0;
     margin-bottom: 0;
+}
+
+.dashboard .isi .kanan .card .card-footer {
+    background: white;
+    border: 0;
 }
 
 .dashboard .isi .kanan .card .btn {
@@ -493,6 +507,16 @@ footer a:hover {
 
 .dashboard .isi .kanan .last p {
     margin-bottom: 0;
+}
+
+.dashboard .isi .kanan .last .sertif {
+    margin-bottom: 0;
+    color: #0275D8;
+    font-size: 1vw;
+}
+
+.dashboard .isi .kanan .last .sertif img {
+    margin-right: 0.5vw;
 }
 
 .edit-atas {
