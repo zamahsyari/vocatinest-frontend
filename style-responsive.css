@@ -366,6 +366,10 @@
     .kotak-sign .normal {
         font-size: 1.5vw;
     }
+    
+    .dashboard {
+        width: 100%;
+    }
 
     .dashboard p {
         font-size: 1.5vw;
@@ -470,6 +474,12 @@
         margin-top: 0;
         margin-bottom: 0;
     }
+    
+    .dashboard .btnghost{
+        font-size: 1.2vw!important;
+        padding-left: 0.5vw;
+        padding-right: 0.5vw;
+    }
 
     .dashboard .isi .kanan .card .btn {
         padding-left: 0;
@@ -489,7 +499,7 @@
     }
 
     .edit-atas {
-        width: 40% !important;
+        width: 60% !important;
     }
 
     .edit-atas .angka .btn {
@@ -507,7 +517,7 @@
     }
 
     .form-profile {
-        width: 40% !important;
+        width: 60% !important;
         border: 1px solid #DDD;
         border-radius: 0.5vw;
     }
@@ -521,7 +531,7 @@
     }
 
     .form-profile .form-check-label {
-        font-size: 1vw;
+        font-size: 1.5vw;
     }
 
     .form-profile .btn {
@@ -569,6 +579,7 @@
         background: #CCC;
         color: white;
     }
+    
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
@@ -933,6 +944,10 @@
     .kotak-sign .normal {
         font-size: 1.5vw;
     }
+    
+    .dashboard{
+        max-width: 100%;
+    }
 
     .dashboard p {
         font-size: 1.5vw;
@@ -956,7 +971,7 @@
         max-width: 100%;
     }
     
-    .dashboard .top .col-md-8{
+    .dashboard .top .col-sm-8{
         padding-left: 0;
     }
 
@@ -1027,6 +1042,10 @@
         height: 100%;
     }
     
+    .dashboard .isi .kanan .card-body {
+        padding: 1vw;
+    }
+    
     .dashboard .isi .kanan .card p {
         font-size: 1vw;
         margin-top: 0;
@@ -1074,9 +1093,29 @@
     }
 
     .form-profile {
-        width: 40% !important;
+        width: 60% !important;
         border: 1px solid #DDD;
         border-radius: 0.5vw;
+    }
+    
+    .form-profile label{
+        font-size: 1.5vw;
+    }
+    
+    .form-profile input{
+        font-size: 1.5vw;
+    }
+    
+    .form-profile select{
+        font-size: 1.5vw;
+    }
+    
+    .form-profile textarea{
+        font-size: 1.5vw;
+    }
+    
+    .form-profile small{
+        font-size: 1.2vw;
     }
 
     .form-profile .judul {
@@ -1088,10 +1127,11 @@
     }
 
     .form-profile .form-check-label {
-        font-size: 1vw;
+        font-size: 1.5vw;
     }
 
-    .form-profile .btn {
+    .form-profile .btn, .btnedit {
+        font-size: 1.5vw!important;
         padding-left: 4vw !important;
         padding-right: 4vw !important;
     }
@@ -1119,7 +1159,7 @@
     }
 
     .form-profile .label-info {
-        font-size: 0.8vw;
+        font-size: 1vw;
     }
 
     .form-profile small {
@@ -1517,22 +1557,22 @@
     }
     
     .dashboard .top img {
-        max-width: 100%;
+        max-width: 20%;
     }
     
-    .dashboard .top .col-md-8{
-        padding-left: 0;
+    .dashboard .top .col-12{
+        text-align: center
     }
 
     .dashboard .top .besar {
         color: #043D69;
-        margin-top: 0;
-        font-size: 1.1vw;
+        margin-top: 0.5vw;
+        font-size: 1.8vw;
     }
 
     .dashboard .top .kecil {
         color: #043D69;
-        font-size: 0.9vw;
+        font-size: 1.5vw;
         margin: 0;
     }
 
@@ -1557,17 +1597,22 @@
         color: white;
     }
     
+    .dashboard .isi .kiri .col-6 {
+        margin-bottom: 0!important;
+        padding: 3vw!important;
+    }
+    
     .dashboard .isi .kiri img{
-        max-width: 100%;
+        max-width: 30%;
     }
 
     .dashboard .isi .kiri p {
-        font-size: 1.3vw;
+        font-size: 2vw;
         margin-bottom: 0;
     }
 
     .dashboard .isi .kiri .besar {
-        font-size: 1.5vw;
+        font-size: 2.5vw;
         margin-top: 0;
         margin-bottom: 0.5vw;
     }
@@ -1575,29 +1620,41 @@
     .dashboard .isi .kanan {
         padding: 2vw 3vw;
     }
+    
+    .dashboard .isi .kanan .btnghost{
+        font-size: 2vw!important;
+    }
+    
+    .dashboard .isi .kanan  p{
+        font-size: 2vw;
+    }
+    
+    .dashboard .isi .kanan .last a .sertif{
+        font-size: 1.5vw
+    }
 
     .dashboard .isi .kanan .nama {
-        font-size: 3vw;
+        font-size: 5vw;
         margin-top: 0;
     }
 
     .dashboard .isi .kanan .besar {
-        font-size: 1.5vw;
+        font-size: 2vw;
         margin-top: 0;
         margin-bottom: 0.5vw;
     }
 
-    .dashboard .isi .kanan .card {
-        height: 100%;
+    .dashboard .isi .kanan .card-body,.dashboard .isi .kanan .card-footer  {
+        padding: 2vw;
     }
     
     .dashboard .isi .kanan .card p {
-        font-size: 1vw;
+        font-size: 1.8vw;
         margin-top: 0;
     }
 
     .dashboard .isi .kanan .card .besar {
-        font-size: 1.2vw;
+        font-size: 2vw;
         margin-top: 0;
         margin-bottom: 0;
     }
@@ -1605,7 +1662,7 @@
     .dashboard .isi .kanan .card .btn {
         padding-left: 0;
         padding-right: 0;
-        font-size: 1vw;
+        font-size: 2vw;
         background: #043D69;
         color: white;
     }
@@ -1638,26 +1695,41 @@
     }
 
     .form-profile {
-        width: 40% !important;
+        width: 70% !important;
         border: 1px solid #DDD;
         border-radius: 0.5vw;
     }
+    
+    .form-profile label{
+        font-size: 2vw;
+    }
+    
+    .form-profile input{
+        font-size: 2vw;
+    }
+    
+    .form-profile select{
+        font-size: 2vw;
+    }
+    
+    .form-profile textarea{
+        font-size: 2vw;
+    }
+    
+    .form-profile small{
+        font-size: 1.5vw;
+    }
 
     .form-profile .judul {
-        font-size: 3vw;
+        font-size: 4vw;
     }
 
     .form-profile .lupa-pass {
         color: #043D69;
     }
 
-    .form-profile .form-check-label {
-        font-size: 1vw;
-    }
-
-    .form-profile .btn {
-        padding-left: 4vw !important;
-        padding-right: 4vw !important;
+    .form-profile .btn, .btnedit {
+        font-size: 2vw!important;
     }
 
     .form-profile .kecil {
@@ -1683,7 +1755,7 @@
     }
 
     .form-profile .label-info {
-        font-size: 0.8vw;
+        font-size: 1.5vw;
     }
 
     .form-profile small {

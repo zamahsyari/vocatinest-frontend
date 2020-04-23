@@ -7,8 +7,14 @@ nav {
     background-color: white !important;
 }
 
-nav img {
+nav .navbar-brand img {
     width: 80%;
+}
+
+nav form img {
+    padding: 0 !important;
+    margin-right: 1.5vw;
+    max-width: 47px!important;
 }
 
 nav .active {
@@ -544,8 +550,17 @@ footer a:hover {
 }
 
 .form-profile .judul {
-    font-size: 3vw;
+    font-size: 2vw;
 }
+
+.form-profile .judul .biru {
+    color: #043D69;
+}
+
+.form-profile .judul .abu {
+    color: #DDD;
+}
+
 
 .form-profile .lupa-pass {
     color: #043D69;
