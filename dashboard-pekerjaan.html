@@ -61,18 +61,18 @@
     <!-- Navbar -->
 
     <!-- Main -->
-    <div class="container-fluid row-putih pt-0 pb-0">
-        <div class="container dashboard mb-5">
+    <div class="container-fluid row-putih pt-0">
+        <div class="container dashboard">
             <div class="col-12 text-center">
                 <p class="besar">Dashboard Anda</p>
                 <p class="abu">Temukan Beragam Pilihan Pekerjaan Vokasi Sesuai Dengan Bakat dan Minatmu</p>
             </div>
             <div class="col-12 top">
                 <div class="row mt-4 justify-content-center">
-                    <a href="dashboard-profile.html" class="col-3 btn p-4 mr-4 text-left active">
+                    <a href="dashboard-profile.html" class="col-3 btn p-4 mr-4 text-left">
                         <div class="row">
                             <div class="col-12 col-sm-4 col-lg-3 my-auto">
-                                <img src="img/dashboard-biru-1-active.svg" alt="">
+                                <img src="img/dashboard-biru-1.svg" alt="">
                             </div>
                             <div class="col-12 col-sm-8 col-lg-9 my-auto">
                                 <p class="besar">PROFIL ANDA</p>
@@ -81,10 +81,10 @@
                         </div>
                     </a>
 
-                    <a href="dashboard-pekerjaan.html" class="col-3 btn p-4 text-left">
+                    <a href="dashboard-pekerjaan.html" class="col-3 btn p-4 text-left active">
                         <div class="row">
                             <div class="col-12 col-sm-4 col-lg-3 my-auto">
-                                <img src="img/dashboard-biru-2.svg" alt="">
+                                <img src="img/dashboard-biru-2-active.svg" alt="">
                             </div>
                             <div class="col-12 col-sm-8 col-lg-9 my-auto">
                                 <p class="besar">PEKERJAAN ANDA</p>
@@ -107,67 +107,86 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!-- Main -->
 
-        <div class="container edit-atas dashboard mb-5">
-            <p class="besar text-center">Info Pekerjaan</p>
-            <p class="abu text-center">Isi data dengan benar agar kami dapat mencari pekerjaan yang cocok untuk Anda</p>
-            <div class="row">
-                <div class="col-12 angka text-center">
-                    <button class="btn disabled"><b>1</b></button>
-                    <button class="btn disabled"><b>2</b></button>
-                    <button class="btn active"><b>3</b></button>
+    <!-- Main -->
+    <div class="container-fluid row-putih dashboard-profile pt-0">
+        <div class="container rekomen">
+            <div class="row mb-5">
+                <div class="col-10 col-sm-9 col-md-7">
+                    <p class="besar"><b>Pekerjaan yang telah Anda Daftarkan</b></p>
                 </div>
             </div>
-        </div>
 
-        <div class="container form-profile px-5 py-2 mb-3">
-            <div class="row">
-                <div class="col-6">
-                    <p class="judul"><b>Pertanyaan</b></p>
+            <div class="row mb-4">
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <a href="dashboard-pekerjaan-detail.html"><img src="img/header-card1.svg" class="card-img-top" alt="..."></a>
+                        <div class="card-body">
+                            <a href="dashboard-pekerjaan-detail.html">
+                                <p><b>Staf Programmer</b></p>
+                            </a>
+                            <p>PT Inet Global Indo</p>
+                            <br>
+                            <p>DKI Jakarta</p>
+                        </div>
+                        <div class="card-footer pt-0">
+                            <a class="btn btn-block disabled mt-3">Proposal telah dikirim</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-6 text-right">
-                    <p class="judul"><b class="biru">15</b><b class="abu">/15</b></p>
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <img src="img/header-card2.svg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p><b>Technical Support</b></p>
+                            <p>PT Varnion Teknologi Semesta</p>
+                            <br>
+                            <p>DKI Jakarta</p>
+                        </div>
+                        <div class="card-footer pt-0">
+                            <a class="btn btn-block disabled mt-3">Proposal telah dikirim</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <img src="img/header-card3.svg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p><b>System Developer</b></p>
+                            <p>PT Lattice Teknologi Mandiri</p>
+                            <br>
+                            <p>DKI Jakarta</p>
+                        </div>
+                        <div class="card-footer pt-0">
+                            <a class="btn btn-block disabled mt-3">Proposal telah dikirim</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <img src="img/header-card4.svg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p><b>Pendukung Transaksi</b></p>
+                            <p>Pegadaian</p>
+                            <br>
+                            <p>Kalimantan Timur</p>
+                        </div>
+                        <div class="card-footer pt-0">
+                            <a class="btn btn-block disabled mt-3">Proposal telah dikirim</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <form>
-                <div class="form-group">
-                    <label>Ketika ada konflik, saya merasa keterampilan komunikasi saya perlu ditingkatkan terutama dalam mencari solusi dan menyelesaikan masalah.</label>
-                    <div class="form-check my-auto">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                        <label class="form-check-label" for="exampleRadios1">
-                            Tidak Sama Sekali
-                        </label>
-                    </div>
-                    <div class="form-check my-auto">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                        <label class="form-check-label" for="exampleRadios2">
-                            Jarang
-                        </label>
-                    </div>
-                    <div class="form-check my-auto">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                        <label class="form-check-label" for="exampleRadios3">
-                            Kadang-kadang
-                        </label>
-                    </div>
-                    <div class="form-check my-auto">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
-                        <label class="form-check-label" for="exampleRadios4">
-                            Sering
-                        </label>
-                    </div>
-                    <div class="form-check my-auto">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
-                        <label class="form-check-label" for="exampleRadios5">
-                            Tidak sama sekali
-                        </label>
-                    </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <button class="btn btnghost">Telusuri Pekerjaan Lain</button>
                 </div>
-            </form>
-        </div>
-        
-        <div class="col-12 text-center my-4">
-            <a href="dashboard-profile.html" class="btn btndefault btnedit justify-content-center px-5">Selesai</a>
+            </div>
         </div>
     </div>
     <!-- Main -->
