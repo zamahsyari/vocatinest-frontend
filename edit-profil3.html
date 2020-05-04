@@ -107,7 +107,7 @@
                 </div>
             </div>
         </div>
-
+        <div id="error"></div>
         <div class="container edit-atas dashboard mb-5">
             <p class="besar text-center">Info Pekerjaan</p>
             <p class="abu text-center">Isi data dengan benar agar kami dapat mencari pekerjaan yang cocok untuk Anda</p>
@@ -119,7 +119,7 @@
                 </div>
             </div>
         </div>
-
+        <div class="loader">Loading...</div>
         <div class="container form-profile px-5 py-2 mb-3">
             <div class="row">
                 <div class="col-6">
@@ -158,7 +158,7 @@
                     <div class="form-check my-auto">
                         <input class="form-check-input" type="radio" name="answer_id" id="exampleRadios5" value="5" required>
                         <label class="form-check-label" for="exampleRadios5">
-                            Tidak sama sekali
+                            Sangat Sering
                         </label>
                     </div>
                 </div>
@@ -283,12 +283,17 @@
                     $('[name=answer_id]').prop('checked', false);
                 },
                 error: (error) => {
-                    console.log(error)
+                    console.log(error);
+                    $('#error').html('<div class="alert alert-danger" role="alert">Ups, terjadi kesalahan</div>');
                 }
             });
         }
 
         function submit(data){
+            $('.form-profile').hide();
+            $('#next-btn').hide();
+            $('.loader').show();
+
             $.ajax({
                 url: 'https://api.vocatinest.com/profiles',
                 contentType: "application/json; charset=utf-8",
@@ -299,11 +304,14 @@
                     window.location.href = "dashboard-profile.html";
                 },
                 error: (error) => {
-                    console.log(error)
+                    console.log(error);
+                    $('#error').html('<div class="alert alert-danger" role="alert">Ups, terjadi kesalahan</div>');
                 }
             });
         }
         $(function(){
+            $('.form-profile').show();
+            $('.loader').hide();
             getAllQuestions()
         });
     </script>
