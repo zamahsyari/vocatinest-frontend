@@ -42,15 +42,14 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <img class="img-fluid" src="img/nav-img-profile.svg" alt="">
+                    <img class="img-fluid" src="img/nav-img-profile.svg" alt="" id="nav-image">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="nav-name" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Jenri Dewany
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -234,6 +233,22 @@
             return array;
         }
 
+        function getProfile(){
+            $.ajax({
+                url: 'https://api.vocatinest.com/profiles/'+localStorage.getItem('user_id'),
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                method: 'GET',
+                success: (data) => {
+                    $('#nav-name').html(data.data.name);
+                    $('#nav-image').attr('src', data.data.image);
+                },
+                error: (error) => {
+                    console.log(error)
+                }
+            });
+        }
+
         function gotoNext(){
             let answer_id = 0;
             $('[name^=answer_id]').map(function(idx, elem){
@@ -310,6 +325,7 @@
             });
         }
         $(function(){
+            getProfile();
             $('.form-profile').show();
             $('.loader').hide();
             getAllQuestions()
