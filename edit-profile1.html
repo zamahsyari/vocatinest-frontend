@@ -49,7 +49,7 @@
                                 Jenri Dewany
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Logout</a>
+                                <a class="dropdown-item" onclick="logout()">Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -395,6 +395,10 @@
                     console.log(error)
                 }
             });
+        }
+        function logout(){
+            localStorage.clear();
+            window.location.href = "masuk.html";
         }
         $(function(){
             getProfile();
