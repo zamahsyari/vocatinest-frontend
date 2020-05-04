@@ -52,10 +52,10 @@
         <div class="container kotak-sign p-5">
             <p class="judul text-center"><b>Masuk</b></p>
             <p class="mb-5">Masukkan akun Vocatinestmu.</p>
-            <form>
+            <form action="dashboard-profile.html">
                 <div class="form-group">
                     <label>Email Anda</label>
-                    <input type="email" class="form-control" placeholder="Masukkan Alamat Email Anda">
+                    <input type="email" class="form-control" placeholder="Masukkan Alamat Email Anda" name="email">
                 </div>
                 <div class="form-group">
                     <div class="row">
@@ -66,10 +66,10 @@
                             <a href="" class="lupa-pass">Lupa Password?</a>
                         </div>
                     </div>
-                    <input type="password" class="form-control">
+                    <input type="password" class="form-control" name="password">
                 </div>
                 <div class="col-12 text-center my-5">
-                    <a href="dashboard-profile.html" type="submit" class="btn btndefault">Masuk Sekarang</a>
+                    <button type="submit" class="btn btndefault">Masuk Sekarang</button>
                 </div>
                 <div class="col-12 text-center">
                     <p class="kecil mr-1">Belum punya Akun?</p>
@@ -117,7 +117,33 @@
         </div>
     </footer>
     <!-- Footer -->
-
+    <script>
+        $(function(){
+            $('form').on('submit', function(ev){
+                ev.preventDefault();
+                $.ajax({
+                    url: 'http://localhost:3000/login',
+                    data: JSON.stringify({
+                        email: $('[name=email]').val(),
+                        password: $('[name=password]').val()
+                    }),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: 'json',
+                    method: 'POST',
+                    success: (data) => {
+                        console.log(data);
+                        localStorage.setItem('email', data.data.email);
+                        localStorage.setItem('token', data.data.token);
+                        localStorage.setItem('user_id', data.data.user_id);
+                        window.location.href = 'dashboard-profile.html'
+                    },
+                    error: (error) => {
+                        console.log(error)
+                    }
+                });
+            })
+        })
+    </script>
 </body>
 
 </html>

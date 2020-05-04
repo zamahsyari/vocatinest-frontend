@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>VOCATINEST</title>
-    <link href="style.css" rel="stylesheet" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" />
     <link rel="shortcut icon" href="img/logo-icon.svg">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="style-responsive.css" rel="stylesheet" />
@@ -122,13 +122,12 @@
 
         <div class="container form-profile px-5 py-2 mb-3">
             <p class="judul"><b>Info Photo & CV</b></p>
-            <form>
                 <div class="form-group">
                     <label>Upload Photo</label>
                     <div class="position-relative">
                         <a class='btn btnupload'>
                             Upload Photo
-                            <input accept=".JPEG, .PNG" type="file" class="upload" name="file_source" size="40" onchange='$("#upload-file-info").html($(this).val());'>
+                            <input name="image" accept=".JPEG, .PNG" type="file" class="upload" name="file_source" size="40" onchange='readURL(this)'>
                         </a>
                         &nbsp;
                         <span class='label label-info' id="upload-file-info"></span><br>
@@ -140,29 +139,27 @@
                     <div class="position-relative">
                         <a class='btn btnupload'>
                             Upload CV
-                            <input accept=".doc, .pdf, .JPEG, .PNG" type="file" class="upload" name="file_source" size="40" onchange='$("#upload-file-info2").html($(this).val());'>
+                            <input name="cv" accept=".doc, .pdf, .JPEG, .PNG" type="file" class="upload" name="file_source" size="40" onchange='$("#upload-file-info2").html($(this).val());'>
                         </a>
                         &nbsp;
                         <span class='label label-info' id="upload-file-info2"></span><br>
                         <small>*Format .doc, .pdf, .JPEG, .PNG - Max file : 10MB</small>
                     </div>
                 </div>
-            </form>
         </div>
 
         <div class="container form-profile px-5 py-2 mb-3">
             <p class="judul"><b>Info Biografi</b></p>
-            <form>
                 <div class="form-group">
                     <label>Jenis Kelamin</label>
                     <div class="form-check my-auto">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                        <input class="form-check-input" type="radio" name="sex" id="exampleRadios1" value="M">
                         <label class="form-check-label" for="exampleRadios1">
                             Laki-Laki
                         </label>
                     </div>
                     <div class="form-check my-auto">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                        <input class="form-check-input" type="radio" name="sex" id="exampleRadios2" value="F">
                         <label class="form-check-label" for="exampleRadios2">
                             Perempuan
                         </label>
@@ -171,12 +168,12 @@
 
                 <div class="form-group">
                     <label>Nama Sekolah</label>
-                    <input class="form-control" placeholder="Masukkan Nama Sekolah">
+                    <input class="form-control" placeholder="Masukkan Nama Sekolah" name="current_school_name">
                 </div>
 
                 <div class="form-group">
                     <label>Kejuruan</label>
-                    <input class="form-control" placeholder="Masukkan Kejuruan">
+                    <input class="form-control" placeholder="Masukkan Kejuruan" name="current_specialization">
                 </div>
 
                 <div class="form-group">
@@ -184,19 +181,19 @@
                     <div class="col-12">
                         <div class="row">
                             <div class="form-check col-3">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <input class="form-check-input" type="radio" name="current_grade" id="inlineRadio1" value="10">
                                 <label class="form-check-label" for="inlineRadio1">I</label>
                             </div>
                             <div class="form-check col-3">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <input class="form-check-input" type="radio" name="current_grade" id="inlineRadio1" value="11">
                                 <label class="form-check-label" for="inlineRadio1">II</label>
                             </div>
                             <div class="form-check col-3">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <input class="form-check-input" type="radio" name="current_grade" id="inlineRadio1" value="12">
                                 <label class="form-check-label" for="inlineRadio1">III</label>
                             </div>
                             <div class="form-check col-3 pr-0">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <input class="form-check-input" type="radio" name="current_grade" id="inlineRadio1" value="12">
                                 <label class="form-check-label" for="inlineRadio1">Sudah Lulus</label>
                             </div>
                         </div>
@@ -205,162 +202,136 @@
 
                 <div class="form-group">
                     <label>Tahun Lulus / Target Lulus</label>
-                    <select class="form-control" id="exampleFormControlSelect">
-                        <option>2021</option>
-                    </select>
+                    <select class="form-control year-filled" id="exampleFormControlSelect" name="current_graduate_year"></select>
                 </div>
 
                 <div class="form-group">
-                    <label>Ekstrakulikuler</label>
-                    <input class="form-control" placeholder="Masukkan Ekstrakulikuler">
-
-                    <button class="btn btn-block btnghost mt-3">+ Tambah Ekstrakulikuler</button>
+                    <label>Ekstrakurikuler</label>
+                    <input class="form-control" placeholder="Masukkan Ekstrakurikuler" name="current_extracurricular[]">
+                    <div class="additional-ekskul"></div>
+                    <button class="btn btn-block btnghost mt-3" type="button" onclick="addEkskul()">+ Tambah Ekstrakurikuler</button>
                 </div>
 
                 <div class="form-group">
                     <label>Alamat Tempat Tinggal</label>
-                    <textarea placeholder="Masukkan alamat lengkap" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea placeholder="Masukkan alamat lengkap" class="form-control" id="exampleFormControlTextarea1" rows="3" name="address"></textarea>
                 </div>
 
                 <div class="form-group">
                     <label>No. Handphone</label>
-                    <input class="form-control" placeholder="Masukkan No. Handphone">
+                    <input class="form-control" placeholder="Masukkan No. Handphone" name="phone">
                 </div>
-            </form>
         </div>
 
-        <div class="container form-profile px-5 py-2 mb-3">
+        <div class="container form-profile px-5 py-2 mb-3" id="job-experience">
             <p class="judul"><b>Pengalaman Kerja</b></p>
-            <form>
                 <div class="form-group">
                     <label>Jabatan</label>
-                    <input class="form-control" placeholder="Masukkan Jabatan">
+                    <input class="form-control" placeholder="Masukkan Jabatan" name="job_position[]">
                 </div>
 
                 <div class="form-group">
                     <label>Peran</label>
-                    <input class="form-control" placeholder="Masukkan Peran">
+                    <input class="form-control" placeholder="Masukkan Peran" name="job_role[]">
                 </div>
 
                 <div class="form-group">
                     <label>Nama Perusahaan / Instansi</label>
-                    <input class="form-control" placeholder="Masukkan Nama Perusahaan / Instansi">
+                    <input class="form-control" placeholder="Masukkan Nama Perusahaan / Instansi" name="job_name[]">
                 </div>
 
                 <div class="form-group">
-                    <label>Lokasi</label>
-                    <select class="form-control" id="exampleFormControlSelect">
-                        <option selected>Pilih Lokasi</option>
-                    </select>
+                    <label>Kota</label>
+                    <input class="form-control" id="exampleFormControlSelect" name="job_location[]">
                 </div>
 
                 <div class="form-group">
                     <div class="row">
                         <div class="col-6">
                             <label class="d-block">Mulai</label>
-                            <select class="form-control col-5 d-inline mr-2" id="exampleFormControlSelect">
-                                <option selected>Bulan</option>
-                            </select>
-                            <select class="form-control col-5 d-inline" id="exampleFormControlSelect">
-                                <option selected>Tahun</option>
-                            </select>
+                            <select class="form-control col-5 d-inline mr-2 month-filled" id="exampleFormControlSelect" name="job_month_start_date[]"></select>
+                            <select class="form-control col-5 d-inline year-filled" id="exampleFormControlSelect" name="job_year_start_date[]"></select>
                         </div>
                         <div class="col-6">
                             <label class="d-block">Akhir</label>
-                            <select class="form-control col-5 d-inline mr-2" id="exampleFormControlSelect">
-                                <option selected>Bulan</option>
-                            </select>
-                            <select class="form-control col-5 d-inline" id="exampleFormControlSelect">
-                                <option selected>Tahun</option>
-                            </select>
+                            <select class="form-control col-5 d-inline mr-2 month-filled" id="exampleFormControlSelect" name="job_month_end_date[]"></select>
+                            <select class="form-control col-5 d-inline year-filled" id="exampleFormControlSelect" name="job_year_end_date[]"></select>
                         </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label>Deskripsi Pekerjaan</label>
-                    <textarea placeholder="Tulis Deskripsi" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea placeholder="Tulis Deskripsi" class="form-control" id="exampleFormControlTextarea1" rows="3" name="job_description[]"></textarea>
                 </div>
-
-                <button class="btn btn-block btnghost mt-3">+ Tambah Pengalaman Kerja</button>
-            </form>
+                <div class="action">
+                    <button type="button" class="btn btn-block btnghost mt-3" onclick="addJobExperience()">+ Tambah Pengalaman Kerja</button>
+                </div>
         </div>
+        <div class="additional-job-experience"></div>
 
-        <div class="container form-profile px-5 py-2 mb-3">
+        <div class="container form-profile px-5 py-2 mb-3" id="education">
             <p class="judul"><b>Pendidikan</b></p>
-            <form>
-                <div class="form-group">
-                    <label>Jenis Pendidikan</label>
-                    <input class="form-control" placeholder="Masukkan Jenis Pendidikan">
-                </div>
-
                 <div class="form-group">
                     <label>Tingkat Pendidikan</label>
-                    <input class="form-control" placeholder="Masukkan Tingkat Pendidikan">
+                    <select class="form-control .major" name="edu_major_id[]"></select>
                 </div>
 
                 <div class="form-group">
                     <label>Nama Sekolah</label>
-                    <input class="form-control" placeholder="Masukkan Nama Sekolah">
+                    <input class="form-control" placeholder="Masukkan Nama Sekolah" name="edu_school_name[]">
                 </div>
 
                 <div class="form-group">
                     <label>Jurusan</label>
-                    <input class="form-control" placeholder="Masukkan Jurusan">
+                    <input class="form-control" placeholder="Masukkan Jurusan" name="edu_specialization[]">
                 </div>
 
                 <div class="form-group">
                     <div class="row">
                         <div class="col-6">
                             <label class="d-block">Mulai</label>
-                            <select class="form-control col-5 d-inline mr-2" id="exampleFormControlSelect">
-                                <option selected>Bulan</option>
-                            </select>
-                            <select class="form-control col-5 d-inline" id="exampleFormControlSelect">
-                                <option selected>Tahun</option>
-                            </select>
+                            <select class="form-control col-5 d-inline mr-2 month-filled" id="exampleFormControlSelect" name="edu_month_start_date[]"></select>
+                            <select class="form-control col-5 d-inline year-filled" id="exampleFormControlSelect" name="edu_year_start_date[]"></select>
                         </div>
                         <div class="col-6">
                             <label class="d-block">Akhir</label>
-                            <select class="form-control col-5 d-inline mr-2" id="exampleFormControlSelect">
-                                <option selected>Bulan</option>
-                            </select>
-                            <select class="form-control col-5 d-inline" id="exampleFormControlSelect">
-                                <option selected>Tahun</option>
-                            </select>
+                            <select class="form-control col-5 d-inline mr-2 month-filled" id="exampleFormControlSelect" name="edu_month_end_date[]"></select>
+                            <select class="form-control col-5 d-inline year-filled id="exampleFormControlSelect" name="edu_year_end_date[]"></select>
                         </div>
                     </div>
                 </div>
                 
                 <div class="form-group">
                     <label>Nilai Rata-Rata</label>
-                    <input class="form-control" placeholder="Masukkan Nilai Rata-Rata">
+                    <input class="form-control" placeholder="Masukkan Nilai Rata-Rata" name="edu_score[]">
                 </div>
 
                 <div class="form-group">
                     <label>Deskripsi Pendidikan</label>
-                    <textarea placeholder="Tulis Deskripsi" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea placeholder="Tulis Deskripsi" class="form-control" id="exampleFormControlTextarea1" rows="3" name="edu_description[]"></textarea>
                 </div>
                 
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label>Upload Ijazah / Sertifikat</label>
                     <div class="position-relative">
                         <a class='btn btnupload'>
                             Upload Ijazah / Sertifikat
-                            <input accept=".doc, .pdf, .JPEG, .PNG" type="file" class="upload" name="file_source" size="40" onchange='$("#upload-file-info3").html($(this).val());'>
+                            <input accept=".doc, .pdf, .JPEG, .PNG" type="file" class="upload" name="edu_certificate[]" size="40" onchange='$("#upload-file-info3").html($(this).val());'>
                         </a>
                         &nbsp;
                         <span class='label label-info' id="upload-file-info3"></span><br>
                         <small>*Format .doc, .pdf, .JPEG, .PNG - Max file : 10MB</small>
                     </div>
+                </div> -->
+                <div class="action">
+                    <button type="button" class="btn btn-block btnghost mt-3" onclick="addEducation()">+ Tambah Pendidikan</button>
                 </div>
-
-                <button class="btn btn-block btnghost mt-3">+ Tambah Pendidikan</button>
-            </form>
         </div>
+        <div class="additional-education"></div>
         
         <div class="col-12 text-center my-4">
-            <a href="edit-profil2.html" class="btn btndefault btnedit justify-content-center px-5">Selanjutnya</a>
+            <a class="btn btndefault btnedit justify-content-center px-5" onclick="submitForm()">Selanjutnya</a>
         </div>
     </div>
     <!-- Main -->
@@ -403,7 +374,216 @@
         </div>
     </footer>
     <!-- Footer -->
-
+    <script>
+        let now = new Date();
+        function numberToStringDigit(val){
+            if(val < 10){
+                return '0'+val;
+            }
+            return val;
+        }
+        $(function(){
+            for(let i=0; i<12; i++){
+                $('.month-filled').append('<option value="'+numberToStringDigit(i+1)+'">'+numberToStringDigit(i+1)+'</option>');
+            }
+            for(let i=1999; i<now.getFullYear()+10; i++){
+                $('.year-filled').append('<option value="'+numberToStringDigit(i+1)+'">'+numberToStringDigit(i+1)+'</option>');
+            }
+            $.ajax({
+                    url: 'http://localhost:3000/majors',
+                    contentType: "application/json; charset=utf-8",
+                    method: 'GET',
+                    success: (data) => {
+                        for(let i=0;i<data.data.length;i++){
+                            $('[name^=edu_major_id]').append('<option value="'+data.data[i].id+'">'+data.data[i].major+'</option>')
+                        }
+                    },
+                    error: (error) => {
+                        console.log(error)
+                    }
+                });
+        });
+        function addEkskul(){
+            $('.additional-ekskul').append('<div class="input-group add-input">\
+                <input class="form-control" placeholder="Masukkan Ekstrakurikuler" name="current_extracurricular[]">\
+                <div class="input-group-append">\
+                    <a class="btn btn-outline-danger" onclick="remove(this)">X</a>\
+                </div>\
+            </div>');
+        }
+        function addJobExperience(){
+            var jobex = $('#job-experience').clone();
+            jobex.removeAttr('id');
+            jobex.find('.action').html('<button type="button" class="btn btn-block btnghost mt-3" onclick="remove(this)">- Hapus Pengalaman Kerja</button>');
+            $('.additional-job-experience').append(jobex);
+        }
+        function addEducation(){
+            var jobex = $('#education').clone();
+            jobex.removeAttr('id');
+            jobex.find('.action').html('<button type="button" class="btn btn-block btnghost mt-3" onclick="remove(this)">- Hapus Pendidikan</button>');
+            $('.additional-education').append(jobex);
+        }
+        function remove(el){
+            $(el).parent().parent().remove();
+        }
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    $('#preview').attr('src', e.target.result);
+                    $("#upload-file-info").html($(input).val());
+                }
+                
+                reader.readAsDataURL(input.files[0]); // convert to base64 string
+            }
+        }
+        function saveBase64(file, key) {
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function () {
+                // console.log(reader.result);
+                localStorage.setItem(key, reader.result)
+            };
+            reader.onerror = function (error) {
+                console.log('Error: ', error);
+            };
+        }
+        function submitForm(){
+            // personal
+            if(document.querySelector('[name=image]').files[0] != undefined){
+                saveBase64(document.querySelector('[name=image]').files[0], 'image');
+            }
+            if(document.querySelector('[name=cv]').files[0] != undefined){
+                saveBase64(document.querySelector('[name=cv]').files[0], 'cv');
+            }
+            localStorage.setItem('sex', $('[name=sex]').val());
+            localStorage.setItem('current_school_name', $('[name=current_school_name]').val());
+            localStorage.setItem('current_specialization', $('[name=current_specialization]').val());
+            localStorage.setItem('current_grade', $('[name=current_grade]').val());
+            localStorage.setItem('current_graduate_year', $('[name=current_graduate_year]').val());
+            localStorage.setItem('current_extracurricular', $('[name^=current_extracurricular]').map(function(idx, elem){
+                return $(elem).val();
+            }).get());
+            localStorage.setItem('address', $('[name=address]').val());
+            localStorage.setItem('phone', $('[name=phone]').val());
+            // work history
+            localStorage.setItem('job_position', $('[name^=job_position]').map(function(idx, elem){
+                return $(elem).val();
+            }).get());
+            localStorage.setItem('job_role', $('[name^=job_role]').map(function(idx, elem){
+                return $(elem).val();
+            }).get());
+            localStorage.setItem('job_name', $('[name^=job_name]').map(function(idx, elem){
+                return $(elem).val();
+            }).get());
+            localStorage.setItem('job_location', $('[name^=job_location]').map(function(idx, elem){
+                return $(elem).val();
+            }).get());
+            localStorage.setItem('job_month_start_date', $('[name^=job_month_start_date]').map(function(idx, elem){
+                return $(elem).val();
+            }).get());
+            localStorage.setItem('job_year_start_date', $('[name^=job_year_start_date]').map(function(idx, elem){
+                return $(elem).val();
+            }).get());
+            localStorage.setItem('job_month_end_date', $('[name^=job_month_end_date]').map(function(idx, elem){
+                return $(elem).val();
+            }).get());
+            localStorage.setItem('job_year_end_date', $('[name^=job_year_end_date]').map(function(idx, elem){
+                return $(elem).val();
+            }).get());
+            localStorage.setItem('job_description', $('[name^=job_description]').map(function(idx, elem){
+                return $(elem).val();
+            }).get());
+            // education
+            localStorage.setItem('edu_major_id', $('[name^=edu_major_id]').map(function(idx, elem){
+                return $(elem).val();
+            }).get());
+            localStorage.setItem('edu_school_name', $('[name^=edu_school_name]').map(function(idx, elem){
+                return $(elem).val();
+            }).get());
+            localStorage.setItem('edu_specialization', $('[name^=edu_specialization]').map(function(idx, elem){
+                return $(elem).val();
+            }).get());
+            localStorage.setItem('edu_month_start_date', $('[name^=edu_month_start_date]').map(function(idx, elem){
+                return $(elem).val();
+            }).get());
+            localStorage.setItem('edu_year_start_date', $('[name^=edu_year_start_date]').map(function(idx, elem){
+                return $(elem).val();
+            }).get());
+            localStorage.setItem('edu_month_end_date', $('[name^=edu_month_end_date]').map(function(idx, elem){
+                return $(elem).val();
+            }).get());
+            localStorage.setItem('edu_year_end_date', $('[name^=edu_year_end_date]').map(function(idx, elem){
+                return $(elem).val();
+            }).get());
+            localStorage.setItem('edu_score', $('[name^=edu_score]').map(function(idx, elem){
+                return $(elem).val();
+            }).get());
+            $('[name^=edu_certificate]').map(function(idx, elem){
+                // console.log(idx);
+                if($(elem).prop('files')[0] != undefined){
+                    saveBase64($(elem).prop('files')[0], 'edu_certificate_'+idx);
+                }
+                localStorage.setItem('edu_certificate_last_index', idx);
+            });
+            let schools = []
+            let works = []
+            schools.push({
+                school_name: localStorage.getItem('current_school_name'),
+                major_id: 4,
+                grade: parseInt(localStorage.getItem('current_grade')),
+                extracurricular: localStorage.getItem('current_extracurricular'),
+                graduate_year: parseInt(localStorage.getItem('current_graduate_year')),
+                specialization: localStorage.getItem('current_specialization')
+            })
+            let edu_length = localStorage.getItem('edu_major_id').split(',').length;
+            for(let i=0;i<edu_length;i++){
+                schools.push({
+                    school_name: localStorage.getItem('edu_school_name').split(',')[i],
+                    major_id: parseInt(localStorage.getItem('edu_major_id').split(',')[i]),
+                    specialization: localStorage.getItem('edu_specialization').split(',')[i],
+                    start_date: localStorage.getItem('edu_year_start_date').split(',')[i]+'-'+localStorage.getItem('edu_month_start_date').split(',')[i]+'-01',
+                    end_date: localStorage.getItem('edu_year_end_date').split(',')[i]+'-'+localStorage.getItem('edu_month_end_date').split(',')[i]+'-01',
+                    score: parseFloat(localStorage.getItem('edu_score').split(',')[i]),
+                    certificate: localStorage.getItem('edu_certificate_'+i),
+                })
+            }
+            let work_length = localStorage.getItem('job_position').split(',').length;
+            for(let i=0;i<work_length;i++){
+                works.push({
+                    position: localStorage.getItem('job_position').split(',')[i],
+                    role: localStorage.getItem('job_role').split(',')[i],
+                    name: localStorage.getItem('job_name').split(',')[i],
+                    start_date: localStorage.getItem('job_year_start_date').split(',')[i]+'-'+localStorage.getItem('job_month_start_date').split(',')[i]+'-01',
+                    end_date: localStorage.getItem('job_year_end_date').split(',')[i]+'-'+localStorage.getItem('job_month_end_date').split(',')[i]+'-01',
+                    description: localStorage.getItem('job_description').split(',')[i],
+                })
+            }
+            let data = {
+                user_id: parseInt(localStorage.getItem('user_id')),
+                sex: localStorage.getItem('sex'),
+                address: localStorage.getItem('address'),
+                phone: localStorage.getItem('phone'),
+                organizations: [],
+                schools: schools,
+                work_history: works
+            }
+            let email = localStorage.getItem('email');
+            let token = localStorage.getItem('token');
+            let user_id = localStorage.getItem('user_id');
+            let cv = localStorage.getItem('cv');
+            let image = localStorage.getItem('image');
+            localStorage.clear();
+            localStorage.setItem('token', token);
+            localStorage.setItem('email', email);
+            localStorage.setItem('user_id', user_id);
+            localStorage.setItem('cv', cv);
+            localStorage.setItem('image', image);
+            localStorage.setItem('data', JSON.stringify(data));
+            window.location.href="edit-profil2.html";
+        }
+    </script>
 </body>
 
 </html>

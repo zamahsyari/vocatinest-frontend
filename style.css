@@ -715,3 +715,18 @@ footer a:hover {
 .pelatihan-detail .list .hijau{
     color: #5CB85C;
 }
+
+.img-frame{
+    width: 128px;
+    height: 128px;
+    overflow: hidden;
+    border-radius: 128px;
+}
+
+.img-frame img{
+    max-height: 128px;
+}
+
+.additional-ekskul .add-input{
+    margin-top: 16px;
+}

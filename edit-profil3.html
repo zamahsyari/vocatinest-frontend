@@ -126,48 +126,46 @@
                     <p class="judul"><b>Pertanyaan</b></p>
                 </div>
                 <div class="col-6 text-right">
-                    <p class="judul"><b class="biru">1</b><b class="abu">/15</b></p>
+                    <p class="judul"><b class="biru" id="current">0</b><b class="abu">/<span id="total">0</span></b></p>
                 </div>
             </div>
-            <form>
                 <div class="form-group">
-                    <label>Saya dapat mengkomunikasikan apa yang saya butuhkan/perlukan, dan saya memastikan bahwa apa yang saya sampaikan didengar dan dipahami.</label>
+                    <label id="title"></label>
                     <div class="form-check my-auto">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                        <input class="form-check-input" type="radio" name="answer_id" id="exampleRadios1" value="1" checked required>
                         <label class="form-check-label" for="exampleRadios1">
                             Tidak Sama Sekali
                         </label>
                     </div>
                     <div class="form-check my-auto">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                        <input class="form-check-input" type="radio" name="answer_id" id="exampleRadios2" value="2" required>
                         <label class="form-check-label" for="exampleRadios2">
                             Jarang
                         </label>
                     </div>
                     <div class="form-check my-auto">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                        <input class="form-check-input" type="radio" name="answer_id" id="exampleRadios3" value="3" required>
                         <label class="form-check-label" for="exampleRadios3">
                             Kadang-kadang
                         </label>
                     </div>
                     <div class="form-check my-auto">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
+                        <input class="form-check-input" type="radio" name="answer_id" id="exampleRadios4" value="4" required>
                         <label class="form-check-label" for="exampleRadios4">
                             Sering
                         </label>
                     </div>
                     <div class="form-check my-auto">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
+                        <input class="form-check-input" type="radio" name="answer_id" id="exampleRadios5" value="5" required>
                         <label class="form-check-label" for="exampleRadios5">
                             Tidak sama sekali
                         </label>
                     </div>
                 </div>
-            </form>
         </div>
         
         <div class="col-12 text-center my-4">
-            <a href="edit-profil4.html" class="btn btndefault btnedit justify-content-center px-5">Pertanyaan Selanjutnya</a>
+            <a onclick="gotoNext()" class="btn btndefault btnedit justify-content-center px-5" id="next-btn">Pertanyaan Selanjutnya</a>
         </div>
     </div>
     <!-- Main -->
@@ -210,7 +208,105 @@
         </div>
     </footer>
     <!-- Footer -->
+    <script>
+        let activeIndex = 0;
+        let activeTitle = '';
+        let questions = [];
+        let answers = [];
+        let lastIndex = 0;
 
+        function shuffle(array) {
+            var currentIndex = array.length, temporaryValue, randomIndex;
+
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+
+                // And swap it with the current element.
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+
+            return array;
+        }
+
+        function gotoNext(){
+            let answer_id = 0;
+            $('[name^=answer_id]').map(function(idx, elem){
+                if($(elem).is(':checked')){
+                    answer_id = $(elem).val();
+                };
+            });
+            answers.push({
+                test_id: parseInt(questions[activeIndex].id),
+                answer_id: parseInt(answer_id)
+            })
+            if(answer_id != 0){
+                activeIndex += 1;
+                if(activeIndex <= lastIndex){
+                    $('#current').html(activeIndex+1);
+                    $('#title').html(questions[activeIndex].question);
+                    $('[name=answer_id]').prop('checked', false);
+                }else{
+                    let data = JSON.parse(localStorage.getItem('data'));
+                    data = {
+                        ...data,
+                        answers,
+                        cv: localStorage.getItem('cv'),
+                        image: localStorage.getItem('image')
+                    }
+                    submit(data);
+                }
+                if(activeIndex == lastIndex){
+                    $('#next-btn').html('Selesai');
+                }
+            }
+        }
+
+        function getAllQuestions(){
+            $.ajax({
+                url: 'http://localhost:3000/character-tests',
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                method: 'GET',
+                success: (data) => {
+                    questions = shuffle(data.data);
+                    lastIndex = questions.length-1;
+                    activeIndex = 0;
+                    $('#current').html(activeIndex+1);
+                    $('#total').html(lastIndex+1);
+                    $('#title').html(questions[activeIndex].question);
+                    $('[name=answer_id]').prop('checked', false);
+                },
+                error: (error) => {
+                    console.log(error)
+                }
+            });
+        }
+
+        function submit(data){
+            $.ajax({
+                url: 'http://localhost:3000/profiles',
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                method: 'POST',
+                data: JSON.stringify(data),
+                success: (data) => {
+                    window.location.href = "dashboard-profile.html";
+                },
+                error: (error) => {
+                    console.log(error)
+                }
+            });
+        }
+        $(function(){
+            getAllQuestions()
+        });
+    </script>
 </body>
 
 </html>

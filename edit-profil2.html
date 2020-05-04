@@ -125,126 +125,35 @@
             <form>
                 <div class="form-group">
                     <label>Bidang pekerjaan yang diinginkan</label>
-                    <select class="form-control" id="exampleFormControlSelect">
-                        <option>Cari Bidang Pekerjaan</option>
+                    <select class="form-control" id="job-categories">
+                        <option>-- Cari Bidang Pekerjaan --</option>
                     </select>
-                    <ul class="nav my-auto detailpelatihan-isi">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Teknologi</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Agrikultur</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pendidikan</a>
-                        </li>
-                    </ul>
+                    <ul class="nav my-auto detailpelatihan-isi" id="job-categories-selected"></ul>
                 </div>
 
                 <div class="form-group">
                     <label>Profesi yang diinginkan</label>
-                    <select class="form-control" id="exampleFormControlSelect">
-                        <option>Cari Profesi Anda</option>
+                    <select class="form-control" id="jobs">
+                        <option>-- Cari Profesi Anda --</option>
                     </select>
-                    <ul class="nav my-auto detailpelatihan-isi">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Web Developer</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">UI/UX</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">IT Specialist</a>
-                        </li>
-                    </ul>
+                    <ul class="nav my-auto detailpelatihan-isi" id="job-selected"></ul>
                 </div>
 
                 <div class="form-group">
-                    <label>Profesi yang diinginkan</label>
-                    <div class="row">
-                        <div class="form-check col-6">
-                            <input type="checkbox" value="">
-                            <label class="form-check-label" for="defaultCheck1">
-                                Full Time
-                            </label>
-                        </div>
-                        <div class="form-check col-6">
-                            <input type="checkbox" value="">
-                            <label class="form-check-label" for="defaultCheck2">
-                                Magang/PKL
-                            </label>
-                        </div>
-                        <div class="form-check col-6">
-                            <input type="checkbox" value="">
-                            <label class="form-check-label" for="defaultCheck3">
-                                Part Time
-                            </label>
-                        </div>
-                        <div class="form-check col-6">
-                            <input type="checkbox" value="">
-                            <label class="form-check-label" for="defaultCheck4">
-                                Freelance
-                            </label>
-                        </div>
-                    </div>
+                    <label>Jenis Profesi yang diinginkan</label>
+                    <div class="row" id="job-kinds"></div>
                 </div>
 
                 <div class="form-group">
                     <label>Jenis Perusahaan yang Dicari</label>
-                    <select class="form-control" id="exampleFormControlSelect">
+                    <select class="form-control" id="company-categories">
                         <option>Cari Jenis Perusahaan yang Anda Cari</option>
                     </select>
-                    <ul class="nav my-auto detailpelatihan-isi">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Tech Company</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">BUMN</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Startup</a>
-                        </li>
-                    </ul>
+                    <ul class="nav my-auto detailpelatihan-isi" id="company-categories-selected"></ul>
                 </div>
 
-                <div class="form-group">
-                    <label>Hal yang penting dalam berkasis</label>
-                    <div class="form-check mb-2">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="defaultCheck1">
-                            Kesempatan Belajar
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="defaultCheck2">
-                            Jenjang karir yang jelas
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="defaultCheck3">
-                            Gaji dan Fasilitas
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="defaultCheck4">
-                            Lingkungan dan Rekan Kerja yang memiliki pemahaman yang sama
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="defaultCheck5">
-                            Pekerjaan yang bermakna
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="">
-                        <label class="form-check-label" for="defaultCheck6">
-                            Kesempatan berinteraksi dan membangun relasi
-                        </label>
-                    </div>
+                <div class="form-group" id="important">
+                    <label>Hal yang penting dalam berkarir</label>
                 </div>
 
 
@@ -252,7 +161,7 @@
         </div>
         
         <div class="col-12 text-center my-4">
-            <a href="edit-profil3.html" class="btn btndefault btnedit justify-content-center px-5">Selanjutnya</a>
+            <a onclick="submitForm()" class="btn btndefault btnedit justify-content-center px-5">Selanjutnya</a>
         </div>
     </div>
     <!-- Main -->
@@ -295,7 +204,202 @@
         </div>
     </footer>
     <!-- Footer -->
+    <script>
+        function remove(el){
+            $(el).remove();
+        }
 
+        function submitForm(){
+            let job_categories = []
+            let jobs = []
+            let company_categories = []
+            let job_kinds = []
+            let important_careers = []
+
+            $('#job-categories-selected li').map((idx, item) => {
+                job_categories.push($(item).attr('data-id'))
+            })
+            
+            $('#job-selected li').map((idx, item) => {
+                jobs.push($(item).attr('data-id'))
+            })
+
+            $('#company-categories-selected li').map((idx, item) => {
+                company_categories.push($(item).attr('data-id'))
+            })
+
+            $('[name^=job_kinds]').map(function(idx, elem){
+                if($(elem).is(':checked')){
+                    job_kinds.push($(elem).val())
+                };
+            });
+
+            $('[name^=important_careers]').map(function(idx, elem){
+                if($(elem).is(':checked')){
+                    important_careers.push($(elem).val())
+                };
+            });
+
+            let data = JSON.parse(localStorage.getItem('data'))
+            data = {
+                ...data,
+                job_categories,
+                jobs,
+                company_categories,
+                job_kinds,
+                important_careers
+            }
+            localStorage.setItem('data', JSON.stringify(data));
+            window.location.href = "edit-profil3.html";
+        }
+
+        function getJobByCategory(id){
+            $.ajax({
+                url: 'http://localhost:3000/jobs/category/'+id,
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                method: 'GET',
+                success: (data) => {
+                    for(let i=0; i<data.data.length; i++){
+                        $('#jobs').append('<option value="'+data.data[i].id+'">'+data.data[i].name+'</option>');
+                    }
+                },
+                error: (error) => {
+                    console.log(error)
+                }
+            });
+        }
+
+        $(function(){
+            $('#job-categories').change(function(){
+                $('#job-categories-selected').append('<li class="nav-item" onclick="remove(this)" data-id="'+$('#job-categories option:selected').val()+'">\
+                            <a class="nav-link">'+$('#job-categories option:selected').html()+'</a>\
+                        </li>');
+                $('#jobs').html('');
+                $('#job-categories-selected li').map((idx, item) => {
+                    getJobByCategory($(item).attr('data-id'))    
+                })
+            });
+
+            $('#jobs').change(function(){
+                $('#job-selected').append('<li class="nav-item" onclick="remove(this)" data-id="'+$('#jobs option:selected').val()+'">\
+                            <a class="nav-link">'+$('#jobs option:selected').html()+'</a>\
+                        </li>');
+            });
+
+            $('#company-categories').change(function(){
+                $('#company-categories-selected').append('<li class="nav-item" onclick="remove(this)" data-id="'+$('#company-categories option:selected').val()+'">\
+                            <a class="nav-link">'+$('#company-categories option:selected').html()+'</a>\
+                        </li>');
+            });
+
+            $.ajax({
+                url: 'http://localhost:3000/company-categories',
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                method: 'GET',
+                success: (data) => {
+                    for(let i=0; i<data.data.length; i++){
+                        $('#company-categories').append('<option value="'+data.data[i].id+'">'+data.data[i].category+'</option>');
+                    }
+                },
+                error: (error) => {
+                    console.log(error)
+                }
+            });
+
+            $.ajax({
+                url: 'http://localhost:3000/job-categories',
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                method: 'GET',
+                success: (data) => {
+                    for(let i=0; i<data.data.length; i++){
+                        $('#job-categories').append('<option value="'+data.data[i].id+'">'+data.data[i].category+'</option>');
+                    }
+                },
+                error: (error) => {
+                    console.log(error)
+                }
+            });
+
+            $.ajax({
+                url: 'http://localhost:3000/job-kinds',
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                method: 'GET',
+                success: (data) => {
+                    for(let i=0; i<data.data.length; i++){
+                        $('#job-kinds').append('<div class="form-check col-6">\
+                            <input type="checkbox" name="job_kinds" value="'+data.data[i].id+'">\
+                            <label class="form-check-label" for="defaultCheck1">\
+                                '+data.data[i].kind+'\
+                            </label>\
+                        </div>');
+                    }
+                },
+                error: (error) => {
+                    console.log(error)
+                }
+            });
+
+            $.ajax({
+                url: 'http://localhost:3000/jobs',
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                method: 'GET',
+                success: (data) => {
+                    for(let i=0; i<data.data.length; i++){
+                        $('#jobs').append('<option value="'+data.data[i].id+'">'+data.data[i].name+'</option>');
+                    }
+                },
+                error: (error) => {
+                    console.log(error)
+                }
+            });
+
+            $.ajax({
+                url: 'http://localhost:3000/important-careers',
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                method: 'GET',
+                success: (data) => {
+                    for(let i=0; i<data.data.length; i++){
+                        $('#important').append('<div class="form-check">\
+                        <input class="form-check-input" type="checkbox" name="important_careers" value="'+data.data[i].id+'">\
+                        <label class="form-check-label" for="defaultCheck6">\
+                            '+data.data[i].title+'\
+                        </label>\
+                    </div>');
+                    }
+                },
+                error: (error) => {
+                    console.log(error)
+                }
+            });
+
+            $.ajax({
+                url: 'http://localhost:3000/important-careers',
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                method: 'GET',
+                success: (data) => {
+                    for(let i=0; i<data.data.length; i++){
+                        $('#important').append('<div class="form-check">\
+                        <input class="form-check-input" type="checkbox" name="important_careers" value="'+data.data[i].id+'">\
+                        <label class="form-check-label" for="defaultCheck6">\
+                            '+data.data[i].title+'\
+                        </label>\
+                    </div>');
+                    }
+                },
+                error: (error) => {
+                    console.log(error)
+                }
+            });
+            
+        });
+    </script>
 </body>
 
 </html>

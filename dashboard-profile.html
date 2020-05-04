@@ -112,28 +112,27 @@
                     <div class="col-12 col-sm-4 kiri">
                         <div class="row p-2">
                             <div class="col-12 col-sm-12 text-center p-0 mb-5">
-                                <img src="img/dashboard-profile-picture.svg" alt="">
+                                <img src="img/dashboard-profile-picture.svg" alt="" id="image">
                             </div>
 
                             <div class="col-6 col-sm-12 p-0 mb-5">
                                 <p class="besar">Riwayat Pendidikan</p>
-                                <p>Sekolah Menengah Kejuruan</p>
-                                <p>SMK 2 Sleman</p>
+                                <div id="education"></div>
                             </div>
 
                             <div class="col-6 col-sm-12 p-0 mb-5">
                                 <p class="besar">Lokasi</p>
-                                <p>Daerah Istimewa Yogyakarta</p>
+                                <div id="address"></div>
                             </div>
 
                             <div class="col-6 col-sm-12 p-0 mb-5">
                                 <p class="besar">Pengalaman Organisasi</p>
-                                <p>OSIS SMK 2 Sleman</p>
+                                <div id="organization"></div>
                             </div>
 
                             <div class="col-6 col-sm-12 p-0">
                                 <p class="besar">Penghargaan & Pencapaian</p>
-                                <p>Siswa Teladan SMK 2 Sleman</p>
+                                <div id="award"></div>
                             </div>
                         </div>
                     </div>
@@ -141,13 +140,13 @@
                         <div class="col-12 p-0 mb-5">
                             <div class="row">
                                 <div class="col-9 my-auto">
-                                    <p class="nama mb-0"><b>Jenri Dewany</b></p>
+                                    <p class="nama mb-0"><b id="name">Jenri Dewany</b></p>
                                 </div>
                                 <div class="col-3 text-right my-auto">
                                     <a href="edit-profile1.html" class="btn btnghost">Edit Profil</a>
                                 </div>
                             </div>
-                            <p class="mt-3">Jenri Dewany merupakan siswi SMK2 Sleman Yogyakarta, Jenri Dewany merupakan siswi yang aktif berorganisasi. Jenri Dewany merupakan siswi yang kreatif dan komunikatif. Saat ini, Jenry Dewany merupakan siswi kelas 11 pada jurusan Teknik Komputer dan Jaringan. Jenri Dewany menyukai pekerjaan sebagai Web Programmer, UI / UX, dan Fullstack Programmer.</p>
+                            <p class="mt-3" id="description">Jenri Dewany merupakan siswi SMK2 Sleman Yogyakarta, Jenri Dewany merupakan siswi yang aktif berorganisasi. Jenri Dewany merupakan siswi yang kreatif dan komunikatif. Saat ini, Jenry Dewany merupakan siswi kelas 11 pada jurusan Teknik Komputer dan Jaringan. Jenri Dewany menyukai pekerjaan sebagai Web Programmer, UI / UX, dan Fullstack Programmer.</p>
                         </div>
 
                         <div class="col-12 p-0 mb-5">
@@ -371,7 +370,49 @@
         </div>
     </footer>
     <!-- Footer -->
-
+    <script>
+        function getActiveSchool(data){
+            let active;
+            for(let i=0;i<data.length;i++){
+                if(data[i].grade != 0 && data[i].grade != null){
+                    active = data[i].school;
+                    break;
+                }
+                active = data[i].school
+            }
+            return active;
+        }
+        function isActiveOrganization(data, name, student){
+            if(data.length > 0){
+                return ', '+name+' merupakan '+student+' yang aktif berorganisasi.'
+            }
+            return '.'
+        }
+        function getProfile(){
+            $.ajax({
+                url: 'http://localhost:3000/profiles/'+localStorage.getItem('user_id'),
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                method: 'GET',
+                success: (data) => {
+                    let student = data.data.sex == 'M' ? 'siswa' : 'siswi';
+                    let school = getActiveSchool(data.data.schools);
+                    $('#name').html(data.data.name);
+                    $('#image').attr('src', data.data.image);
+                    $('#description').html(data.data.name+' merupakan '+student+' '+school.name+isActiveOrganization(data.data.organizations, data.data.name, student))
+                },
+                error: (error) => {
+                    console.log(error)
+                    if(error.status == 400){
+                        window.location.href = 'edit-profile1.html';
+                    }
+                }
+            });
+        }
+        $(function(){
+            getProfile();
+        })
+    </script>
 </body>
 
 </html>
