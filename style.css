@@ -722,12 +722,12 @@ footer a:hover {
     margin-right: auto;
     overflow: hidden;
     border-radius: 128px;
-    height: 256px;
-    width: 256px;
+    max-height: 256px;
+    max-width: 256px;
 }
 
 .img-frame img{
-    height: 256px;
+    max-height: 256px;
 }
 
 .additional-ekskul .add-input{
