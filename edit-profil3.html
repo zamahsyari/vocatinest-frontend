@@ -269,7 +269,7 @@
 
         function getAllQuestions(){
             $.ajax({
-                url: 'http://localhost:3000/character-tests',
+                url: 'https://api.vocatinest.com/character-tests',
                 contentType: "application/json; charset=utf-8",
                 dataType: 'json',
                 method: 'GET',
@@ -290,7 +290,7 @@
 
         function submit(data){
             $.ajax({
-                url: 'http://localhost:3000/profiles',
+                url: 'https://api.vocatinest.com/profiles',
                 contentType: "application/json; charset=utf-8",
                 dataType: 'json',
                 method: 'POST',

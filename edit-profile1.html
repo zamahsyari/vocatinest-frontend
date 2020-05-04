@@ -390,7 +390,7 @@
                 $('.year-filled').append('<option value="'+numberToStringDigit(i+1)+'">'+numberToStringDigit(i+1)+'</option>');
             }
             $.ajax({
-                    url: 'http://localhost:3000/majors',
+                    url: 'https://api.vocatinest.com/majors',
                     contentType: "application/json; charset=utf-8",
                     method: 'GET',
                     success: (data) => {

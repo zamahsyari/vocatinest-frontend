@@ -390,7 +390,7 @@
         }
         function getProfile(){
             $.ajax({
-                url: 'http://localhost:3000/profiles/'+localStorage.getItem('user_id'),
+                url: 'https://api.vocatinest.com/profiles/'+localStorage.getItem('user_id'),
                 contentType: "application/json; charset=utf-8",
                 dataType: 'json',
                 method: 'GET',
