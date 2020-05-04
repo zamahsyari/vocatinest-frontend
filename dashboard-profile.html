@@ -42,15 +42,14 @@
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
-                    <img class="img-fluid" src="img/nav-img-profile.svg" alt="">
+                    <img class="img-fluid" src="img/nav-img-profile.svg" alt="" id="nav-image">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="nav-name" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Jenri Dewany
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
+                                <a class="dropdown-item" href="#">Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -112,22 +111,24 @@
                     <div class="col-12 col-sm-4 kiri">
                         <div class="row p-2">
                             <div class="col-12 col-sm-12 text-center p-0 mb-5">
-                                <img src="img/dashboard-profile-picture.svg" alt="" id="image">
+                                <div class="img-frame">
+                                    <img src="img/dashboard-profile-picture.svg" alt="" id="image">
+                                </div>
                             </div>
 
                             <div class="col-6 col-sm-12 p-0 mb-5">
                                 <p class="besar">Riwayat Pendidikan</p>
-                                <div id="education"></div>
+                                <div id="side_education"></div>
                             </div>
 
                             <div class="col-6 col-sm-12 p-0 mb-5">
                                 <p class="besar">Lokasi</p>
-                                <div id="address"></div>
+                                <div id="side_address"></div>
                             </div>
 
                             <div class="col-6 col-sm-12 p-0 mb-5">
                                 <p class="besar">Pengalaman Organisasi</p>
-                                <div id="organization"></div>
+                                <div id="side_organization"></div>
                             </div>
 
                             <div class="col-6 col-sm-12 p-0">
@@ -143,7 +144,7 @@
                                     <p class="nama mb-0"><b id="name">Jenri Dewany</b></p>
                                 </div>
                                 <div class="col-3 text-right my-auto">
-                                    <a href="edit-profile1.html" class="btn btnghost">Edit Profil</a>
+                                    <!-- <a href="edit-profile1.html" class="btn btnghost">Edit Profil</a> -->
                                 </div>
                             </div>
                             <p class="mt-3" id="description">Jenri Dewany merupakan siswi SMK2 Sleman Yogyakarta, Jenri Dewany merupakan siswi yang aktif berorganisasi. Jenri Dewany merupakan siswi yang kreatif dan komunikatif. Saat ini, Jenry Dewany merupakan siswi kelas 11 pada jurusan Teknik Komputer dan Jaringan. Jenri Dewany menyukai pekerjaan sebagai Web Programmer, UI / UX, dan Fullstack Programmer.</p>
@@ -226,104 +227,12 @@
 
                         <div class="col-12 p-0 mb-5 last">
                             <p class="besar mb-3">Pengalaman Kerja</p>
-                            <div class="row mb-2">
-                                <div class="col-2 my-auto">
-                                    <p class="besar"><b>2019</b></p>
-                                </div>
-                                <div class="col-4 my-auto">
-                                    <p>Lead Designer Graphic</p>
-                                </div>
-                                <div class="col-2 my-auto">
-                                    <p>UI / UX</p>
-                                </div>
-                                <div class="col-4 my-auto">
-                                    <p>PT. Sumber Makmur</p>
-                                </div>
-                            </div>
-
-                            <div class="row mb-2">
-                                <div class="col-2 my-auto">
-                                    <p class="besar"><b>2018</b></p>
-                                </div>
-                                <div class="col-4 my-auto">
-                                    <p>Lead Designer Graphic</p>
-                                </div>
-                                <div class="col-2 my-auto">
-                                    <p>UI / UX</p>
-                                </div>
-                                <div class="col-4 my-auto">
-                                    <p>PT. Sumber Makmur</p>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-2 my-auto">
-                                    <p class="besar"><b>2017</b></p>
-                                </div>
-                                <div class="col-4 my-auto">
-                                    <p>Lead Designer Graphic</p>
-                                </div>
-                                <div class="col-2 my-auto">
-                                    <p>UI / UX</p>
-                                </div>
-                                <div class="col-4 my-auto">
-                                    <p>PT. Sumber Makmur</p>
-                                </div>
-                            </div>
+                            <div id="job-experience"></div>
                         </div>
 
                         <div class="col-12 p-0 last">
                             <p class="besar mb-3">Riwayat Pendidikan</p>
-                            <div class="row mb-2">
-                                <div class="col-4 my-auto">
-                                    <p>SMK 2 Sleman Yogyakarta</p>
-                                </div>
-                                <div class="col-2 my-auto">
-                                    <p>SMK</p>
-                                </div>
-                                <div class="col-3 my-auto my-auto">
-                                    <a href="">
-                                        <p class="sertif"><img src="img/download-icon.svg" alt="">Ijazah/Sertifikat</p>
-                                    </a>
-                                </div>
-                                <div class="col-3 my-auto">
-                                    <p>2019 - Sekarang</p>
-                                </div>
-                            </div>
-
-                            <div class="row mb-2">
-                                <div class="col-4 my-auto">
-                                    <p>SMP 1 Sleman</p>
-                                </div>
-                                <div class="col-2 my-auto">
-                                    <p>SMP</p>
-                                </div>
-                                <div class="col-3 my-auto my-auto">
-                                    <a href="">
-                                        <p class="sertif"><img src="img/download-icon.svg" alt="">Ijazah/Sertifikat</p>
-                                    </a>
-                                </div>
-                                <div class="col-3 my-auto">
-                                    <p>2016 - 2019</p>
-                                </div>
-                            </div>
-
-                            <div class="row mb-2">
-                                <div class="col-4 my-auto">
-                                    <p>SD Ambarrukmo</p>
-                                </div>
-                                <div class="col-2 my-auto">
-                                    <p>SD</p>
-                                </div>
-                                <div class="col-3 my-auto my-auto">
-                                    <a href="">
-                                        <p class="sertif"><img src="img/download-icon.svg" alt="">Ijazah/Sertifikat</p>
-                                    </a>
-                                </div>
-                                <div class="col-3 my-auto">
-                                    <p>2010 - 2016</p>
-                                </div>
-                            </div>
+                            <div id="education"></div>
                         </div>
                     </div>
                 </div>
@@ -371,14 +280,34 @@
     </footer>
     <!-- Footer -->
     <script>
+        let personas = ['Komunikatif', 'Percaya Diri', 'Kreatif', 'Konsisten', 'Tepat Waktu'];
+        function shuffle(array) {
+            var currentIndex = array.length, temporaryValue, randomIndex;
+
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+
+                // And swap it with the current element.
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+
+            return array;
+        }
+
         function getActiveSchool(data){
             let active;
             for(let i=0;i<data.length;i++){
                 if(data[i].grade != 0 && data[i].grade != null){
-                    active = data[i].school;
+                    active = data[i];
                     break;
                 }
-                active = data[i].school
+                active = data[i]
             }
             return active;
         }
@@ -388,6 +317,16 @@
             }
             return '.'
         }
+        function getYear(date){
+            let tgl = date.split('-');
+            return tgl[0];
+        }
+
+        function logout(){
+            localStorage.clear();
+            window.location.href = "masuk.html";
+        }
+
         function getProfile(){
             $.ajax({
                 url: 'https://api.vocatinest.com/profiles/'+localStorage.getItem('user_id'),
@@ -395,11 +334,54 @@
                 dataType: 'json',
                 method: 'GET',
                 success: (data) => {
+                    console.log(data)
+                    shuffle(personas);
                     let student = data.data.sex == 'M' ? 'siswa' : 'siswi';
                     let school = getActiveSchool(data.data.schools);
                     $('#name').html(data.data.name);
+                    $('#nav-name').html(data.data.name);
                     $('#image').attr('src', data.data.image);
-                    $('#description').html(data.data.name+' merupakan '+student+' '+school.name+isActiveOrganization(data.data.organizations, data.data.name, student))
+                    $('#nav-image').attr('src', data.data.image);
+                    $('#description').html(data.data.name+' merupakan '+student+' '+school.school.name+
+                        isActiveOrganization(data.data.organizations, data.data.name, student)+
+                        ' '+data.data.name+' merupakan '+student+' yang '+personas[0].toLowerCase()+' dan '+personas[1].toLowerCase()+'. '+
+                        'Saat ini '+data.data.name+' merupakan '+student+' kelas '+school.grade+'. '+
+                        data.data.name+' menyukai pekerjaan sebagai ')
+                        data.data.work_history.map(function(item, idx){
+                            $('#job-experience').append('<div class="row mb-2">\
+                                <div class="col-2 my-auto">\
+                                    <p class="besar"><b>'+getYear(item.start_date)+'</b></p>\
+                                </div>\
+                                <div class="col-4 my-auto">\
+                                    <p>'+item.position+'</p>\
+                                </div>\
+                                <div class="col-2 my-auto">\
+                                    <p>'+item.role+'</p>\
+                                </div>\
+                                <div class="col-4 my-auto">\
+                                    <p>'+item.name+'</p>\
+                                </div>\
+                            </div>')
+                        });
+                        data.data.schools.map(function(item, idx){
+                            $('#side_education').append('<p class="besar">'+item.school.name+'</p>');
+                            $('#education').append('<div class="row mb-2">\
+                                <div class="col-4 my-auto">\
+                                    <p>'+item.school.name+'</p>\
+                                </div>\
+                                <div class="col-2 my-auto">\
+                                    <p>'+item.major.major+'</p>\
+                                </div>\
+                                <div class="col-3 my-auto my-auto">\
+                                    <a href="">\
+                                        <p class="sertif"><img src="img/download-icon.svg" alt="">Ijazah/Sertifikat</p>\
+                                    </a>\
+                                </div>\
+                                <div class="col-3 my-auto">\
+                                    <p>'+getYear(item.start_date)+' - '+getYear(item.end_date)+'</p>\
+                                </div>\
+                            </div>');
+                        })
                 },
                 error: (error) => {
                     console.log(error)

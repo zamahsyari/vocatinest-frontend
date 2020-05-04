@@ -50,6 +50,7 @@
     <!-- Main -->
     <div class="container-fluid row-putih">
         <div class="container kotak-sign p-5">
+            <div id="error"></div>
             <p class="judul text-center"><b>Masuk</b></p>
             <p class="mb-5">Masukkan akun Vocatinestmu.</p>
             <form action="dashboard-profile.html">
@@ -137,8 +138,12 @@
                         localStorage.setItem('user_id', data.data.user_id);
                         window.location.href = 'dashboard-profile.html'
                     },
-                    error: (error) => {
-                        console.log(error)
+                    error: (jqXHR, textStatus, errorThrown) => {
+                        if(jqXHR.status == 400){
+                            $('#error').html('<div class="alert alert-danger" role="alert">Password/email salah</div>')
+                        }else{
+                            $('#error').html('<div class="alert alert-danger" role="alert">'+textStatus+'</div>')
+                        }
                     }
                 });
             })
