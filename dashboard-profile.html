@@ -152,16 +152,7 @@
 
                         <div class="col-12 p-0 mb-5">
                             <p class="besar">Pekerjaan Terkait</p>
-                            <ul class="nav my-auto detailpelatihan-isi">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Web Programmer</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">UI / UX</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Fullstack Programmer</a>
-                                </li>
+                            <ul class="nav my-auto detailpelatihan-isi" id="related-jobs">
                             </ul>
                         </div>
 
@@ -327,6 +318,29 @@
             window.location.href = "masuk.html";
         }
 
+        function getSelectedJobs(name, data){
+            $selected = [];
+            if(data.length > 0){
+                return name+' menyukai pekerjaan sebagai '+data.map(function(item, idx){
+                    if(data.length == 2){
+                        if(idx == 0){
+                            return item.name+' dan';
+                        }else{
+                            return ' '+item.name;
+                        }
+                    }else{
+                        if(idx == data.length-2){
+                            return item.name+' dan';
+                        }else{
+                            return ' '+item.name+','
+                        }
+                    }
+                    return item.name;
+                });
+            }
+            return '';
+        }
+
         function getProfile(){
             $.ajax({
                 url: 'https://api.vocatinest.com/profiles/'+localStorage.getItem('user_id'),
@@ -346,7 +360,7 @@
                         isActiveOrganization(data.data.organizations, data.data.name, student)+
                         ' '+data.data.name+' merupakan '+student+' yang '+personas[0].toLowerCase()+' dan '+personas[1].toLowerCase()+'. '+
                         'Saat ini '+data.data.name+' merupakan '+student+' kelas '+school.grade+'. '+
-                        data.data.name+' menyukai pekerjaan sebagai ')
+                        getSelectedJobs(data.data.name, data.data.selected_jobs))
                         data.data.work_history.map(function(item, idx){
                             $('#job-experience').append('<div class="row mb-2">\
                                 <div class="col-2 my-auto">\
@@ -381,6 +395,11 @@
                                     <p>'+getYear(item.start_date)+' - '+getYear(item.end_date)+'</p>\
                                 </div>\
                             </div>');
+                        })
+                        data.data.selected_jobs.map(function(item, idx){
+                            $('#related-jobs').append('<li class="nav-item">\
+                                    <a class="nav-link" href="#">'+item.name+'</a>\
+                                </li>')
                         })
                 },
                 error: (error) => {
