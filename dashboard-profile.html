@@ -46,7 +46,7 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="nav-name" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Jenri Dewany
+                                ...
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" onclick="logout()">Logout</a>
@@ -112,7 +112,7 @@
                         <div class="row p-2">
                             <div class="col-12 col-sm-12 text-center p-0 mb-5">
                                 <div class="img-frame">
-                                    <img src="img/dashboard-profile-picture.svg" alt="" id="image">
+                                    <img src="" alt="no image" id="image">
                                 </div>
                             </div>
 
@@ -141,13 +141,13 @@
                         <div class="col-12 p-0 mb-5">
                             <div class="row">
                                 <div class="col-9 my-auto">
-                                    <p class="nama mb-0"><b id="name">Jenri Dewany</b></p>
+                                    <p class="nama mb-0"><b id="name">...</b></p>
                                 </div>
                                 <div class="col-3 text-right my-auto">
                                     <!-- <a href="edit-profile1.html" class="btn btnghost">Edit Profil</a> -->
                                 </div>
                             </div>
-                            <p class="mt-3" id="description">Jenri Dewany merupakan siswi SMK2 Sleman Yogyakarta, Jenri Dewany merupakan siswi yang aktif berorganisasi. Jenri Dewany merupakan siswi yang kreatif dan komunikatif. Saat ini, Jenry Dewany merupakan siswi kelas 11 pada jurusan Teknik Komputer dan Jaringan. Jenri Dewany menyukai pekerjaan sebagai Web Programmer, UI / UX, dan Fullstack Programmer.</p>
+                            <p class="mt-3" id="description">[Profil masih kosong]</p>
                         </div>
 
                         <div class="col-12 p-0 mb-5">
@@ -356,7 +356,8 @@
                     $('#nav-name').html(data.data.name);
                     $('#image').attr('src', data.data.image);
                     $('#nav-image').attr('src', data.data.image);
-                    $('#description').html(data.data.name+' merupakan '+student+' '+school.school.name+
+                    if(school != undefined){
+                        $('#description').html(data.data.name+' merupakan '+student+' '+school.school.name+
                         isActiveOrganization(data.data.organizations, data.data.name, student)+
                         ' '+data.data.name+' merupakan '+student+' yang '+personas[0].toLowerCase()+' dan '+personas[1].toLowerCase()+'. '+
                         'Saat ini '+data.data.name+' merupakan '+student+' kelas '+school.grade+'. '+
@@ -400,7 +401,34 @@
                             $('#related-jobs').append('<li class="nav-item">\
                                     <a class="nav-link" href="#">'+item.name+'</a>\
                                 </li>')
+                        });
+                    }else{
+                        $('#description').html(data.data.name+' merupakan '+student+'.'+
+                        isActiveOrganization(data.data.organizations, data.data.name, student)+
+                        ' '+data.data.name+' merupakan '+student+' yang '+personas[0].toLowerCase()+' dan '+personas[1].toLowerCase()+'. '+
+                        getSelectedJobs(data.data.name, data.data.selected_jobs))
+                        data.data.work_history.map(function(item, idx){
+                            $('#job-experience').append('<div class="row mb-2">\
+                                <div class="col-2 my-auto">\
+                                    <p class="besar"><b>'+getYear(item.start_date)+'</b></p>\
+                                </div>\
+                                <div class="col-4 my-auto">\
+                                    <p>'+item.position+'</p>\
+                                </div>\
+                                <div class="col-2 my-auto">\
+                                    <p>'+item.role+'</p>\
+                                </div>\
+                                <div class="col-4 my-auto">\
+                                    <p>'+item.name+'</p>\
+                                </div>\
+                            </div>')
+                        });
+                        data.data.selected_jobs.map(function(item, idx){
+                            $('#related-jobs').append('<li class="nav-item">\
+                                    <a class="nav-link" href="#">'+item.name+'</a>\
+                                </li>')
                         })
+                    }
                 },
                 error: (error) => {
                     console.log(error)
