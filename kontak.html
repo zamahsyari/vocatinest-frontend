@@ -15,7 +15,7 @@
 </head>
 
 <body>
-
+   
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light nav1">
         <div class="container">
@@ -48,101 +48,43 @@
     </nav>
     <!-- Navbar -->
 
-    <!-- Row 1 -->
-    <div class="container-fluid row-abu home1">
-        <div class="container">
-            <div class="row">
-                <div class="col-7">
-                    <p class="besar"><b>Training and Job Portal for Vocational Students</b></p>
-                    <p class="kecil">Temukan Beragam Pilihan Pekerjaan Vokasi Sesuai dengan Bakat dan Minatmu</p>
-                    <a href="daftar.html" class="btn btndefault mt-3">MULAI SEKARANG</a>
+    <!-- Main -->
+    <div class="container-fluid row-putih">
+        <div class="container kotak-sign p-5">
+            <p class="judul text-center"><b>Kontak Kami</b></p>
+            <form class="needs-validation" novalidate>
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input class="form-control" placeholder="Masukkan Nama Lengkap Anda" name="name" required>
+                    <div class="invalid-feedback">
+                        Wajib diisi
+                    </div>
                 </div>
-                <div class="col-5 text-right">
-                    <img src="img/home1.svg" alt="">
+                <div class="form-group">
+                    <label>Email Anda</label>
+                    <input type="email" class="form-control" placeholder="Masukkan Alamat Email Anda" name="email" required>
+                    <div class="invalid-feedback">
+                        Email tidak valid
+                    </div>
                 </div>
-            </div>
+                <div class="form-group">
+                    <label>Organisasi</label>
+                    <input class="form-control" placeholder="Masukkan Nama Lengkap Anda" name="organization" required>
+                    <div class="invalid-feedback">
+                        Wajib diisi
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Hal yang Ingin Ditanyakan</label>
+                    <textarea class="form-control" name="content" required rows="5"></textarea>
+                </div>
+                <div class="col-12 text-center my-5">
+                    <button class="btn btndefault" type="submit">Kirim</button>
+                </div>
+            </form>
         </div>
     </div>
-    <!-- Row 1 -->
-
-    <!-- Row 2 -->
-    <div class="container-fluid row-putih home2">
-        <div class="container">
-            <div class="row">
-                <div class="col-6">
-                    <img src="img/home2.svg" alt="">
-                </div>
-                <div class="col-6">
-                    <p class="besar"><b>Find a Job</b></p>
-                    <p class="kecil">Berbagi lowongan pekerjaan tersedia untuk lulusan pendidikan Vokasi</p>
-                    <a href="cari-kerja.html" class="btn btndefault mt-3">CARI PEKERJAAN</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Row 2 -->
-
-    <!-- Row 3 -->
-    <div class="container-fluid row-abu home3">
-        <div class="container">
-            <div class="row">
-                <div class="col-6">
-                    <p class="besar"><b>Find a Training</b></p>
-                    <p class="kecil">Memiliki kemampuan dan keterampilan yang siap sesuai kebutuhan dunia kerja</p>
-                    <a href="cari-pelatihan.html" class="btn btndefault mt-3">CARI PELATIHAN</a>
-                </div>
-                <div class="col-6 text-right">
-                    <img src="img/home3.svg" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Row 3 -->
-
-    <!-- Kata -->
-    <div class="container-fluid">
-        <div class="container kata">
-            <p class="besar text-center"><b>Apa kata mereka semua</b></p>
-            <div class="row mb-4">
-                <div class="col-6">
-                    <p>Mempermudah aku buat cari pekerjaan, aku pengen jadi programmer.</p>
-                    <p class="kecil"><img src="img/kata-img1.svg" alt="" class="mr-3">Siswa SMK 2 Teladan</p>
-                </div>
-                <div class="col-6">
-                    <p>Lengkap, pekerjaan untuk siswa-siswi Vokasi dalam satu portal.</p>
-                    <p class="kecil"><img src="img/kata-img2.svg" alt="" class="mr-3">Siswi SMK 10 Jakarta</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <p>Aku jadi tau apa kemampuan yang aku miliki.</p>
-                    <p class="kecil"><img src="img/kata-img3.svg" alt="" class="mr-3">Siswi SMKN Yogyakarta</p>
-                </div>
-                <div class="col-6">
-                    <p>Sangat menarik! Mempermudah saya menemukan potensi yang saya miliki</p>
-                    <p class="kecil"><img src="img/kata-img4.svg" alt="" class="mr-3">Siswi SMK 10 Jakarta</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Kata -->
-
-    <!-- Mulai -->
-    <div class="container-fluid row-abu mulai">
-        <div class="container">
-            <div class="row">
-                <div class="col-7 my-auto">
-                    <p class="besar"><b>Siap temukan pekerjaanmu?</b></p>
-                    <p class="mb-0">Mulai sekarang dan temukan bakat dan minatmu</p>
-                </div>
-                <div class="col-5 my-auto text-right">
-                    <a href="daftar.html" class="btn btndefault mr-1">MULAI SEKARANG</a>
-                    <a href="kontak.html" class="btn btnghost">KONTAK KAMI</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Mulai -->
+    <!-- Main -->
 
     <!-- Footer -->
     <footer class="py-3">
@@ -200,6 +142,28 @@
     <!-- Footer -->
 
 
+<script>
+    $(function(){
+        let forms = $('.needs-validation');
+        Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', (event) => {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }else{
+                    event.preventDefault();
+                    const name = $('[name=name]').val();
+                    const email = $('[name=email]').val();
+                    const organization = $('[name=organization]').val();
+                    const content = $('[name=content]').val();
+                    const emailBody = encodeURI('Perkenalkan, saya ' + name + ' dari ' + organization + '. ' + content)
+                    document.location.href = 'mailto:info@vocatinest.com;?subject=RESPON%20KONTAK%20KAMI&body=' + emailBody;
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    });
+</script>
 </body>
 
 </html>
